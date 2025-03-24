@@ -1,0 +1,23 @@
+[tool.poetry]
+name        = "type_forge"
+version     = "0.1.0"
+description = "A robust type validation framework with dynamic functionality."
+authors     = [ "Lloyd Handyside <ace1928@gmail.com>" ]
+license     = "MIT"
+readme      = "README.md"
+homepage    = "https://github.com/Ace1928/type_forge"
+repository  = "https://github.com/Ace1928/type_forge"
+keywords    = [ "type", "validation", "dynamic", "forge" ]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+# Add other dependencies here
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
+mypy   = "^0.910"
+# Add other development dependencies here
+
+[build-system]
+requires      = [ "poetry-core>=1.0.0" ]
+build-backend = "poetry.core.masonry.api"
