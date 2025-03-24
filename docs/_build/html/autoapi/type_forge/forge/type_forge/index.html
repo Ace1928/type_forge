@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.forge.type_forge" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/forge/type_forge/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="Type Forge Core Implementation Module This module contains the foundational functionality for the type forging process, implementing dynamic type creation, validation, and transformation with recur..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_forge_type_forge_index_6178baca.png" />
+<meta property="og:image:alt" content="Type Forge Core Implementation Module This module contains the foundational functionality for the type forging process, implementing dynamic type creation, v..." />
+<meta name="description" content="Type Forge Core Implementation Module This module contains the foundational functionality for the type forging process, implementing dynamic type creation, validation, and transformation with recur..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.forge.type_forge &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.forge.type_forge</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge"><code class="docutils literal notranslate"><span class="pre">TypeForge</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.add_validator"><code class="docutils literal notranslate"><span class="pre">TypeForge.add_validator()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.assert_type"><code class="docutils literal notranslate"><span class="pre">TypeForge.assert_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.check_type"><code class="docutils literal notranslate"><span class="pre">TypeForge.check_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.convert_value"><code class="docutils literal notranslate"><span class="pre">TypeForge.convert_value()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.create_instance"><code class="docutils literal notranslate"><span class="pre">TypeForge.create_instance()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.create_type"><code class="docutils literal notranslate"><span class="pre">TypeForge.create_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.is_instance"><code class="docutils literal notranslate"><span class="pre">TypeForge.is_instance()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.register_type"><code class="docutils literal notranslate"><span class="pre">TypeForge.register_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.safe_convert"><code class="docutils literal notranslate"><span class="pre">TypeForge.safe_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate"><code class="docutils literal notranslate"><span class="pre">TypeForge.validate()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_and_convert"><code class="docutils literal notranslate"><span class="pre">TypeForge.validate_and_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_dict_schema"><code class="docutils literal notranslate"><span class="pre">TypeForge.validate_dict_schema()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_recursive"><code class="docutils literal notranslate"><span class="pre">TypeForge.validate_recursive()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_type"><code class="docutils literal notranslate"><span class="pre">TypeForge.validate_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_with_detail"><code class="docutils literal notranslate"><span class="pre">TypeForge.validate_with_detail()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.types"><code class="docutils literal notranslate"><span class="pre">TypeForge.types</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validators"><code class="docutils literal notranslate"><span class="pre">TypeForge.validators</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.__author__"><code class="docutils literal notranslate"><span class="pre">__author__</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.forge.type_forge.__version__"><code class="docutils literal notranslate"><span class="pre">__version__</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.forge.type_forge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/forge/type_forge/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.forge.type_forge">
+<span id="type-forge-forge-type-forge"></span><h1>type_forge.forge.type_forge<a class="headerlink" href="#module-type_forge.forge.type_forge" title="Link to this heading"></a></h1>
+<p>Type Forge Core Implementation Module</p>
+<p>This module contains the foundational functionality for the type forging process,
+implementing dynamic type creation, validation, and transformation with recursive
+precision and structural integrity.</p>
+<p>The TypeForge class provides a unified interface for complex type operations:
+- Dynamic type registration and instantiation
+- Strict type validation with detailed reporting
+- Recursive schema validation for nested structures
+- Type conversion with safety guarantees</p>
+<p>All operations maintain full type safety through compile-time checks and
+runtime validation, ensuring system-wide integrity.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.forge.type_forge.__author__" title="type_forge.forge.type_forge.__author__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__author__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.forge.type_forge.__version__" title="type_forge.forge.type_forge.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge" title="type_forge.forge.type_forge.TypeForge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeForge</span></code></a></p></td>
+<td><p>Core class for dynamic type creation, validation, and transformation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.forge.type_forge.</span></span><span class="sig-name descname"><span class="pre">TypeForge</span></span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../core/base/index.html#type_forge.core.base.TypeForgeBase" title="type_forge.core.base.TypeForgeBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.core.base.TypeForgeBase</span></code></a></p>
+<p>Core class for dynamic type creation, validation, and transformation.</p>
+<p>This class combines type validation, conversion, and dynamic type creation
+into a unified interface with recursive precision. It serves as the primary
+entry point for the type_forge module, providing a coherent API for all
+type-related operations.</p>
+<p>The system implements a recursive type validation system that can handle
+arbitrarily complex nested structures while maintaining full type safety
+and providing detailed error reporting.</p>
+<p class="rubric">Attributes</p>
+<p>types: Registry mapping type names to their class objects.
+validators: Collection of validators for the validation pipeline.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">create_instance</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">is_instance</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s2">&quot;Person&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Initialize a new TypeForge instance with empty registries.</p>
+<p>Creates clean registries for types and validators that will be populated
+through the register_type and add_validator methods, establishing
+the foundation for dynamic type operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.add_validator">
+<span class="sig-name descname"><span class="pre">add_validator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.add_validator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.add_validator" title="Link to this definition"></a></dt>
+<dd><p>Add a validator to the type forging process.</p>
+<p>Appends a validator to the internal list of validators that will
+be applied during validation operations. This method implements
+the builder pattern for constructing validation chains.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>validator</strong> (<a class="reference internal" href="../../core/base/index.html#type_forge.core.base.BaseValidator" title="type_forge.core.base.BaseValidator"><em>BaseValidator</em></a>) – An instance of a validator</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If validator is not an instance of BaseValidator</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.assert_type">
+<span class="sig-name descname"><span class="pre">assert_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">type_forge.typing.definitions.R</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type_forge.typing.definitions.ErrorMessage</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">type_forge.typing.definitions.R</span></span></span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.assert_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.assert_type" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">assert_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type_forge.typing.definitions.ErrorMessage</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></span></dt>
+<dd><p>Assert that a value has the expected type, raising TypeError if not.</p>
+<p>Performs strict type checking that raises an exception if the value
+doesn’t match the expected type, enabling fail-fast behavior for
+critical type safety requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – Value to check against the expected type.
+Can be any object including None.</p></li>
+<li><p><strong>expected_type</strong> – Type or tuple of types to check against.
+Validation succeeds if value matches any of the specified types.</p></li>
+<li><p><strong>message</strong> – Optional custom error message for the exception.
+Defaults to None. If None, a detailed error message is generated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The original value with type guarantee if validation succeeds.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the value doesn’t match the expected type.
+Contains either the custom message or detailed validation errors.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Successful type assertion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">assert_type</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Failed type assertion with default error</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">forge</span><span class="o">.</span><span class="n">assert_type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="s2">&quot;Type assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.check_type" title="type_forge.forge.type_forge.TypeForge.check_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check_type()</span></code></a>: For boolean type checking without exceptions.
+<a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_type" title="type_forge.forge.type_forge.TypeForge.validate_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate_type()</span></code></a>: For detailed validation results without exceptions.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationViolation</span></code>: For the structure of validation errors.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.check_type">
+<span class="sig-name descname"><span class="pre">check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.check_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.check_type" title="Link to this definition"></a></dt>
+<dd><p>Perform a simple type check without detailed reporting.</p>
+<p>Provides a simplified interface for type checking when only a boolean
+result is needed, without the detailed validation reporting of the
+validate_type method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Value to check against the expected type.
+Can be any object including None.</p></li>
+<li><p><strong>expected_type</strong> (<em>Union</em><em>[</em><em>Type</em><em>[</em><em>type_forge.typing.definitions.U</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>, </em><em>Ellipsis</em><em>]</em><em>]</em>) – Type or tuple of types to check against.
+Validation succeeds if value matches any of the specified types.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if value matches the expected type, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Simple type check</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">check_type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Multiple allowed types</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">check_type</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Failed type check</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">check_type</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_type" title="type_forge.forge.type_forge.TypeForge.validate_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate_type()</span></code></a>: For detailed validation results with violation information.
+<a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.assert_type" title="type_forge.forge.type_forge.TypeForge.assert_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assert_type()</span></code></a>: For raising exceptions when type validation fails.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.convert_value">
+<span class="sig-name descname"><span class="pre">convert_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.convert_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.convert_value" title="Link to this definition"></a></dt>
+<dd><p>Convert a value to the target type with detailed error tracking.</p>
+<p>Attempts to convert the given value to the specified target type,
+providing detailed information about success or failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to convert.</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.definitions.R</em><em>]</em>) – The type to convert the value to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A ConversionResult containing success status, converted value (if successful),
+and error message (if failed).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>type_forge.typing.definitions.ConversionResult[type_forge.typing.definitions.R]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">convert_value</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">convert_value</span><span class="p">(</span><span class="s2">&quot;not_a_number&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.create_instance">
+<span class="sig-name descname"><span class="pre">create_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type_forge.typing.definitions.TypeName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">type_forge.typing.definitions.TInstance</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">type_forge.typing.definitions.TInstance</span></span></span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.create_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.create_instance" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type_forge.typing.definitions.TypeName</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></span></dt>
+<dd><p>Create an instance of a registered type with the provided arguments.</p>
+<p>Dynamically instantiates an object of the type associated with the given
+name, passing the provided arguments to its constructor. Provides a type-safe
+way to create objects from registered types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the registered type to instantiate.
+Must be previously registered with <a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.register_type" title="type_forge.forge.type_forge.TypeForge.register_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_type()</span></code></a>.</p></li>
+<li><p><strong>cls_type</strong> – Optional first argument for type inference in the first overload.
+When provided as the first argument, enables return type to be properly inferred.</p></li>
+<li><p><strong>*args</strong> – Positional arguments to pass to the constructor.
+Will be passed directly to the type’s __init__ method.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments to pass to the constructor.
+Will be passed directly to the type’s __init__ method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the registered type. If cls_type is provided as the first
+argument, the return type will be inferred as that type.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the requested type is not registered.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If constructor arguments are incompatible with the type.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">create_instance</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;Alice&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># With type inference</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Person</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person_typed</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">create_instance</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">Person</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># person_typed will have proper type inference as Person</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.create_type">
+<span class="sig-name descname"><span class="pre">create_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.create_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.create_type" title="Link to this definition"></a></dt>
+<dd><p>Dynamically create a new type with the specified fields.</p>
+<p>Constructs a new type at runtime with the provided field definitions,
+registers it in the type registry, and returns the created type object.
+Enables programmatic type creation with structural validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>type_forge.typing.definitions.TypeName</em>) – Name for the new type.
+Must be unique within this forge instance.</p></li>
+<li><p><strong>fields</strong> (<em>type_forge.typing.definitions.FieldDefinitions</em>) – Dictionary mapping field names to their types.
+These will become attributes of the created type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created type object, registered in the forge.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../../core/exceptions/index.html#type_forge.core.exceptions.TypeCreationError" title="type_forge.core.exceptions.TypeCreationError"><strong>TypeCreationError</strong></a> – If type creation fails for any reason.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If a type with the given name is already registered.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Person</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">create_type</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="nb">int</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.is_instance">
+<span class="sig-name descname"><span class="pre">is_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.is_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.is_instance" title="Link to this definition"></a></dt>
+<dd><p>Verify that an object is an instance of a registered type.</p>
+<p>Performs runtime type checking against a registered type, providing
+a simple boolean result indicating whether the instance matches the
+expected type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Object to validate.
+Will be checked using isinstance() against the registered type.</p></li>
+<li><p><strong>type_name</strong> (<em>type_forge.typing.definitions.TypeName</em>) – Name of the registered type to validate against.
+Must be previously registered with <a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.register_type" title="type_forge.forge.type_forge.TypeForge.register_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_type()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the instance matches the registered type, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the requested type is not registered.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">is_instance</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s2">&quot;Person&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">is_instance</span><span class="p">(</span><span class="s2">&quot;not a person&quot;</span><span class="p">,</span> <span class="s2">&quot;Person&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.register_type">
+<span class="sig-name descname"><span class="pre">register_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.register_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.register_type" title="Link to this definition"></a></dt>
+<dd><p>Register a type in the forge’s type registry.</p>
+<p>Associates a name with a type class in the registry, making it available
+for dynamic instantiation and validation operations. Prevents duplicate
+registrations to maintain registry integrity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>type_forge.typing.definitions.TypeName</em>) – Identifier for the type in the registry.
+Must be unique within this forge instance.</p></li>
+<li><p><strong>cls</strong> (<em>Type</em><em>[</em><em>type_forge.typing.definitions.T</em><em>]</em>) – Class object to associate with the name.
+Will be stored for later instantiation and validation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If a type with the given name is already registered.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Registered types become accessible through all forge operations
+including <a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.create_instance" title="type_forge.forge.type_forge.TypeForge.create_instance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_instance()</span></code></a> and <a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.is_instance" title="type_forge.forge.type_forge.TypeForge.is_instance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_instance()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.safe_convert">
+<span class="sig-name descname"><span class="pre">safe_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.safe_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.safe_convert" title="Link to this definition"></a></dt>
+<dd><p>Safely convert a value to the target type, returning default on failure.</p>
+<p>Attempts to convert the value to the specified type, but returns
+a default value if conversion fails instead of raising an exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to convert.</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.definitions.R</em><em>]</em>) – The type to convert the value to.</p></li>
+<li><p><strong>default</strong> (<em>Optional</em><em>[</em><em>type_forge.typing.definitions.R</em><em>]</em>) – The default value to return if conversion fails.
+Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The converted value or the default value if conversion fails.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[type_forge.typing.definitions.R]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">safe_convert</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">safe_convert</span><span class="p">(</span><span class="s2">&quot;not_a_number&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validate" title="Link to this definition"></a></dt>
+<dd><p>Validate a value using registered validators.</p>
+<p>Implements the base class validate method to check if a value
+passes validation through all registered validators. This method
+follows the Liskov Substitution Principle by maintaining the exact
+same signature as the base class method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Object to validate using the registered validators.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the value passes all validators, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Add validators to the forge...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.is_instance" title="type_forge.forge.type_forge.TypeForge.is_instance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_instance()</span></code></a>: For checking if a value is an instance of a registered type.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validate_and_convert">
+<span class="sig-name descname"><span class="pre">validate_and_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'$'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validate_and_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validate_and_convert" title="Link to this definition"></a></dt>
+<dd><p>Validate and convert a value to the target type in a single operation.</p>
+<p>Combines validation and conversion into a unified operation, ensuring
+type safety while attempting to transform the value into the expected type.
+Provides detailed results including conversion status and violations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Value to validate and convert.
+Can be any object that might be convertible to target_type.</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.definitions.R</em><em>]</em>) – Type to convert the value to.
+Must be a valid Python type that supports conversion from value.</p></li>
+<li><p><strong>path</strong> (<em>type_forge.typing.definitions.ValidationPath</em>) – JSON path-like string for contextual error reporting.
+Defaults to “$”, representing the root of the validation tree.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Result object containing:</dt><dd><ul class="simple">
+<li><p>valid (bool): Whether validation and conversion succeeded</p></li>
+<li><p>value (R, optional): The converted value with type guarantee</p></li>
+<li><p>violations (List[ValidationViolation], optional): Details on conversion failures</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../core/base/index.html#type_forge.core.base.ValidationResult" title="type_forge.core.base.ValidationResult">ValidationResult</a>[R]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># String to integer conversion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">validate_and_convert</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Failed conversion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">validate_and_convert</span><span class="p">(</span><span class="s2">&quot;not_an_int&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">violations</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">&quot;At path &#39;$&#39;: Expected int, found &#39;str&#39; (wrong_type)&quot;</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_type" title="type_forge.forge.type_forge.TypeForge.validate_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate_type()</span></code></a>: The underlying method used for validation with conversion.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationResult</span></code>: For the structure of the returned result.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validate_dict_schema">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_dict_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_all_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validate_dict_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validate_dict_schema" title="Link to this definition"></a></dt>
+<dd><p>Validate that a dictionary conforms to a schema with field type checking.</p>
+<p>Performs structural validation of a dictionary against a schema definition,
+ensuring field types match expectations and optionally converting values
+or requiring all schema keys to be present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Dictionary-like object to validate.
+Expected to be a dict or dict-like with key access; validated at runtime.</p></li>
+<li><p><strong>schema</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>type_forge.typing.definitions.SchemaValueT</em><em>]</em>) – Schema defining expected types for dictionary keys.
+A dictionary mapping key names to their expected types.</p></li>
+<li><p><strong>convert</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Whether to attempt type conversion for mismatched types.
+Defaults to False. When True, will attempt to convert values to match schema types.</p></li>
+<li><p><strong>require_all_keys</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Whether all schema keys must be present in the data.
+Defaults to True. When False, missing keys will not cause validation failure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Result object containing:</dt><dd><ul class="simple">
+<li><p>valid (bool): Whether validation succeeded</p></li>
+<li><p>value (Dict[str, object], optional): The validated (and possibly converted) dictionary</p></li>
+<li><p>violations (List[ValidationViolation], optional): Details on validation failures</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../core/base/index.html#type_forge.core.base.ValidationResult" title="type_forge.core.base.ValidationResult">ValidationResult</a>[Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">person_schema</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Valid data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_dict_schema</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">person_schema</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Type conversion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_dict_schema</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">person_schema</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">convert</span><span class="o">=</span><span class="kc">True</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 30}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Missing key with require_all_keys=True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_dict_schema</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">person_schema</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">require_all_keys</span><span class="o">=</span><span class="kc">True</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_type" title="type_forge.forge.type_forge.TypeForge.validate_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate_type()</span></code></a>: For validating individual values.
+<a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_recursive" title="type_forge.forge.type_forge.TypeForge.validate_recursive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate_recursive()</span></code></a>: For validating deeply nested structures.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validate_recursive">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_recursive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validate_recursive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validate_recursive" title="Link to this definition"></a></dt>
+<dd><p>Recursively validate a value against a schema of arbitrary complexity.</p>
+<p>Performs deep structural validation of nested data structures against
+complex schema definitions, supporting arbitrary nesting depth with
+precise path tracking for error reporting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Value to validate against the schema.
+Can be any object, including nested structures like dicts and lists.</p></li>
+<li><p><strong>schema</strong> (<em>Union</em><em>[</em><em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>, </em><em>Ellipsis</em><em>]</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>]</em>) – Schema definition of arbitrary complexity.
+Can include nested dictionaries, lists of types, and primitive types.
+Must be one of: Type, Tuple[Type, …], Dict[str, SchemaValueT], List[SchemaTypeT]</p></li>
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – JSON path-like string for contextual error reporting.
+Defaults to “$”, representing the root of the validation tree.</p></li>
+<li><p><strong>convert</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Whether to attempt type conversion for mismatched types.
+Defaults to False. When True, will attempt to convert values to match schema types.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Result object containing:</dt><dd><ul class="simple">
+<li><p>valid (bool): Whether validation succeeded</p></li>
+<li><p>converted_value (object, optional): The validated (and possibly converted) structure</p></li>
+<li><p>violations (List[TypeViolation], optional): Details on validation failures</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../core/base/index.html#type_forge.core.base.ValidationResult" title="type_forge.core.base.ValidationResult">ValidationResult</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Nested schema validation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nested_schema</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">complex_data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_recursive</span><span class="p">(</span><span class="n">complex_data</span><span class="p">,</span> <span class="n">nested_schema</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Invalid nested data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">invalid_data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="s2">&quot;thirty&quot;</span><span class="p">},</span>  <span class="c1"># Age should be int</span>
+<span class="gp">... </span>        <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;light&quot;</span><span class="p">}</span>  <span class="c1"># Missing notifications</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_recursive</span><span class="p">(</span><span class="n">invalid_data</span><span class="p">,</span> <span class="n">nested_schema</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#type_forge.forge.type_forge.TypeForge.validate_dict_schema" title="type_forge.forge.type_forge.TypeForge.validate_dict_schema"><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate_dict_schema()</span></code></a>: For validating dictionary-specific schemas.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaTypeT</span></code>: For the schema type definition.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validate_type">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validate_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validate_type" title="Link to this definition"></a></dt>
+<dd><p>Validate that a value matches the expected type with detailed reporting.</p>
+<p>Performs deep validation of a value against expected types, optionally
+attempting type conversion. Provides detailed validation results including
+success status and any validation violations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Value to validate against the expected type.
+Can be any object including None.</p></li>
+<li><p><strong>expected_type</strong> (<em>Union</em><em>[</em><em>Type</em><em>[</em><em>type_forge.typing.definitions.R</em><em>]</em><em>, </em><em>Sequence</em><em>[</em><em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>]</em><em>]</em>) – Single type or sequence of types to check against.
+For sequences, the validation succeeds if the value matches any of the types.</p></li>
+<li><p><strong>path</strong> (<em>type_forge.typing.definitions.ValidationPath</em>) – JSON path-like string for contextual error reporting.
+Defaults to “$”, representing the root of the validation tree.</p></li>
+<li><p><strong>convert</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Whether to attempt type conversion if validation fails.
+Defaults to False. When True, will attempt to convert value to expected_type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Result object containing:</dt><dd><ul class="simple">
+<li><p>valid (bool): Whether validation succeeded</p></li>
+<li><p>value (R, optional): The validated (and possibly converted) value</p></li>
+<li><p>violations (List[ValidationViolation], optional): Details on validation failures</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../core/base/index.html#type_forge.core.base.ValidationResult" title="type_forge.core.base.ValidationResult">ValidationResult</a>[R]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic validation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Type conversion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Multiple allowed types</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validate_with_detail">
+<span class="sig-name descname"><span class="pre">validate_with_detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validate_with_detail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validate_with_detail" title="Link to this definition"></a></dt>
+<dd><p>Validate with detailed results from all validators.</p>
+<p>Aggregates validation results from all validators, maintaining a comprehensive
+record of any violations that occur while preserving type safety.</p>
+<p>Unlike the simple validate method, this continues to run all validators
+even after failures to collect complete violation information.
+This implementation balances efficiency with completeness, providing
+full failure details for better debugging and error reporting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to validate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aggregated validation details with type preservation</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../core/base/index.html#type_forge.core.base.ValidationResult" title="type_forge.core.base.ValidationResult">ValidationResult</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.types">
+<span class="sig-name descname"><span class="pre">types</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type_forge.typing.definitions.TypeRegistry</span></em><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.types" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.TypeForge.validators">
+<span class="sig-name descname"><span class="pre">validators</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../core/base/index.html#type_forge.core.base.BaseValidator" title="type_forge.core.base.BaseValidator"><span class="pre">BaseValidator</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#TypeForge.validators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.TypeForge.validators" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.__author__">
+<span class="sig-prename descclassname"><span class="pre">type_forge.forge.type_forge.</span></span><span class="sig-name descname"><span class="pre">__author__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TypeForge</span> <span class="pre">Team'</span></em><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#__author__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.__author__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.forge.type_forge.__version__">
+<span class="sig-prename descclassname"><span class="pre">type_forge.forge.type_forge.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/forge/type_forge.html#__version__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.forge.type_forge.__version__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

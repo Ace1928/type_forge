@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.validators.factory &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">type_forge.validators.factory</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for type_forge.validators.factory</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
+    <span class="n">TypeVar</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+    <span class="n">cast</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeViolation</span><span class="p">,</span> <span class="n">TypeViolationKind</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..typing.hints</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictSchemaT</span><span class="p">,</span> <span class="n">SchemaTypeT</span><span class="p">,</span> <span class="n">T</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.basic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BasicValidator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.composite</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompositeValidator</span>
+
+<span class="c1"># Type variable for generic validator functions</span>
+<div class="viewcode-block" id="V">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.V">[docs]</a>
+<span class="n">V</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;V&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ValidatorFactory">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidatorFactory</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Factory class for creating validators dynamically with type safety.</span>
+
+<span class="sd">    This class provides static methods for creating various types of validators</span>
+<span class="sd">    and performing validation operations with comprehensive error reporting.</span>
+
+<span class="sd">    The factory pattern enables consistent validator creation with proper</span>
+<span class="sd">    configuration and composition, supporting both simple and complex</span>
+<span class="sd">    validation scenarios.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ValidatorFactory.create_validator">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory.create_validator">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_validator</span><span class="p">(</span>
+        <span class="n">validator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">object</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a validator based on the specified type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            validator_type: The type of validator to create.</span>
+<span class="sd">                Must be one of the supported validator types (&#39;basic&#39;, &#39;composite&#39;).</span>
+<span class="sd">            **kwargs: Additional parameters for the validator.</span>
+<span class="sd">                Passed directly to the validator constructor.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An instance of the requested validator.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the validator type is unknown.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; validator = ValidatorFactory.create_validator(&#39;basic&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; validator(42)</span>
+<span class="sd">            True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">validator_type</span> <span class="o">==</span> <span class="s2">&quot;basic&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">BasicValidator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">validator_type</span> <span class="o">==</span> <span class="s2">&quot;composite&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">CompositeValidator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown validator type: </span><span class="si">{</span><span class="n">validator_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ValidatorFactory.validate_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory.validate_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_type</span><span class="p">(</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">expected_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]],</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+        <span class="n">convert</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate that a value matches the expected type recursively.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to check</span>
+<span class="sd">            expected_type: Type or types to check against</span>
+<span class="sd">            path: Current path in the validation (for error reporting)</span>
+<span class="sd">            convert: Whether to attempt conversion to the expected type</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult with validation status and details</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; result = ValidatorFactory.validate_type(42, int)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; result = ValidatorFactory.validate_type(&quot;42&quot;, int, convert=True)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.converted_value</span>
+<span class="sd">            42</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Normalize expected_type to a tuple</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expected_type</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="n">normalized_types</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">expected_type</span><span class="p">,)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Convert sequence of types to tuple for consistent handling</span>
+            <span class="n">normalized_types</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">expected_type</span><span class="p">)</span>
+
+        <span class="c1"># Handle None specially</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="ow">in</span> <span class="n">normalized_types</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+            <span class="n">type_names</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">t</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">normalized_types</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span>
+                <span class="kc">False</span><span class="p">,</span>
+                <span class="p">[</span>
+                    <span class="n">TypeViolation</span><span class="p">(</span>
+                        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                        <span class="n">expected</span><span class="o">=</span><span class="n">type_names</span><span class="p">,</span>
+                        <span class="n">found</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
+                        <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">WRONG_TYPE</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Check if value matches any of the expected types</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">normalized_types</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="n">cast</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+        <span class="c1"># Attempt conversion if requested</span>
+        <span class="k">if</span> <span class="n">convert</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">typ</span> <span class="ow">in</span> <span class="n">normalized_types</span><span class="p">:</span>
+                <span class="c1"># Skip None type in conversion attempts</span>
+                <span class="k">if</span> <span class="n">typ</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">converted</span> <span class="o">=</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">_try_convert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">typ</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">converted</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="n">cast</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">converted</span><span class="p">))</span>
+
+        <span class="c1"># Value doesn&#39;t match and couldn&#39;t be converted</span>
+        <span class="n">type_names</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">t</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">normalized_types</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span>
+            <span class="kc">False</span><span class="p">,</span>
+            <span class="p">[</span>
+                <span class="n">TypeViolation</span><span class="p">(</span>
+                    <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                    <span class="n">expected</span><span class="o">=</span><span class="n">type_names</span><span class="p">,</span>
+                    <span class="n">found</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">WRONG_TYPE</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ValidatorFactory._try_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory._try_convert">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_try_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">V</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">V</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Try to convert a value to the target type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to convert</span>
+<span class="sd">            target_type: Type to convert to</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Converted value or None if conversion failed</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            This is an internal method used by validate_type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Handle built-in types</span>
+            <span class="k">if</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">BasicValidator</span><span class="o">.</span><span class="n">safe_int_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">bool</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">BasicValidator</span><span class="o">.</span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">BasicValidator</span><span class="o">.</span><span class="n">safe_float_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">BasicValidator</span><span class="o">.</span><span class="n">safe_str_convert</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+            <span class="c1"># For other types, attempt direct construction</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Use explicit constructor with proper type safety</span>
+                    <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">target_type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                    <span class="k">pass</span>
+
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ValidatorFactory.validate_recursive">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory.validate_recursive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_recursive</span><span class="p">(</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">schema</span><span class="p">:</span> <span class="n">SchemaTypeT</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+        <span class="n">convert</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="nb">object</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Recursively validate a value against a schema of arbitrary complexity.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to validate</span>
+<span class="sd">            schema: Schema to validate against (dict, list/sequence, or type)</span>
+<span class="sd">            path: Current path for error reporting</span>
+<span class="sd">            convert: Whether to attempt type conversion</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult with validation status and details</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; schema = {&quot;name&quot;: str, &quot;age&quot;: int}</span>
+<span class="sd">            &gt;&gt;&gt; data = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30}</span>
+<span class="sd">            &gt;&gt;&gt; result = ValidatorFactory.validate_recursive(data, schema)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; data = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: &quot;30&quot;}</span>
+<span class="sd">            &gt;&gt;&gt; result = ValidatorFactory.validate_recursive(data, schema, convert=True)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.converted_value  # doctest: +SKIP</span>
+<span class="sd">            {&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 30}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Validate schema type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">schema</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Invalid schema type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Expected dict, list, tuple of types, or type.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Handle tuple of types (Union-like behavior) - check this case first</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">schema</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span>
+                <span class="n">value</span><span class="p">,</span> <span class="n">cast</span><span class="p">(</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">],</span> <span class="n">schema</span><span class="p">),</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Handle dict schema</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span>
+                    <span class="kc">False</span><span class="p">,</span>
+                    <span class="p">[</span>
+                        <span class="n">TypeViolation</span><span class="p">(</span>
+                            <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                            <span class="n">expected</span><span class="o">=</span><span class="s2">&quot;dict&quot;</span><span class="p">,</span>
+                            <span class="n">found</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                            <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">WRONG_TYPE</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">],</span>
+                <span class="p">)</span>
+            <span class="c1"># Cast the return value to ensure type compatibility</span>
+            <span class="n">schema_dict</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">DictSchemaT</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+            <span class="n">value_dict</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_dict</span><span class="p">(</span>
+                <span class="n">value_dict</span><span class="p">,</span> <span class="n">schema_dict</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Handle list/sequence schema</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+            <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">))</span>
+        <span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span>
+                    <span class="kc">False</span><span class="p">,</span>
+                    <span class="p">[</span>
+                        <span class="n">TypeViolation</span><span class="p">(</span>
+                            <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                            <span class="n">expected</span><span class="o">=</span><span class="s2">&quot;list or tuple&quot;</span><span class="p">,</span>
+                            <span class="n">found</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                            <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">WRONG_TYPE</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">],</span>
+                <span class="p">)</span>
+
+            <span class="n">result</span><span class="p">:</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ValidationResult</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[])</span>
+            <span class="n">element_schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">result_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="c1"># Properly type the value as a sequence for iteration</span>
+            <span class="n">sequence_value</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequence_value</span><span class="p">):</span>
+                <span class="n">item_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">]&quot;</span>
+                <span class="n">item_result</span> <span class="o">=</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_recursive</span><span class="p">(</span>
+                    <span class="n">item</span><span class="p">,</span> <span class="n">cast</span><span class="p">(</span><span class="n">SchemaTypeT</span><span class="p">,</span> <span class="n">element_schema</span><span class="p">),</span> <span class="n">item_path</span><span class="p">,</span> <span class="n">convert</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">item_result</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">violations</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">item_result</span><span class="o">.</span><span class="n">violations</span><span class="p">)</span>
+
+                <span class="c1"># Always add the item (original or converted) to the result list</span>
+                <span class="n">result_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">item_result</span><span class="o">.</span><span class="n">converted_value</span>
+                    <span class="k">if</span> <span class="n">item_result</span><span class="o">.</span><span class="n">valid</span> <span class="ow">and</span> <span class="n">item_result</span><span class="o">.</span><span class="n">converted_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                    <span class="k">else</span> <span class="n">item</span>
+                <span class="p">)</span>
+
+            <span class="c1"># Set the converted value if validation succeeded</span>
+            <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">converted_value</span> <span class="o">=</span> <span class="n">result_list</span>
+
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">ValidationResult</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">result</span><span class="p">)</span>
+
+        <span class="c1"># Handle simple type validation</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="n">type_result</span> <span class="o">=</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">ValidationResult</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">type_result</span><span class="p">)</span>
+
+        <span class="c1"># Default case for invalid schema</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span>
+                <span class="kc">False</span><span class="p">,</span>
+                <span class="p">[</span>
+                    <span class="n">TypeViolation</span><span class="p">(</span>
+                        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                        <span class="n">expected</span><span class="o">=</span><span class="s2">&quot;valid schema&quot;</span><span class="p">,</span>
+                        <span class="n">found</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;invalid schema: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">SCHEMA_MISMATCH</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">],</span>
+            <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ValidatorFactory.validate_dict">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory.validate_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_dict</span><span class="p">(</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">schema</span><span class="p">:</span> <span class="n">DictSchemaT</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+        <span class="n">convert</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">require_all_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate that a dictionary conforms to a schema.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Dictionary to validate</span>
+<span class="sd">            schema: Schema defining expected types for keys</span>
+<span class="sd">            path: Current path for error reporting</span>
+<span class="sd">            convert: Whether to attempt type conversion</span>
+<span class="sd">            require_all_keys: Whether all schema keys must be present</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult with validation status and converted dict if applicable</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; schema = {&quot;name&quot;: str, &quot;age&quot;: int}</span>
+<span class="sd">            &gt;&gt;&gt; data = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30}</span>
+<span class="sd">            &gt;&gt;&gt; result = ValidatorFactory.validate_dict(data, schema)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; data = {&quot;name&quot;: &quot;Bob&quot;}  # Missing &#39;age&#39;</span>
+<span class="sd">            &gt;&gt;&gt; result = ValidatorFactory.validate_dict(data, schema)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">ValidationResult</span><span class="p">(</span>
+                <span class="kc">False</span><span class="p">,</span>
+                <span class="p">[</span>
+                    <span class="n">TypeViolation</span><span class="p">(</span>
+                        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                        <span class="n">expected</span><span class="o">=</span><span class="s2">&quot;dict&quot;</span><span class="p">,</span>
+                        <span class="n">found</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                        <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">WRONG_TYPE</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="c1"># We can safely cast now that we&#39;ve verified it&#39;s a dict</span>
+        <span class="n">dict_value</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="n">result_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">result</span><span class="p">:</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ValidationResult</span><span class="p">(</span>
+            <span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="n">result_dict</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Check for required keys</span>
+        <span class="k">if</span> <span class="n">require_all_keys</span><span class="p">:</span>
+            <span class="n">missing_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">schema</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dict_value</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">missing_keys</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">missing_keys</span><span class="p">:</span>
+                    <span class="n">expected_type</span> <span class="o">=</span> <span class="n">schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="n">expected_str</span> <span class="o">=</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">_get_type_name</span><span class="p">(</span><span class="n">expected_type</span><span class="p">)</span>
+
+                    <span class="n">result</span><span class="o">.</span><span class="n">violations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">TypeViolation</span><span class="p">(</span>
+                            <span class="n">path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="n">expected</span><span class="o">=</span><span class="n">expected_str</span><span class="p">,</span>
+                            <span class="n">found</span><span class="o">=</span><span class="s2">&quot;missing&quot;</span><span class="p">,</span>
+                            <span class="n">kind</span><span class="o">=</span><span class="n">TypeViolationKind</span><span class="o">.</span><span class="n">MISSING_KEY</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Validate each present key</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">expected_type</span> <span class="ow">in</span> <span class="n">schema</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_value</span><span class="p">:</span>
+                <span class="n">key_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">key_result</span> <span class="o">=</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_recursive</span><span class="p">(</span>
+                    <span class="n">dict_value</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">cast</span><span class="p">(</span><span class="n">SchemaTypeT</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">),</span> <span class="n">key_path</span><span class="p">,</span> <span class="n">convert</span>
+                <span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">key_result</span><span class="o">.</span><span class="n">valid</span> <span class="ow">and</span> <span class="n">key_result</span><span class="o">.</span><span class="n">converted_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_result</span><span class="o">.</span><span class="n">converted_value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">result_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+                <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">key_result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ValidatorFactory._get_type_name">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.validators.factory.ValidatorFactory._get_type_name">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_type_name</span><span class="p">(</span><span class="n">typ</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a human-readable name for a type or type collection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            typ: A type, tuple of types, or list/sequence of types</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A string representation of the type(s)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">typ</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="c1"># Handle tuples of types (Union-like)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">)</span>
+        <span class="c1"># Handle lists/sequences of types or values</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">typ</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">typ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;List[</span><span class="si">{</span><span class="n">typ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">]&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="s2">&quot;List[Dict]&quot;</span>  <span class="c1"># For list of schema dicts</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;List&quot;</span>  <span class="c1"># Instead of List[Any]</span>
+        <span class="c1"># Handle dictionaries (structural types)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;Dict[str]&quot;</span>  <span class="c1"># Instead of Dict[str, Any]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

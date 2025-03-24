@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.core.exceptions &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">type_forge.core.exceptions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for type_forge.core.exceptions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Exception hierarchy and type violation tracking for TypeForge.</span>
+
+<span class="sd">This module provides a comprehensive exception system for the TypeForge library,</span>
+<span class="sd">enabling precise error reporting, structured violation tracking, and clear</span>
+<span class="sd">error hierarchies that maintain the principle of informative failure.</span>
+
+<span class="sd">Classes:</span>
+<span class="sd">    TypeForgeException: Base exception for all TypeForge errors.</span>
+<span class="sd">    ValidationError: Raised when validation constraints aren&#39;t met.</span>
+<span class="sd">    TypeCreationError: Raised when type construction fails.</span>
+<span class="sd">    ConfigurationError: Raised when configuration is invalid.</span>
+<span class="sd">    TypeViolationKind: Enumeration of violation categories.</span>
+<span class="sd">    TypeViolation: Immutable record of a type violation with path tracking.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>  <span class="c1"># For precise string literal typing</span>
+
+
+<div class="viewcode-block" id="TypeForgeException">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/index.html#type_forge.core.exceptions.TypeForgeException">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeForgeException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for all exceptions raised by the TypeForge module.</span>
+
+<span class="sd">    All exceptions in this library inherit from this class, enabling</span>
+<span class="sd">    targeted exception handling for TypeForge-specific errors.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        try:</span>
+<span class="sd">            # Some TypeForge operation</span>
+<span class="sd">            pass</span>
+<span class="sd">        except TypeForgeException as e:</span>
+<span class="sd">            # Handle any TypeForge-related error</span>
+<span class="sd">            pass</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="ValidationError">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/index.html#type_forge.core.exceptions.ValidationError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="n">TypeForgeException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Exception raised for data validation errors.</span>
+
+<span class="sd">    Raised when data fails to meet validation constraints defined</span>
+<span class="sd">    in a type schema or validation rule.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message: Descriptive error message explaining the validation failure.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        raise ValidationError(&quot;Age must be greater than 0&quot;)</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize with error message.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message: Detailed description of the validation error.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="TypeCreationError">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/index.html#type_forge.core.exceptions.TypeCreationError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeCreationError</span><span class="p">(</span><span class="n">TypeForgeException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Exception raised for errors during type creation.</span>
+
+<span class="sd">    Raised when attempting to create a type definition fails due to</span>
+<span class="sd">    invalid parameters, conflicting constraints, or other type</span>
+<span class="sd">    construction issues.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message: Descriptive error message explaining the type creation failure.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        raise TypeCreationError(&quot;Cannot create recursive type without base case&quot;)</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize with error message.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message: Detailed description of the type creation error.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ConfigurationError">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/index.html#type_forge.core.exceptions.ConfigurationError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConfigurationError</span><span class="p">(</span><span class="n">TypeForgeException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Exception raised for configuration-related errors.</span>
+
+<span class="sd">    Raised when TypeForge is configured with invalid, incompatible,</span>
+<span class="sd">    or missing configuration parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message: Descriptive error message explaining the configuration issue.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        raise ConfigurationError(&quot;Invalid serialization format specified&quot;)</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize with error message.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message: Detailed description of the configuration error.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># Using Literal types for precise string typing</span>
+<div class="viewcode-block" id="ViolationKindLiteral">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.ViolationKindLiteral">[docs]</a>
+<span class="n">ViolationKindLiteral</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
+    <span class="s2">&quot;wrong_type&quot;</span><span class="p">,</span> <span class="s2">&quot;missing_key&quot;</span><span class="p">,</span> <span class="s2">&quot;invalid_value&quot;</span><span class="p">,</span> <span class="s2">&quot;schema_mismatch&quot;</span><span class="p">,</span> <span class="s2">&quot;conversion_error&quot;</span>
+<span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="TypeViolationKind">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.core.exceptions.TypeViolationKind">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeViolationKind</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enumeration of possible type violation categories.</span>
+
+<span class="sd">    Provides a structured taxonomy of type violations for precise</span>
+<span class="sd">    error categorization and handling.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        WRONG_TYPE: Value has incorrect type.</span>
+<span class="sd">        MISSING_KEY: Required key is absent.</span>
+<span class="sd">        INVALID_VALUE: Value fails validation constraints.</span>
+<span class="sd">        SCHEMA_MISMATCH: Value structure doesn&#39;t match schema.</span>
+<span class="sd">        CONVERSION_ERROR: Type conversion failed.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        if isinstance(value, str):</span>
+<span class="sd">            return TypeViolationKind.WRONG_TYPE</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeViolationKind.WRONG_TYPE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolationKind.WRONG_TYPE">[docs]</a>
+    <span class="n">WRONG_TYPE</span> <span class="o">=</span> <span class="s2">&quot;wrong_type&quot;</span></div>
+
+<div class="viewcode-block" id="TypeViolationKind.MISSING_KEY">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolationKind.MISSING_KEY">[docs]</a>
+    <span class="n">MISSING_KEY</span> <span class="o">=</span> <span class="s2">&quot;missing_key&quot;</span></div>
+
+<div class="viewcode-block" id="TypeViolationKind.INVALID_VALUE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolationKind.INVALID_VALUE">[docs]</a>
+    <span class="n">INVALID_VALUE</span> <span class="o">=</span> <span class="s2">&quot;invalid_value&quot;</span></div>
+
+<div class="viewcode-block" id="TypeViolationKind.SCHEMA_MISMATCH">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolationKind.SCHEMA_MISMATCH">[docs]</a>
+    <span class="n">SCHEMA_MISMATCH</span> <span class="o">=</span> <span class="s2">&quot;schema_mismatch&quot;</span></div>
+
+<div class="viewcode-block" id="TypeViolationKind.CONVERSION_ERROR">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolationKind.CONVERSION_ERROR">[docs]</a>
+    <span class="n">CONVERSION_ERROR</span> <span class="o">=</span> <span class="s2">&quot;conversion_error&quot;</span></div>
+
+
+<div class="viewcode-block" id="TypeViolationKind.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.core.exceptions.TypeViolationKind.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate string representation of the violation kind.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The string value of the enumeration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+</div>
+
+
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="TypeViolation">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.core.exceptions.TypeViolation">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeViolation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Immutable record of a type violation with path tracking.</span>
+
+<span class="sd">    Provides a structured representation of a type violation with</span>
+<span class="sd">    context information for precise error reporting and diagnosis.</span>
+<span class="sd">    The frozen dataclass ensures immutability for safer error handling.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        path: JSON path to the location of the violation.</span>
+<span class="sd">        expected: Description of expected type or value.</span>
+<span class="sd">        found: Description of actual type or value found.</span>
+<span class="sd">        kind: Category of violation from TypeViolationKind.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        violation = TypeViolation(</span>
+<span class="sd">            path=&quot;user.address.zipcode&quot;,</span>
+<span class="sd">            expected=&quot;string of 5 digits&quot;,</span>
+<span class="sd">            found=&quot;&#39;ABC123&#39;&quot;,</span>
+<span class="sd">            kind=TypeViolationKind.INVALID_VALUE</span>
+<span class="sd">        )</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeViolation.path">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolation.path">[docs]</a>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span></div>
+
+<div class="viewcode-block" id="TypeViolation.expected">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolation.expected">[docs]</a>
+    <span class="n">expected</span><span class="p">:</span> <span class="nb">str</span></div>
+
+<div class="viewcode-block" id="TypeViolation.found">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolation.found">[docs]</a>
+    <span class="n">found</span><span class="p">:</span> <span class="nb">str</span></div>
+
+<div class="viewcode-block" id="TypeViolation.kind">
+<a class="viewcode-back" href="../../../autoapi/type_forge/core/exceptions/index.html#type_forge.core.exceptions.TypeViolation.kind">[docs]</a>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">TypeViolationKind</span></div>
+
+
+<div class="viewcode-block" id="TypeViolation.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.core.exceptions.TypeViolation.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate human-readable representation of the violation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Formatted string with violation details including path,</span>
+<span class="sd">            expected value, found value, and violation kind.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;At path &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;: Expected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expected</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;found </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">found</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

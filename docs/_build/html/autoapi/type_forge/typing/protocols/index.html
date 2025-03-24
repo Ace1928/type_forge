@@ -1,0 +1,1405 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.protocols" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/protocols/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="This module defines protocol classes that specify interfaces for different type operations, conversions, and validations in the type forge system. These protocols enable static typing and runtime i..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_protocols_index_9e95d4f5.png" />
+<meta property="og:image:alt" content="This module defines protocol classes that specify interfaces for different type operations, conversions, and validations in the type forge system. These prot..." />
+<meta name="description" content="This module defines protocol classes that specify interfaces for different type operations, conversions, and validations in the type forge system. These protocols enable static typing and runtime i..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.protocols &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.protocols</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.CompositeValidator"><code class="docutils literal notranslate"><span class="pre">CompositeValidator</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.CompositeValidator.add_validator"><code class="docutils literal notranslate"><span class="pre">CompositeValidator.add_validator()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.CompositeValidator.validate"><code class="docutils literal notranslate"><span class="pre">CompositeValidator.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsBoolConversion"><code class="docutils literal notranslate"><span class="pre">SupportsBoolConversion</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsBoolConversion.__bool__"><code class="docutils literal notranslate"><span class="pre">SupportsBoolConversion.__bool__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsComparison"><code class="docutils literal notranslate"><span class="pre">SupportsComparison</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsComparison.__lt__"><code class="docutils literal notranslate"><span class="pre">SupportsComparison.__lt__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsEquality"><code class="docutils literal notranslate"><span class="pre">SupportsEquality</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsEquality.__eq__"><code class="docutils literal notranslate"><span class="pre">SupportsEquality.__eq__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsEquality.__ne__"><code class="docutils literal notranslate"><span class="pre">SupportsEquality.__ne__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsFloat"><code class="docutils literal notranslate"><span class="pre">SupportsFloat</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsFloat.__float__"><code class="docutils literal notranslate"><span class="pre">SupportsFloat.__float__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsFloatConversion"><code class="docutils literal notranslate"><span class="pre">SupportsFloatConversion</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsFloatConversion.__float__"><code class="docutils literal notranslate"><span class="pre">SupportsFloatConversion.__float__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsGetAttr"><code class="docutils literal notranslate"><span class="pre">SupportsGetAttr</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsGetAttr.__getattr__"><code class="docutils literal notranslate"><span class="pre">SupportsGetAttr.__getattr__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsGetItem"><code class="docutils literal notranslate"><span class="pre">SupportsGetItem</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsGetItem.__getitem__"><code class="docutils literal notranslate"><span class="pre">SupportsGetItem.__getitem__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsInt"><code class="docutils literal notranslate"><span class="pre">SupportsInt</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsInt.__int__"><code class="docutils literal notranslate"><span class="pre">SupportsInt.__int__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsIntConversion"><code class="docutils literal notranslate"><span class="pre">SupportsIntConversion</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsIntConversion.__int__"><code class="docutils literal notranslate"><span class="pre">SupportsIntConversion.__int__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsIteration"><code class="docutils literal notranslate"><span class="pre">SupportsIteration</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsIteration.__iter__"><code class="docutils literal notranslate"><span class="pre">SupportsIteration.__iter__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsLen"><code class="docutils literal notranslate"><span class="pre">SupportsLen</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsLen.__len__"><code class="docutils literal notranslate"><span class="pre">SupportsLen.__len__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsLength"><code class="docutils literal notranslate"><span class="pre">SupportsLength</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsLength.__len__"><code class="docutils literal notranslate"><span class="pre">SupportsLength.__len__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsMapping"><code class="docutils literal notranslate"><span class="pre">SupportsMapping</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsMapping.__contains__"><code class="docutils literal notranslate"><span class="pre">SupportsMapping.__contains__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsMapping.__getitem__"><code class="docutils literal notranslate"><span class="pre">SupportsMapping.__getitem__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsMapping.__setitem__"><code class="docutils literal notranslate"><span class="pre">SupportsMapping.__setitem__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsStrConversion"><code class="docutils literal notranslate"><span class="pre">SupportsStrConversion</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsStrConversion.__str__"><code class="docutils literal notranslate"><span class="pre">SupportsStrConversion.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsTypeCheck"><code class="docutils literal notranslate"><span class="pre">SupportsTypeCheck</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.SupportsTypeCheck.is_type"><code class="docutils literal notranslate"><span class="pre">SupportsTypeCheck.is_type()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeConverter"><code class="docutils literal notranslate"><span class="pre">TypeConverter</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeConverter.convert"><code class="docutils literal notranslate"><span class="pre">TypeConverter.convert()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeDeduplicator"><code class="docutils literal notranslate"><span class="pre">TypeDeduplicator</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeDeduplicator.deduplicate"><code class="docutils literal notranslate"><span class="pre">TypeDeduplicator.deduplicate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeFactory"><code class="docutils literal notranslate"><span class="pre">TypeFactory</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeFactory.create"><code class="docutils literal notranslate"><span class="pre">TypeFactory.create()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeForge"><code class="docutils literal notranslate"><span class="pre">TypeForge</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeForge.forge"><code class="docutils literal notranslate"><span class="pre">TypeForge.forge()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeInfo"><code class="docutils literal notranslate"><span class="pre">TypeInfo</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeInfo.get_attributes"><code class="docutils literal notranslate"><span class="pre">TypeInfo.get_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeInfo.get_name"><code class="docutils literal notranslate"><span class="pre">TypeInfo.get_name()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeInfo.is_subtype_of"><code class="docutils literal notranslate"><span class="pre">TypeInfo.is_subtype_of()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeNormalizer"><code class="docutils literal notranslate"><span class="pre">TypeNormalizer</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeNormalizer.normalize"><code class="docutils literal notranslate"><span class="pre">TypeNormalizer.normalize()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeRegistry"><code class="docutils literal notranslate"><span class="pre">TypeRegistry</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeRegistry.lookup"><code class="docutils literal notranslate"><span class="pre">TypeRegistry.lookup()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeRegistry.register"><code class="docutils literal notranslate"><span class="pre">TypeRegistry.register()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeStandardizer"><code class="docutils literal notranslate"><span class="pre">TypeStandardizer</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypeStandardizer.standardize"><code class="docutils literal notranslate"><span class="pre">TypeStandardizer.standardize()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypedConverter"><code class="docutils literal notranslate"><span class="pre">TypedConverter</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.TypedConverter.convert"><code class="docutils literal notranslate"><span class="pre">TypedConverter.convert()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.Validator"><code class="docutils literal notranslate"><span class="pre">Validator</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.protocols.Validator.validate"><code class="docutils literal notranslate"><span class="pre">Validator.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.protocols.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.protocols</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/protocols/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.protocols">
+<span id="type-forge-typing-protocols"></span><h1>type_forge.typing.protocols<a class="headerlink" href="#module-type_forge.typing.protocols" title="Link to this heading"></a></h1>
+<p>This module defines protocol classes that specify interfaces for different
+type operations, conversions, and validations in the type forge system.</p>
+<p>These protocols enable static typing and runtime interface verification for
+objects that implement specific behaviors without requiring inheritance.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.version" title="type_forge.typing.protocols.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.CompositeValidator" title="type_forge.typing.protocols.CompositeValidator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeValidator</span></code></a></p></td>
+<td><p>Protocol for validators that combine multiple validation rules.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsBoolConversion" title="type_forge.typing.protocols.SupportsBoolConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsBoolConversion</span></code></a></p></td>
+<td><p>Protocol for types that can be converted to bool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsComparison" title="type_forge.typing.protocols.SupportsComparison"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsComparison</span></code></a></p></td>
+<td><p>Protocol for types that support comparison operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsEquality" title="type_forge.typing.protocols.SupportsEquality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsEquality</span></code></a></p></td>
+<td><p>Protocol for objects that support equality operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsFloat" title="type_forge.typing.protocols.SupportsFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsFloat</span></code></a></p></td>
+<td><p>Protocol for objects that support conversion to float.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsFloatConversion" title="type_forge.typing.protocols.SupportsFloatConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsFloatConversion</span></code></a></p></td>
+<td><p>Protocol for types that can be converted to float.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsGetAttr" title="type_forge.typing.protocols.SupportsGetAttr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsGetAttr</span></code></a></p></td>
+<td><p>Protocol for types that support attribute access.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsGetItem" title="type_forge.typing.protocols.SupportsGetItem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsGetItem</span></code></a></p></td>
+<td><p>Protocol for types that support item access with square brackets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsInt" title="type_forge.typing.protocols.SupportsInt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsInt</span></code></a></p></td>
+<td><p>Protocol for objects that support conversion to int.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsIntConversion" title="type_forge.typing.protocols.SupportsIntConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsIntConversion</span></code></a></p></td>
+<td><p>Protocol for types that can be converted to int.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsIteration" title="type_forge.typing.protocols.SupportsIteration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsIteration</span></code></a></p></td>
+<td><p>Protocol for types that support iteration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsLen" title="type_forge.typing.protocols.SupportsLen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsLen</span></code></a></p></td>
+<td><p>Protocol for objects that support length operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsLength" title="type_forge.typing.protocols.SupportsLength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsLength</span></code></a></p></td>
+<td><p>Protocol for types that support the len() function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsMapping" title="type_forge.typing.protocols.SupportsMapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsMapping</span></code></a></p></td>
+<td><p>Protocol for types that support dictionary-like mapping operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsStrConversion" title="type_forge.typing.protocols.SupportsStrConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsStrConversion</span></code></a></p></td>
+<td><p>Protocol for types that can be converted to str.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.SupportsTypeCheck" title="type_forge.typing.protocols.SupportsTypeCheck"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupportsTypeCheck</span></code></a></p></td>
+<td><p>Protocol for types that can validate if a value is of a specific type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeConverter" title="type_forge.typing.protocols.TypeConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeConverter</span></code></a></p></td>
+<td><p>Protocol for types that can convert between different types.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeDeduplicator" title="type_forge.typing.protocols.TypeDeduplicator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeDeduplicator</span></code></a></p></td>
+<td><p>Protocol for objects that can deduplicate values based on type characteristics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeFactory" title="type_forge.typing.protocols.TypeFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeFactory</span></code></a></p></td>
+<td><p>Protocol for factory objects that create instances of a specific type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeForge" title="type_forge.typing.protocols.TypeForge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeForge</span></code></a></p></td>
+<td><p>Protocol for type converters that transform values to specific types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeInfo" title="type_forge.typing.protocols.TypeInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeInfo</span></code></a></p></td>
+<td><p>Protocol for objects that provide type metadata and reflection capabilities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeNormalizer" title="type_forge.typing.protocols.TypeNormalizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeNormalizer</span></code></a></p></td>
+<td><p>Protocol for objects that normalize values within a type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeRegistry" title="type_forge.typing.protocols.TypeRegistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeRegistry</span></code></a></p></td>
+<td><p>Protocol for type registration and lookup systems.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypeStandardizer" title="type_forge.typing.protocols.TypeStandardizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeStandardizer</span></code></a></p></td>
+<td><p>Protocol for objects that standardize values to a canonical form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.protocols.TypedConverter" title="type_forge.typing.protocols.TypedConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypedConverter</span></code></a></p></td>
+<td><p>Protocol for types that can convert from a specific type to another specific type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.protocols.Validator" title="type_forge.typing.protocols.Validator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Validator</span></code></a></p></td>
+<td><p>Protocol for validators that check if values meet certain criteria.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.CompositeValidator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">CompositeValidator</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#CompositeValidator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.CompositeValidator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T" title="type_forge.typing.variables.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T</span></code></a>]</p>
+<p>Protocol for validators that combine multiple validation rules.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>T: The type of value being validated.</dt><dd><p>For proper variance handling, use this protocol with specific types.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">AndValidator</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">validators</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">add_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validator</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">validators</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.CompositeValidator.add_validator">
+<span class="sig-name descname"><span class="pre">add_validator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#CompositeValidator.add_validator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.CompositeValidator.add_validator" title="Link to this definition"></a></dt>
+<dd><p>Adds a validator to the composite validator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>validator</strong> (<a class="reference internal" href="#type_forge.typing.protocols.Validator" title="type_forge.typing.protocols.Validator"><em>Validator</em></a><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The validator to add.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.CompositeValidator.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#CompositeValidator.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.CompositeValidator.validate" title="Link to this definition"></a></dt>
+<dd><p>Validates the given value using all added validators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>type_forge.typing.variables.T</em>) – The value to validate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the value passes all validators, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsBoolConversion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsBoolConversion</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsBoolConversion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsBoolConversion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that can be converted to bool.</p>
+<p>This protocol defines the interface for objects that support
+conversion to boolean values through the __bool__ method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomBoolean</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">CustomBoolean</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsBoolConversion.__bool__">
+<span class="sig-name descname"><span class="pre">__bool__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsBoolConversion.__bool__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsBoolConversion.__bool__" title="Link to this definition"></a></dt>
+<dd><p>Convert to boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Boolean representation of the object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsComparison">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsComparison</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsComparison"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that support comparison operations.</p>
+<p>This protocol defines the interface for objects that can be compared
+using standard comparison operators.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">ComparableValue</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ComparableValue</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ComparableValue</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ComparableValue</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsComparison.__lt__">
+<span class="sig-name descname"><span class="pre">__lt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsComparison.__lt__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsComparison.__lt__" title="Link to this definition"></a></dt>
+<dd><p>Compare if self is less than other.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Object to compare against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if self is less than other, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsEquality">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsEquality</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsEquality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsEquality" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for objects that support equality operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsEquality.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsEquality.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsEquality.__eq__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsEquality.__ne__">
+<span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsEquality.__ne__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsEquality.__ne__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsFloat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsFloat</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsFloat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsFloat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for objects that support conversion to float.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsFloat.__float__">
+<span class="sig-name descname"><span class="pre">__float__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsFloat.__float__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsFloat.__float__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsFloatConversion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsFloatConversion</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsFloatConversion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsFloatConversion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that can be converted to float.</p>
+<p>This protocol defines the interface for objects that support
+conversion to floating-point values through the __float__ method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomFloat</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">CustomFloat</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>  <span class="c1"># 3.14</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsFloatConversion.__float__">
+<span class="sig-name descname"><span class="pre">__float__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsFloatConversion.__float__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsFloatConversion.__float__" title="Link to this definition"></a></dt>
+<dd><p>Convert to float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Floating-point representation of the object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsGetAttr">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsGetAttr</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsGetAttr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsGetAttr" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that support attribute access.</p>
+<p>This protocol defines the interface for objects that implement
+custom attribute access through the __getattr__ method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomObject</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">CustomObject</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span><span class="o">.</span><span class="n">attribute</span>  <span class="c1"># 9</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsGetAttr.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsGetAttr.__getattr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsGetAttr.__getattr__" title="Link to this definition"></a></dt>
+<dd><p>Get attribute by name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Name of the attribute to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The attribute value.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.13)"><strong>AttributeError</strong></a> – If the attribute is not found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsGetItem">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsGetItem</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsGetItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsGetItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.K_contra" title="type_forge.typing.variables.K_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.K_contra</span></code></a>, <a class="reference internal" href="../variables/index.html#type_forge.typing.variables.V_co" title="type_forge.typing.variables.V_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.V_co</span></code></a>]</p>
+<p>Protocol for types that support item access with square brackets.</p>
+<p>This protocol defines the interface for objects that can be accessed
+using the subscription notation (obj[key]).</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>K_contra: The key type (contravariant). This allows a container that</dt><dd><p>accepts a supertype to be used where a container that accepts
+a subtype is expected.</p>
+</dd>
+<dt>V_co: The value type (covariant). This allows a container that returns</dt><dd><p>a subtype to be used where a container that returns a supertype
+is expected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomContainer</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">container</span> <span class="o">=</span> <span class="n">CustomContainer</span><span class="p">({</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">container</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span>  <span class="c1"># 1</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsGetItem.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsGetItem.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsGetItem.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Get item at the specified key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>type_forge.typing.variables.K_contra</em>) – The key to look up.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value associated with the key.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.13)"><strong>KeyError</strong></a> – If the key is not found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>type_forge.typing.variables.V_co</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsInt">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsInt</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsInt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsInt" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for objects that support conversion to int.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsInt.__int__">
+<span class="sig-name descname"><span class="pre">__int__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsInt.__int__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsInt.__int__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsIntConversion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsIntConversion</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsIntConversion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsIntConversion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that can be converted to int.</p>
+<p>This protocol defines the interface for objects that support
+conversion to integer values through the __int__ method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomInteger</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">CustomInteger</span><span class="p">(</span><span class="mi">42</span><span class="p">),</span> <span class="n">SupportsIntConversion</span><span class="p">)</span>  <span class="c1"># True at runtime</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsIntConversion.__int__">
+<span class="sig-name descname"><span class="pre">__int__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsIntConversion.__int__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsIntConversion.__int__" title="Link to this definition"></a></dt>
+<dd><p>Convert to integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Integer representation of the object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsIteration">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsIteration</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsIteration" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T_co" title="type_forge.typing.variables.T_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T_co</span></code></a>]</p>
+<p>Protocol for types that support iteration.</p>
+<p>This protocol defines the interface for objects that can be iterated over
+using a for loop or with the iter() function.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>T_co: The type of items yielded by the iterator (covariant).</dt><dd><p>This allows an iterator of a subtype to be used where an
+iterator of a supertype is expected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomIterable</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">values</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">CustomIterable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>  <span class="c1"># [1, 2, 3]</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsIteration.__iter__">
+<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsIteration.__iter__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsIteration.__iter__" title="Link to this definition"></a></dt>
+<dd><p>Return an iterator for this object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An iterator yielding items of type T_co.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Iterator[T_co]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsLen">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsLen</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsLen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsLen" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for objects that support length operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsLen.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsLen.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsLen.__len__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsLength">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsLength</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsLength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsLength" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that support the len() function.</p>
+<p>This protocol defines the interface for objects that can report
+their length through the __len__ method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomSized</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">CustomSized</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 5</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsLength.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsLength.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsLength.__len__" title="Link to this definition"></a></dt>
+<dd><p>Return the length of the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of items in the object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsMapping">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsMapping</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsMapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsMapping" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.K_co" title="type_forge.typing.variables.K_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.K_co</span></code></a>, <a class="reference internal" href="../variables/index.html#type_forge.typing.variables.V" title="type_forge.typing.variables.V"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.V</span></code></a>]</p>
+<p>Protocol for types that support dictionary-like mapping operations.</p>
+<p>This protocol defines the interface for objects that implement mapping
+behavior with key-value pairs.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><p>K: The key type.
+V: The value type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomMapping</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapping</span> <span class="o">=</span> <span class="n">CustomMapping</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapping</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">mapping</span>  <span class="c1"># True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapping</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>  <span class="c1"># 1</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsMapping.__contains__">
+<span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsMapping.__contains__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsMapping.__contains__" title="Link to this definition"></a></dt>
+<dd><p>Check if the mapping contains the specified key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The key to check for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the key exists in the mapping, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsMapping.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsMapping.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsMapping.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Get the value for a given key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>Hashable</em>) – The key to look up.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value associated with the key.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.13)"><strong>KeyError</strong></a> – If the key is not found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>type_forge.typing.variables.V</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsMapping.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsMapping.__setitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsMapping.__setitem__" title="Link to this definition"></a></dt>
+<dd><p>Set the value for a given key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>Hashable</em>) – The key to set.</p></li>
+<li><p><strong>value</strong> (<em>type_forge.typing.variables.V</em>) – The value to associate with the key.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsStrConversion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsStrConversion</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsStrConversion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsStrConversion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that can be converted to str.</p>
+<p>This protocol defines the interface for objects that support
+conversion to string values through the __str__ method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomString</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">CustomString</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">))</span>  <span class="c1"># &#39;hello&#39;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsStrConversion.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsStrConversion.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsStrConversion.__str__" title="Link to this definition"></a></dt>
+<dd><p>Convert to string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of the object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsTypeCheck">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">SupportsTypeCheck</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsTypeCheck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsTypeCheck" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that can validate if a value is of a specific type.</p>
+<p>This protocol defines the interface for objects that can check if a
+value conforms to a particular type specification.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.SupportsTypeCheck.is_type">
+<span class="sig-name descname"><span class="pre">is_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#SupportsTypeCheck.is_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.SupportsTypeCheck.is_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a value matches the specified type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to check.</p></li>
+<li><p><strong>target_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><em>type</em></a>) – The type to check against.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the value is of the specified type, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeConverter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeConverter</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeConverter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for types that can convert between different types.</p>
+<p>This protocol defines the interface for objects that implement
+conversion logic between different types.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">IntToStrConverter</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">converter</span> <span class="o">=</span> <span class="n">IntToStrConverter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># &quot;42&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeConverter.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeConverter.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeConverter.convert" title="Link to this definition"></a></dt>
+<dd><p>Convert a value from one type to another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The converted value.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the value cannot be converted.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the value is semantically invalid for conversion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeDeduplicator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeDeduplicator</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeDeduplicator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeDeduplicator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T" title="type_forge.typing.variables.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T</span></code></a>]</p>
+<p>Protocol for objects that can deduplicate values based on type characteristics.</p>
+<p>This protocol defines the interface for objects that can identify and
+remove duplicate values according to type-specific equality criteria.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><p>T: The type of values being deduplicated.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">IntDeduplicator</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">deduplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deduplicator</span> <span class="o">=</span> <span class="n">IntDeduplicator</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deduplicator</span><span class="o">.</span><span class="n">deduplicate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># [1, 2, 3]</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeDeduplicator.deduplicate">
+<span class="sig-name descname"><span class="pre">deduplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeDeduplicator.deduplicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeDeduplicator.deduplicate" title="Link to this definition"></a></dt>
+<dd><p>Remove duplicate values from a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The list of values to deduplicate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new list with duplicates removed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeFactory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeFactory</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeFactory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T_co" title="type_forge.typing.variables.T_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T_co</span></code></a>]</p>
+<p>Protocol for factory objects that create instances of a specific type.</p>
+<p>This protocol defines the interface for objects that can create
+instances of type T_co from various inputs.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>T_co: The type of object created by the factory (covariant).</dt><dd><p>This allows a factory that creates subtypes to be used
+where a factory that creates supertypes is expected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">PersonFactory</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Person&#39;</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factory</span> <span class="o">=</span> <span class="n">PersonFactory</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">person</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeFactory.create" title="Link to this definition"></a></dt>
+<dd><p>Create an instance of type T_co.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Positional arguments for object construction.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Keyword arguments for object construction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new instance of type T_co.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the arguments are incompatible with the type.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the arguments are semantically invalid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>type_forge.typing.variables.T_co</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeForge">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeForge</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeForge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeForge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T_co" title="type_forge.typing.variables.T_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T_co</span></code></a>]</p>
+<p>Protocol for type converters that transform values to specific types.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>T_co: The target type that values will be converted to (covariant).</dt><dd><p>This allows a forge that produces a subtype to be used where
+a forge that produces a supertype is expected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">StringForge</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">forge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">StringForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span><span class="o">.</span><span class="n">forge</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># &quot;42&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeForge.forge">
+<span class="sig-name descname"><span class="pre">forge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeForge.forge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeForge.forge" title="Link to this definition"></a></dt>
+<dd><p>Transforms the given value into the desired type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to transform.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A value of type T_co.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the value cannot be converted to type T_co.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the value is semantically invalid for type T_co.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>type_forge.typing.variables.T_co</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeInfo">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeInfo</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol for objects that provide type metadata and reflection capabilities.</p>
+<p>This protocol defines the interface for objects that can inspect and
+provide information about types.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeInfo.get_attributes">
+<span class="sig-name descname"><span class="pre">get_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeInfo.get_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeInfo.get_attributes" title="Link to this definition"></a></dt>
+<dd><p>Get the attributes defined by this type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mapping of attribute names to their types.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)">type</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeInfo.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeInfo.get_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeInfo.get_name" title="Link to this definition"></a></dt>
+<dd><p>Get the name of the type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeInfo.is_subtype_of">
+<span class="sig-name descname"><span class="pre">is_subtype_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeInfo.is_subtype_of"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeInfo.is_subtype_of" title="Link to this definition"></a></dt>
+<dd><p>Check if this type is a subtype of another type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><em>type</em></a>) – The potential supertype.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this type is a subtype of other, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeNormalizer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeNormalizer</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeNormalizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeNormalizer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T" title="type_forge.typing.variables.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T</span></code></a>]</p>
+<p>Protocol for objects that normalize values within a type.</p>
+<p>This protocol defines the interface for objects that transform
+values to a normal form while preserving type.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><p>T: The type being normalized.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">PathNormalizer</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">, &#39;</span><span class="o">/</span><span class="s1">&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">normalizer</span> <span class="o">=</span> <span class="n">PathNormalizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">normalizer</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;C:\Windows\System32&quot;</span><span class="p">)</span>  <span class="c1"># &quot;C:/Windows/System32&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeNormalizer.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeNormalizer.normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeNormalizer.normalize" title="Link to this definition"></a></dt>
+<dd><p>Transform a value to its normal form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>type_forge.typing.variables.T</em>) – The value to normalize.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The normalized value of the same type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the value cannot be normalized.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeRegistry">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeRegistry</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeRegistry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T" title="type_forge.typing.variables.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T</span></code></a>]</p>
+<p>Protocol for type registration and lookup systems.</p>
+<p>This protocol defines the interface for objects that maintain
+a registry of types and associated metadata or factories.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><p>T: The type of value associated with each registered type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">SimpleTypeRegistry</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_registry</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_registry</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_registry</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">registry</span> <span class="o">=</span> <span class="n">SimpleTypeRegistry</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;Integer type&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">registry</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># &quot;Integer type&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeRegistry.lookup">
+<span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeRegistry.lookup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeRegistry.lookup" title="Link to this definition"></a></dt>
+<dd><p>Look up the value associated with a type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><em>type</em></a>) – The type to look up.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value associated with the type.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.13)"><strong>KeyError</strong></a> – If the type is not registered.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>type_forge.typing.variables.T</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeRegistry.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeRegistry.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeRegistry.register" title="Link to this definition"></a></dt>
+<dd><p>Register a type with an associated value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><em>type</em></a>) – The type to register.</p></li>
+<li><p><strong>value</strong> (<em>type_forge.typing.variables.T</em>) – The value to associate with the type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeStandardizer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypeStandardizer</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeStandardizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeStandardizer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.S_contra" title="type_forge.typing.variables.S_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.S_contra</span></code></a>, <a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T_co" title="type_forge.typing.variables.T_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T_co</span></code></a>]</p>
+<p>Protocol for objects that standardize values to a canonical form.</p>
+<p>This protocol defines the interface for objects that convert values
+from various forms into a standardized representation.</p>
+<dl>
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>S_contra: The source type (contravariant). This allows a standardizer</dt><dd><p>that accepts a supertype to be used where a standardizer that
+accepts a subtype is expected.</p>
+</dd>
+</dl>
+<p>T: The standardized type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CaseStandardizer</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">standardize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">standardizer</span> <span class="o">=</span> <span class="n">CaseStandardizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">standardizer</span><span class="o">.</span><span class="n">standardize</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>  <span class="c1"># &quot;hello&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypeStandardizer.standardize">
+<span class="sig-name descname"><span class="pre">standardize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypeStandardizer.standardize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypeStandardizer.standardize" title="Link to this definition"></a></dt>
+<dd><p>Convert a value to its standardized form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>type_forge.typing.variables.S_contra</em>) – The value to standardize.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The standardized value.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the value cannot be standardized.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the value is semantically invalid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypedConverter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">TypedConverter</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypedConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypedConverter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.S_contra" title="type_forge.typing.variables.S_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.S_contra</span></code></a>, <a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T_co" title="type_forge.typing.variables.T_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T_co</span></code></a>]</p>
+<p>Protocol for types that can convert from a specific type to another specific type.</p>
+<p>This protocol defines the interface for objects that implement
+conversion logic between specific types with strong typing.</p>
+<dl>
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>S_contra: The source type (contravariant). This allows a converter that</dt><dd><p>accepts a supertype to be used where a converter that accepts
+a subtype is expected.</p>
+</dd>
+</dl>
+<p>T: The target type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">IntToStrConverter</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">converter</span> <span class="o">=</span> <span class="n">IntToStrConverter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># &quot;42&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.TypedConverter.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#TypedConverter.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.TypedConverter.convert" title="Link to this definition"></a></dt>
+<dd><p>Convert a value from type S_contra to type T.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>type_forge.typing.variables.S_contra</em>) – The value to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The converted value of type T.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the value cannot be converted.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the value is semantically invalid for conversion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.Validator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">Validator</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#Validator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.Validator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T_contra" title="type_forge.typing.variables.T_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T_contra</span></code></a>]</p>
+<p>Protocol for validators that check if values meet certain criteria.</p>
+<p>Validator protocols define the interface for objects that verify
+whether values conform to specific requirements or constraints.</p>
+<dl class="simple">
+<dt>Type Args:</dt><dd><dl class="simple">
+<dt>T_contra: The type of value being validated (contravariant).</dt><dd><p>This allows a validator that can validate a supertype
+to be used where a validator for a subtype is expected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">IntValidator</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span> <span class="o">=</span> <span class="n">IntValidator</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.Validator.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#Validator.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.Validator.validate" title="Link to this definition"></a></dt>
+<dd><p>Validates the given value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>type_forge.typing.variables.T_contra</em>) – The value to validate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the value is valid, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.protocols.version">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.protocols.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/protocols.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.protocols.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

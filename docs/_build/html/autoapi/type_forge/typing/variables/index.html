@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.variables" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/variables/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="Type Variables for the Type Forge system. Attributes: Module Contents:" />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_variables_index_47889114.png" />
+<meta property="og:image:alt" content="Type Variables for the Type Forge system. Attributes: Module Contents:" />
+<meta name="description" content="Type Variables for the Type Forge system. Attributes: Module Contents:" />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.variables &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.variables</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.variables.ComparableT"><code class="docutils literal notranslate"><span class="pre">ComparableT</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.ComparableT_co"><code class="docutils literal notranslate"><span class="pre">ComparableT_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.ComparableT_contra"><code class="docutils literal notranslate"><span class="pre">ComparableT_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.HashableT"><code class="docutils literal notranslate"><span class="pre">HashableT</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.HashableT_co"><code class="docutils literal notranslate"><span class="pre">HashableT_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.HashableT_contra"><code class="docutils literal notranslate"><span class="pre">HashableT_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.K"><code class="docutils literal notranslate"><span class="pre">K</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.K_co"><code class="docutils literal notranslate"><span class="pre">K_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.K_contra"><code class="docutils literal notranslate"><span class="pre">K_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.R"><code class="docutils literal notranslate"><span class="pre">R</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.R_co"><code class="docutils literal notranslate"><span class="pre">R_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.R_contra"><code class="docutils literal notranslate"><span class="pre">R_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.S"><code class="docutils literal notranslate"><span class="pre">S</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.S_co"><code class="docutils literal notranslate"><span class="pre">S_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.S_contra"><code class="docutils literal notranslate"><span class="pre">S_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.T"><code class="docutils literal notranslate"><span class="pre">T</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TCallable"><code class="docutils literal notranslate"><span class="pre">TCallable</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TCallable_co"><code class="docutils literal notranslate"><span class="pre">TCallable_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TCallable_contra"><code class="docutils literal notranslate"><span class="pre">TCallable_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TCollection"><code class="docutils literal notranslate"><span class="pre">TCollection</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TCollection_co"><code class="docutils literal notranslate"><span class="pre">TCollection_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TCollection_contra"><code class="docutils literal notranslate"><span class="pre">TCollection_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TError"><code class="docutils literal notranslate"><span class="pre">TError</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TError_co"><code class="docutils literal notranslate"><span class="pre">TError_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TError_contra"><code class="docutils literal notranslate"><span class="pre">TError_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TInstance"><code class="docutils literal notranslate"><span class="pre">TInstance</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TInstance_co"><code class="docutils literal notranslate"><span class="pre">TInstance_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TInstance_contra"><code class="docutils literal notranslate"><span class="pre">TInstance_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TValue"><code class="docutils literal notranslate"><span class="pre">TValue</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TValue_co"><code class="docutils literal notranslate"><span class="pre">TValue_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.TValue_contra"><code class="docutils literal notranslate"><span class="pre">TValue_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.T_co"><code class="docutils literal notranslate"><span class="pre">T_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.T_contra"><code class="docutils literal notranslate"><span class="pre">T_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.U"><code class="docutils literal notranslate"><span class="pre">U</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.U_co"><code class="docutils literal notranslate"><span class="pre">U_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.U_contra"><code class="docutils literal notranslate"><span class="pre">U_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.V"><code class="docutils literal notranslate"><span class="pre">V</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.V_co"><code class="docutils literal notranslate"><span class="pre">V_co</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.V_contra"><code class="docutils literal notranslate"><span class="pre">V_contra</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.variables.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.variables</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/variables/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.variables">
+<span id="type-forge-typing-variables"></span><h1>type_forge.typing.variables<a class="headerlink" href="#module-type_forge.typing.variables" title="Link to this heading"></a></h1>
+<p>Type Variables for the Type Forge system.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.ComparableT" title="type_forge.typing.variables.ComparableT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ComparableT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.ComparableT_co" title="type_forge.typing.variables.ComparableT_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ComparableT_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.ComparableT_contra" title="type_forge.typing.variables.ComparableT_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ComparableT_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.HashableT" title="type_forge.typing.variables.HashableT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HashableT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.HashableT_co" title="type_forge.typing.variables.HashableT_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HashableT_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.HashableT_contra" title="type_forge.typing.variables.HashableT_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HashableT_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.K" title="type_forge.typing.variables.K"><code class="xref py py-obj docutils literal notranslate"><span class="pre">K</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.K_co" title="type_forge.typing.variables.K_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">K_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.K_contra" title="type_forge.typing.variables.K_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">K_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.R" title="type_forge.typing.variables.R"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.R_co" title="type_forge.typing.variables.R_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.R_contra" title="type_forge.typing.variables.R_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.S" title="type_forge.typing.variables.S"><code class="xref py py-obj docutils literal notranslate"><span class="pre">S</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.S_co" title="type_forge.typing.variables.S_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">S_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.S_contra" title="type_forge.typing.variables.S_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">S_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.T" title="type_forge.typing.variables.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TCallable" title="type_forge.typing.variables.TCallable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TCallable</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TCallable_co" title="type_forge.typing.variables.TCallable_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TCallable_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TCallable_contra" title="type_forge.typing.variables.TCallable_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TCallable_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TCollection" title="type_forge.typing.variables.TCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TCollection</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TCollection_co" title="type_forge.typing.variables.TCollection_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TCollection_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TCollection_contra" title="type_forge.typing.variables.TCollection_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TCollection_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TError" title="type_forge.typing.variables.TError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TError</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TError_co" title="type_forge.typing.variables.TError_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TError_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TError_contra" title="type_forge.typing.variables.TError_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TError_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TInstance" title="type_forge.typing.variables.TInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TInstance</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TInstance_co" title="type_forge.typing.variables.TInstance_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TInstance_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TInstance_contra" title="type_forge.typing.variables.TInstance_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TInstance_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TValue" title="type_forge.typing.variables.TValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.TValue_co" title="type_forge.typing.variables.TValue_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.TValue_contra" title="type_forge.typing.variables.TValue_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TValue_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.T_co" title="type_forge.typing.variables.T_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.T_contra" title="type_forge.typing.variables.T_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.U" title="type_forge.typing.variables.U"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.U_co" title="type_forge.typing.variables.U_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.U_contra" title="type_forge.typing.variables.U_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.V" title="type_forge.typing.variables.V"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.V_co" title="type_forge.typing.variables.V_co"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V_co</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.variables.V_contra" title="type_forge.typing.variables.V_contra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V_contra</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.variables.version" title="type_forge.typing.variables.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.ComparableT">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">ComparableT</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#ComparableT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.ComparableT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.ComparableT_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">ComparableT_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#ComparableT_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.ComparableT_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.ComparableT_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">ComparableT_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#ComparableT_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.ComparableT_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.HashableT">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">HashableT</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#HashableT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.HashableT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.HashableT_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">HashableT_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#HashableT_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.HashableT_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.HashableT_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">HashableT_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#HashableT_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.HashableT_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.K">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">K</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#K"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.K" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.K_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">K_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#K_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.K_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.K_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">K_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#K_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.K_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.R">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">R</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#R"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.R" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.R_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">R_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#R_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.R_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.R_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">R_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#R_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.R_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.S">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">S</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#S"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.S" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.S_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">S_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#S_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.S_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.S_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">S_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#S_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.S_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.T">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">T</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#T"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.T" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TCallable">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TCallable</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TCallable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TCallable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TCallable_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TCallable_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TCallable_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TCallable_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TCallable_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TCallable_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TCallable_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TCallable_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TCollection">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TCollection</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TCollection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TCollection_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TCollection_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TCollection_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TCollection_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TCollection_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TCollection_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TCollection_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TCollection_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TError">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TError</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TError" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TError_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TError_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TError_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TError_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TError_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TError_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TError_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TError_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TInstance">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TInstance</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TInstance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TInstance" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TInstance_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TInstance_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TInstance_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TInstance_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TInstance_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TInstance_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TInstance_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TInstance_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TValue">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TValue</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TValue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TValue_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TValue_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TValue_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TValue_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.TValue_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">TValue_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#TValue_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.TValue_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.T_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">T_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#T_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.T_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.T_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">T_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#T_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.T_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.U">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">U</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#U"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.U" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.U_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">U_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#U_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.U_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.U_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">U_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#U_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.U_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.V">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">V</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#V"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.V" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.V_co">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">V_co</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#V_co"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.V_co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.V_contra">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">V_contra</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#V_contra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.V_contra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.variables.version">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.variables.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/variables.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.variables.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

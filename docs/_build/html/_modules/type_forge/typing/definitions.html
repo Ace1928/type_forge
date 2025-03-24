@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.definitions &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">type_forge.typing.definitions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for type_forge.typing.definitions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Type Definitions for the Type Forge system.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">final</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+<span class="c1"># Core Type Variables and Aliases</span>
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+
+
+<div class="viewcode-block" id="version">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.version">[docs]</a>
+<span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span></div>
+
+
+
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+<span class="c1"># Type Definitions</span>
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+
+
+<span class="nd">@final</span>
+<div class="viewcode-block" id="TypeCategory">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeCategory</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Categorization of type structures for semantic operations.</span>
+
+<span class="sd">    This enumeration provides a richer vocabulary for describing type</span>
+<span class="sd">    relationships beyond basic inheritance, allowing for precise categorization</span>
+<span class="sd">    of types based on their structural and behavioral properties.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        ATOMIC: Primitive types that are indivisible units (int, float, bool)</span>
+<span class="sd">        COMPOSITE: Types composed of other types (classes, dataclasses)</span>
+<span class="sd">        STRUCTURAL: Types that define a structure or shape (NamedTuple, Struct)</span>
+<span class="sd">        CONTAINER: Types that hold collections of other values (List, Dict)</span>
+<span class="sd">        FUNCTION: Types representing callable objects (functions, lambdas)</span>
+<span class="sd">        PROTOCOL: Types representing interfaces or behaviors (Protocols)</span>
+<span class="sd">        GENERIC: Types with type parameters (List[T], Dict[K, V])</span>
+<span class="sd">        SPECIAL: Types with special behaviors (Optional, Union)</span>
+<span class="sd">        NUMERIC: Types representing numbers (int, float, complex)</span>
+<span class="sd">        TEXT: Types representing text (str, bytes)</span>
+<span class="sd">        BOOLEAN: Types representing boolean values (bool)</span>
+<span class="sd">        DATETIME: Types representing dates and times</span>
+<span class="sd">        ENUM: Enumeration types</span>
+<span class="sd">        BINARY: Binary data types (bytes, bytearray)</span>
+<span class="sd">        NETWORK: Network-related types (URL, IP address)</span>
+<span class="sd">        RECURSIVE: Self-referential types</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; TypeCategory.ATOMIC.name</span>
+<span class="sd">        &#39;ATOMIC&#39;</span>
+<span class="sd">        &gt;&gt;&gt; TypeCategory.CONTAINER.value</span>
+<span class="sd">        &#39;container&#39;</span>
+<span class="sd">        &gt;&gt;&gt; str(TypeCategory.FUNCTION)</span>
+<span class="sd">        &#39;function&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeCategory.ATOMIC">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.ATOMIC">[docs]</a>
+    <span class="n">ATOMIC</span> <span class="o">=</span> <span class="s2">&quot;atomic&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.COMPOSITE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.COMPOSITE">[docs]</a>
+    <span class="n">COMPOSITE</span> <span class="o">=</span> <span class="s2">&quot;composite&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.STRUCTURAL">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.STRUCTURAL">[docs]</a>
+    <span class="n">STRUCTURAL</span> <span class="o">=</span> <span class="s2">&quot;structural&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.CONTAINER">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.CONTAINER">[docs]</a>
+    <span class="n">CONTAINER</span> <span class="o">=</span> <span class="s2">&quot;container&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.FUNCTION">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.FUNCTION">[docs]</a>
+    <span class="n">FUNCTION</span> <span class="o">=</span> <span class="s2">&quot;function&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.PROTOCOL">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.PROTOCOL">[docs]</a>
+    <span class="n">PROTOCOL</span> <span class="o">=</span> <span class="s2">&quot;protocol&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.GENERIC">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.GENERIC">[docs]</a>
+    <span class="n">GENERIC</span> <span class="o">=</span> <span class="s2">&quot;generic&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.SPECIAL">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.SPECIAL">[docs]</a>
+    <span class="n">SPECIAL</span> <span class="o">=</span> <span class="s2">&quot;special&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.NUMERIC">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.NUMERIC">[docs]</a>
+    <span class="n">NUMERIC</span> <span class="o">=</span> <span class="s2">&quot;numeric&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.TEXT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.TEXT">[docs]</a>
+    <span class="n">TEXT</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.BOOLEAN">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.BOOLEAN">[docs]</a>
+    <span class="n">BOOLEAN</span> <span class="o">=</span> <span class="s2">&quot;boolean&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.DATETIME">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.DATETIME">[docs]</a>
+    <span class="n">DATETIME</span> <span class="o">=</span> <span class="s2">&quot;datetime&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.ENUM">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.ENUM">[docs]</a>
+    <span class="n">ENUM</span> <span class="o">=</span> <span class="s2">&quot;enum&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.BINARY">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.BINARY">[docs]</a>
+    <span class="n">BINARY</span> <span class="o">=</span> <span class="s2">&quot;binary&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.NETWORK">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.NETWORK">[docs]</a>
+    <span class="n">NETWORK</span> <span class="o">=</span> <span class="s2">&quot;network&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCategory.RECURSIVE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.RECURSIVE">[docs]</a>
+    <span class="n">RECURSIVE</span> <span class="o">=</span> <span class="s2">&quot;recursive&quot;</span></div>
+
+
+<div class="viewcode-block" id="TypeCategory.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCategory.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String representation of the type category.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The name of the type category in lowercase</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; str(TypeCategory.ATOMIC)</span>
+<span class="sd">            &#39;atomic&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(TypeCategory.COMPOSITE)</span>
+<span class="sd">            &#39;composite&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+</div>
+
+
+
+<span class="nd">@final</span>
+<div class="viewcode-block" id="ValidationLevel">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidationLevel</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Levels of validation strictness for type validation functions.</span>
+
+<span class="sd">    This enumeration provides different levels of strictness for</span>
+<span class="sd">    type validation operations, allowing for flexible type checking</span>
+<span class="sd">    based on application requirements.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        STRICT: Allow no type variance, exact type match required.</span>
+<span class="sd">            Types must be identical (A is A, not A is subclass of B).</span>
+<span class="sd">        STANDARD: Allow normal subtype relationships (inheritance).</span>
+<span class="sd">            Types can be subclasses (B is acceptable when A is required if B inherits from A).</span>
+<span class="sd">        PERMISSIVE: Allow type conversion where possible.</span>
+<span class="sd">            Attempts to convert between compatible types (str to int if str contains a number).</span>
+<span class="sd">        DYNAMIC: Use duck typing and runtime checks.</span>
+<span class="sd">            Checks for attribute/method presence rather than type identity.</span>
+<span class="sd">        STRUCTURAL: Check structural compatibility only.</span>
+<span class="sd">            Types are compatible if they have compatible structures regardless of inheritance.</span>
+<span class="sd">        COVARIANT: Allow covariant substitution.</span>
+<span class="sd">            A type B can be used where A is required if B is a subtype of A.</span>
+<span class="sd">        CONTRAVARIANT: Allow contravariant substitution.</span>
+<span class="sd">            A type B can be used where A is required if A is a subtype of B.</span>
+<span class="sd">        NONE: No validation performed.</span>
+<span class="sd">            All types are accepted without verification (use with caution).</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; ValidationLevel.STRICT.name</span>
+<span class="sd">        &#39;STRICT&#39;</span>
+<span class="sd">        &gt;&gt;&gt; ValidationLevel.STANDARD.value</span>
+<span class="sd">        &#39;standard&#39;</span>
+<span class="sd">        &gt;&gt;&gt; str(ValidationLevel.PERMISSIVE)</span>
+<span class="sd">        &#39;permissive&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationLevel.STRICT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.STRICT">[docs]</a>
+    <span class="n">STRICT</span> <span class="o">=</span> <span class="s2">&quot;strict&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.STANDARD">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.STANDARD">[docs]</a>
+    <span class="n">STANDARD</span> <span class="o">=</span> <span class="s2">&quot;standard&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.PERMISSIVE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.PERMISSIVE">[docs]</a>
+    <span class="n">PERMISSIVE</span> <span class="o">=</span> <span class="s2">&quot;permissive&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.DYNAMIC">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.DYNAMIC">[docs]</a>
+    <span class="n">DYNAMIC</span> <span class="o">=</span> <span class="s2">&quot;dynamic&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.STRUCTURAL">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.STRUCTURAL">[docs]</a>
+    <span class="n">STRUCTURAL</span> <span class="o">=</span> <span class="s2">&quot;structural&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.COVARIANT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.COVARIANT">[docs]</a>
+    <span class="n">COVARIANT</span> <span class="o">=</span> <span class="s2">&quot;covariant&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.CONTRAVARIANT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.CONTRAVARIANT">[docs]</a>
+    <span class="n">CONTRAVARIANT</span> <span class="o">=</span> <span class="s2">&quot;contravariant&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationLevel.NONE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.NONE">[docs]</a>
+    <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span></div>
+
+
+<div class="viewcode-block" id="ValidationLevel.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationLevel.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String representation of the validation level.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The name of the validation level in lowercase</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; str(ValidationLevel.STRICT)</span>
+<span class="sd">            &#39;strict&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(ValidationLevel.STANDARD)</span>
+<span class="sd">            &#39;standard&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+</div>
+
+
+
+<span class="nd">@final</span>
+<div class="viewcode-block" id="TypeCompatibility">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeCompatibility</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classification of type compatibility relationships for conversion operations.</span>
+
+<span class="sd">    This enumeration provides a detailed classification system for describing</span>
+<span class="sd">    the compatibility between two types, guiding conversion strategies and</span>
+<span class="sd">    validation processes.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        IDENTICAL: Types are exactly the same (int and int).</span>
+<span class="sd">        SUBTYPE: Source is a subtype of target (bool is a subtype of int).</span>
+<span class="sd">        SUPERTYPE: Target is a subtype of source (int is a supertype of bool).</span>
+<span class="sd">        CONVERTIBLE: Types can be converted explicitly (str to int).</span>
+<span class="sd">        STRUCTURALLY_COMPATIBLE: Types share compatible structures (NamedTuple vs dataclass).</span>
+<span class="sd">        PROTOCOL_COMPATIBLE: Source satisfies target&#39;s protocol requirements.</span>
+<span class="sd">        CONTAINER_COMPATIBLE: Container types with compatible element types.</span>
+<span class="sd">        IMPLICIT_CONVERTIBLE: Types can be converted implicitly (int to float).</span>
+<span class="sd">        INCOMPATIBLE: Types cannot be converted or are fundamentally different.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; TypeCompatibility.IDENTICAL.name</span>
+<span class="sd">        &#39;IDENTICAL&#39;</span>
+<span class="sd">        &gt;&gt;&gt; TypeCompatibility.CONVERTIBLE.value</span>
+<span class="sd">        &#39;convertible&#39;</span>
+<span class="sd">        &gt;&gt;&gt; str(TypeCompatibility.INCOMPATIBLE)</span>
+<span class="sd">        &#39;incompatible&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeCompatibility.IDENTICAL">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.IDENTICAL">[docs]</a>
+    <span class="n">IDENTICAL</span> <span class="o">=</span> <span class="s2">&quot;identical&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.SUBTYPE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.SUBTYPE">[docs]</a>
+    <span class="n">SUBTYPE</span> <span class="o">=</span> <span class="s2">&quot;subtype&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.SUPERTYPE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.SUPERTYPE">[docs]</a>
+    <span class="n">SUPERTYPE</span> <span class="o">=</span> <span class="s2">&quot;supertype&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.CONVERTIBLE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.CONVERTIBLE">[docs]</a>
+    <span class="n">CONVERTIBLE</span> <span class="o">=</span> <span class="s2">&quot;convertible&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.STRUCTURALLY_COMPATIBLE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.STRUCTURALLY_COMPATIBLE">[docs]</a>
+    <span class="n">STRUCTURALLY_COMPATIBLE</span> <span class="o">=</span> <span class="s2">&quot;structurally_compatible&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.PROTOCOL_COMPATIBLE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.PROTOCOL_COMPATIBLE">[docs]</a>
+    <span class="n">PROTOCOL_COMPATIBLE</span> <span class="o">=</span> <span class="s2">&quot;protocol_compatible&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.CONTAINER_COMPATIBLE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.CONTAINER_COMPATIBLE">[docs]</a>
+    <span class="n">CONTAINER_COMPATIBLE</span> <span class="o">=</span> <span class="s2">&quot;container_compatible&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.IMPLICIT_CONVERTIBLE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.IMPLICIT_CONVERTIBLE">[docs]</a>
+    <span class="n">IMPLICIT_CONVERTIBLE</span> <span class="o">=</span> <span class="s2">&quot;implicit_convertible&quot;</span></div>
+
+<div class="viewcode-block" id="TypeCompatibility.INCOMPATIBLE">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.INCOMPATIBLE">[docs]</a>
+    <span class="n">INCOMPATIBLE</span> <span class="o">=</span> <span class="s2">&quot;incompatible&quot;</span></div>
+
+
+<div class="viewcode-block" id="TypeCompatibility.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String representation of the type compatibility.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The name of the type compatibility in lowercase</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; str(TypeCompatibility.IDENTICAL)</span>
+<span class="sd">            &#39;identical&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(TypeCompatibility.CONVERTIBLE)</span>
+<span class="sd">            &#39;convertible&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="TypeCompatibility.is_compatible">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.TypeCompatibility.is_compatible">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_compatible</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine if this compatibility level allows conversion.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if types are compatible (can be converted), False otherwise</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; TypeCompatibility.IDENTICAL.is_compatible()</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; TypeCompatibility.INCOMPATIBLE.is_compatible()</span>
+<span class="sd">            False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">!=</span> <span class="n">TypeCompatibility</span><span class="o">.</span><span class="n">INCOMPATIBLE</span></div>
+</div>
+
+
+
+<span class="nd">@final</span>
+<div class="viewcode-block" id="ValidationSeverity">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidationSeverity</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Severity levels for validation errors and warnings.</span>
+
+<span class="sd">    This enumeration provides different severity levels for validation</span>
+<span class="sd">    issues, enabling appropriate handling and reporting based on criticality.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        FATAL: Critical error that must be fixed and prevents operation.</span>
+<span class="sd">        ERROR: Serious issue that should be fixed but might allow partial operation.</span>
+<span class="sd">        WARNING: Potential issue or deviation from best practice.</span>
+<span class="sd">        INFO: Informational message about validation results.</span>
+<span class="sd">        DEBUG: Technical details useful for debugging validation.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; ValidationSeverity.ERROR.name</span>
+<span class="sd">        &#39;ERROR&#39;</span>
+<span class="sd">        &gt;&gt;&gt; ValidationSeverity.WARNING.value</span>
+<span class="sd">        &#39;warning&#39;</span>
+<span class="sd">        &gt;&gt;&gt; str(ValidationSeverity.INFO)</span>
+<span class="sd">        &#39;info&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationSeverity.FATAL">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.FATAL">[docs]</a>
+    <span class="n">FATAL</span> <span class="o">=</span> <span class="s2">&quot;fatal&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationSeverity.ERROR">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.ERROR">[docs]</a>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationSeverity.WARNING">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.WARNING">[docs]</a>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationSeverity.INFO">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.INFO">[docs]</a>
+    <span class="n">INFO</span> <span class="o">=</span> <span class="s2">&quot;info&quot;</span></div>
+
+<div class="viewcode-block" id="ValidationSeverity.DEBUG">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.DEBUG">[docs]</a>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="s2">&quot;debug&quot;</span></div>
+
+
+<div class="viewcode-block" id="ValidationSeverity.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String representation of the validation severity.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The name of the validation severity in lowercase</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; str(ValidationSeverity.ERROR)</span>
+<span class="sd">            &#39;error&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(ValidationSeverity.WARNING)</span>
+<span class="sd">            &#39;warning&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="ValidationSeverity.is_error">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.is_error">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_error</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if this severity level represents an error condition.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if this severity is an error or fatal error</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; ValidationSeverity.FATAL.is_error()</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; ValidationSeverity.WARNING.is_error()</span>
+<span class="sd">            False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ValidationSeverity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span> <span class="n">ValidationSeverity</span><span class="o">.</span><span class="n">FATAL</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ValidationSeverity.is_blocker">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/definitions/index.html#type_forge.typing.definitions.ValidationSeverity.is_blocker">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_blocker</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if this severity level should block operation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if this severity should prevent operation</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; ValidationSeverity.FATAL.is_blocker()</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; ValidationSeverity.ERROR.is_blocker()</span>
+<span class="sd">            False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">ValidationSeverity</span><span class="o">.</span><span class="n">FATAL</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

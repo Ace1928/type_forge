@@ -1,0 +1,1097 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.conversion &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">type_forge.typing.conversion</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for type_forge.typing.conversion</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Type Conversion for the Type Forge system.</span>
+
+<span class="sd">This module provides robust type conversion utilities with comprehensive error handling,</span>
+<span class="sd">focusing on safety, composability, and explicit failure modes. The core components</span>
+<span class="sd">include the ConversionResult monad for chainable operations and specialized conversion</span>
+<span class="sd">functions for common Python types.</span>
+
+<span class="sd">All functions guarantee exception safety through explicit error handling patterns.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">type_forge.typing.protocols</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SupportsBoolConversion</span><span class="p">,</span>
+    <span class="n">SupportsFloatConversion</span><span class="p">,</span>
+    <span class="n">SupportsIntConversion</span><span class="p">,</span>
+    <span class="n">SupportsLength</span><span class="p">,</span>
+    <span class="n">TypeConverter</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">type_forge.typing.variables</span><span class="w"> </span><span class="kn">import</span> <span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">U</span>  <span class="c1"># V is for TypeConverter</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>  <span class="c1"># noqa: F401</span>
+
+<div class="viewcode-block" id="version">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.version">[docs]</a>
+<span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span></div>
+
+
+
+<div class="viewcode-block" id="ConversionResult">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConversionResult</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Result of a type conversion operation with success status and error tracking.</span>
+
+<span class="sd">    This class encapsulates the result of a type conversion operation,</span>
+<span class="sd">    providing both the converted value (if successful) and error information</span>
+<span class="sd">    when conversion fails. It allows for chainable operations and error handling.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        success (bool): Whether the conversion was successful</span>
+<span class="sd">        value (Optional[T]): The converted value, or None if conversion failed</span>
+<span class="sd">        error (Optional[str]): Error message if conversion failed</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; result = ConversionResult.create_success(42)</span>
+<span class="sd">        &gt;&gt;&gt; result.success</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; print(result.value)</span>
+<span class="sd">        42</span>
+<span class="sd">        &gt;&gt;&gt; result = ConversionResult[int].failure(&quot;Invalid conversion&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; result.success</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; print(result.error)</span>
+<span class="sd">        Invalid conversion</span>
+<span class="sd">        &gt;&gt;&gt; # Chain operations</span>
+<span class="sd">        &gt;&gt;&gt; result = ConversionResult.create_success(&quot;123&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; result.then(lambda s: ConversionResult.create_success(int(s))).value</span>
+<span class="sd">        123</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">success</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a ConversionResult.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            success: Whether the conversion was successful</span>
+<span class="sd">            value: The converted value, None if conversion failed</span>
+<span class="sd">            error: Error message if conversion failed</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; result = ConversionResult(True, 42)</span>
+<span class="sd">            &gt;&gt;&gt; result.success</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.value</span>
+<span class="sd">            42</span>
+<span class="sd">            &gt;&gt;&gt; failed = ConversionResult(False, None, &quot;Conversion error&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; failed.error</span>
+<span class="sd">            &#39;Conversion error&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ConversionResult.success">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConversionResult.success">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">success</span></div>
+
+<div class="viewcode-block" id="ConversionResult.value">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConversionResult.value">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="ConversionResult.error">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConversionResult.error">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">error</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.__bool__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.__bool__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Boolean conversion returns success status.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if conversion was successful, False otherwise</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; bool(ConversionResult.create_success(42))</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; bool(ConversionResult[str].failure(&quot;Error&quot;))</span>
+<span class="sd">            False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.then">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.then">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">then</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">converter</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="s2">&quot;ConversionResult[U]&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ConversionResult[U]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Chain another conversion operation if this one succeeded.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            converter: Function to convert the value further</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ConversionResult[U]: Result of the chained conversion, or the original failure</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; # Convert string to int then to float</span>
+<span class="sd">            &gt;&gt;&gt; result = ConversionResult.create_success(&quot;42&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; to_int = lambda s: ConversionResult.create_success(int(s))</span>
+<span class="sd">            &gt;&gt;&gt; to_float = lambda i: ConversionResult.create_success(float(i))</span>
+<span class="sd">            &gt;&gt;&gt; result.then(to_int).then(to_float).value</span>
+<span class="sd">            42.0</span>
+<span class="sd">            &gt;&gt;&gt; # Failure stops the chain</span>
+<span class="sd">            &gt;&gt;&gt; failed = ConversionResult[str].failure(&quot;Invalid input&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; failed.then(to_int).then(to_float).error</span>
+<span class="sd">            &#39;Invalid input&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="c1"># Cast is necessary here as we&#39;re changing the generic type parameter</span>
+            <span class="c1"># from ConversionResult[T] to ConversionResult[U] while preserving the</span>
+            <span class="c1"># failure state</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">&quot;ConversionResult[U]&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># This should never happen if success is True, but we handle it for completeness</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">U</span><span class="p">](</span>
+                <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Value is None despite successful status&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">converter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.map">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.map">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transform</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">U</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;ConversionResult[U]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform the value if conversion was successful.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            transform: Function to transform the value</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ConversionResult[U]: Result containing the transformed value, or the original failure</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; result = ConversionResult.create_success(42)</span>
+<span class="sd">            &gt;&gt;&gt; result.map(lambda x: x * 2).value</span>
+<span class="sd">            84</span>
+<span class="sd">            &gt;&gt;&gt; failed = ConversionResult[int].failure(&quot;Error&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; failed.map(lambda x: x * 2).error</span>
+<span class="sd">            &#39;Error&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">&quot;ConversionResult[U]&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">U</span><span class="p">](</span>
+                <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Value is None despite successful status&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">U</span><span class="p">]</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">U</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transformation error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.recover">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.recover">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recovery_func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;ConversionResult[T]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attempt to recover from a failed conversion.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            recovery_func: Function that takes the error message and returns a recovery value</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ConversionResult[T]: Recovered result if this was a failure, or the original result</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; failed = ConversionResult[int].failure(&quot;Missing value&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; failed.recover(lambda _: 0).value</span>
+<span class="sd">            0</span>
+<span class="sd">            &gt;&gt;&gt; success = ConversionResult.create_success(42)</span>
+<span class="sd">            &gt;&gt;&gt; success.recover(lambda _: 0).value  # Original value preserved</span>
+<span class="sd">            42</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">error_msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="ow">or</span> <span class="s2">&quot;Unknown error&quot;</span>
+            <span class="n">recovery_value</span> <span class="o">=</span> <span class="n">recovery_func</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">]</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="n">recovery_value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recovery failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.or_else">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.or_else">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">or_else</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the result value or a default if conversion failed.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            default_value: Value to return if conversion failed</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            T: The conversion result value or the default</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; ConversionResult.create_success(42).or_else(0)</span>
+<span class="sd">            42</span>
+<span class="sd">            &gt;&gt;&gt; ConversionResult[int].failure(&quot;Error&quot;).or_else(0)</span>
+<span class="sd">            0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">default_value</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.or_else_get">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.or_else_get">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">or_else_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the result value or compute a default if conversion failed.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            provider: Function to compute the default value</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            T: The conversion result value or the computed default</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; ConversionResult.create_success(42).or_else_get(lambda: 0)</span>
+<span class="sd">            42</span>
+<span class="sd">            &gt;&gt;&gt; ConversionResult[int].failure(&quot;Error&quot;).or_else_get(lambda: 99)</span>
+<span class="sd">            99</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">provider</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.or_raise">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.or_raise">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">or_raise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_factory</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="ne">Exception</span><span class="p">]</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the result value or raise an exception if conversion failed.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            exception_factory: Function to create the exception from the error message</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            T: The conversion result value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: If conversion failed, raises the exception created by exception_factory</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; ConversionResult.create_success(42).or_raise()</span>
+<span class="sd">            42</span>
+<span class="sd">            &gt;&gt;&gt; try:</span>
+<span class="sd">            ...     ConversionResult[int].failure(&quot;Bad value&quot;).or_raise()</span>
+<span class="sd">            ... except ValueError as e:</span>
+<span class="sd">            ...     str(e)</span>
+<span class="sd">            &#39;Bad value&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exception_factory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="ow">or</span> <span class="s2">&quot;Conversion failed&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exception_factory</span><span class="p">(</span><span class="s2">&quot;Value is None despite successful status&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ConversionResult.create_success">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.create_success">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_success</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ConversionResult[T]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a successful conversion result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The successfully converted value</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ConversionResult[T]: A successful conversion result</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; result = ConversionResult.create_success(42)</span>
+<span class="sd">            &gt;&gt;&gt; result.success</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.value</span>
+<span class="sd">            42</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ConversionResult.failure">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.failure">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">failure</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ConversionResult[T]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a failed conversion result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            error: Description of the error that occurred</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ConversionResult[T]: A failed conversion result</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; result = ConversionResult.failure(&quot;Invalid format&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; result.success</span>
+<span class="sd">            False</span>
+<span class="sd">            &gt;&gt;&gt; result.error</span>
+<span class="sd">            &#39;Invalid format&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span></div>
+
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ConversionResult.from_try">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.from_try">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_try</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;ConversionResult[T]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a result by trying a function that may raise exceptions.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            func: Function to execute that may raise an exception</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ConversionResult[T]: Successful result with the function&#39;s return value,</span>
+<span class="sd">                               or failed result with the exception message</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; ConversionResult.from_try(lambda: int(&quot;42&quot;)).value</span>
+<span class="sd">            42</span>
+<span class="sd">            &gt;&gt;&gt; result = ConversionResult.from_try(lambda: int(&quot;not_a_number&quot;))</span>
+<span class="sd">            &gt;&gt;&gt; result.success</span>
+<span class="sd">            False</span>
+<span class="sd">            &gt;&gt;&gt; &quot;invalid literal&quot; in result.error</span>
+<span class="sd">            True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.__str__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String representation of the conversion result.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the conversion result</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; str(ConversionResult.create_success(42))</span>
+<span class="sd">            &#39;Successful conversion: 42&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(ConversionResult.failure(&quot;Invalid input&quot;))</span>
+<span class="sd">            &#39;Failed conversion: Invalid input&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Successful conversion: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Failed conversion: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="ConversionResult.__repr__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.ConversionResult.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detailed string representation of the conversion result.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Detailed representation including class name</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; repr(ConversionResult.create_success(42))</span>
+<span class="sd">            &#39;ConversionResult(success=True, value=42, error=None)&#39;</span>
+<span class="sd">            &gt;&gt;&gt; repr(ConversionResult.failure(&quot;Error&quot;))</span>
+<span class="sd">            &#39;ConversionResult(success=False, value=None, error=&quot;Error&quot;)&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value_repr</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span>
+        <span class="n">error_repr</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s1">&quot;&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;ConversionResult(success=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="si">}</span><span class="s2">, value=</span><span class="si">{</span><span class="n">value_repr</span><span class="si">}</span><span class="s2">, error=</span><span class="si">{</span><span class="n">error_repr</span><span class="si">}</span><span class="s2">)&quot;</span></div>
+</div>
+
+
+
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+<span class="c1"># Type Conversion Functions</span>
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+
+<span class="c1"># Define TypeVars with more precise constraints</span>
+<div class="viewcode-block" id="ConvertibleToInt">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConvertibleToInt">[docs]</a>
+<span class="n">ConvertibleToInt</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span>
+    <span class="s2">&quot;ConvertibleToInt&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">SupportsIntConversion</span><span class="p">]</span>
+<span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvertibleToBool">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConvertibleToBool">[docs]</a>
+<span class="n">ConvertibleToBool</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span>
+    <span class="s2">&quot;ConvertibleToBool&quot;</span><span class="p">,</span>
+    <span class="n">bound</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="nb">int</span><span class="p">,</span>
+        <span class="nb">float</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">,</span>
+        <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span>
+        <span class="nb">tuple</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+        <span class="nb">set</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span>
+        <span class="nb">dict</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span>
+        <span class="n">SupportsBoolConversion</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvertibleToFloat">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConvertibleToFloat">[docs]</a>
+<span class="n">ConvertibleToFloat</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span>
+    <span class="s2">&quot;ConvertibleToFloat&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">SupportsFloatConversion</span><span class="p">]</span>
+<span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvertibleToStr">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.ConvertibleToStr">[docs]</a>
+<span class="n">ConvertibleToStr</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span>
+    <span class="s2">&quot;ConvertibleToStr&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span>
+<span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="safe_int_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.safe_int_convert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_int_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Safely convert a value to int or return None if invalid.</span>
+
+<span class="sd">    Handles multiple input types including bool, int, float, str, and bytes.</span>
+<span class="sd">    Guarantees no exceptions are raised during conversion.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: Any value that might be convertible to int.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Optional[int]: An int value or None if conversion is not possible.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(42)</span>
+<span class="sd">        42</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(&quot;42&quot;)</span>
+<span class="sd">        42</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(3.14)</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(True)</span>
+<span class="sd">        1</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(&quot;hello&quot;) is None</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(None) is None</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_int_convert(&quot;0x10&quot;)  # Hex strings need explicit handling</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function silently handles all conversion errors by returning None.</span>
+<span class="sd">        For hex/octal/binary strings, use the int(x, base) function directly.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;__int__&quot;</span><span class="p">):</span>
+            <span class="c1"># Cast to SupportsIntConversion to satisfy type checker</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">SupportsIntConversion</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">OverflowError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="safe_bool_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.safe_bool_convert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_bool_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Safely convert a value to bool with semantic interpretation.</span>
+
+<span class="sd">    Performs intelligent boolean conversion with special handling for</span>
+<span class="sd">    string values like &quot;yes&quot;, &quot;no&quot;, &quot;true&quot;, &quot;false&quot;, etc.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: Any value that might be convertible to bool.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: A boolean representation of the value, with common string patterns</span>
+<span class="sd">              like &quot;yes&quot;/&quot;no&quot; properly handled.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert(True)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert(1)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert(&quot;yes&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert(&quot;false&quot;)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert(0)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert([])</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert([1, 2, 3])</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_bool_convert(None)</span>
+<span class="sd">        False</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function interprets strings like &quot;yes&quot;, &quot;true&quot;, &quot;1&quot;, &quot;y&quot;, &quot;t&quot;, &quot;on&quot; as True,</span>
+<span class="sd">        and &quot;no&quot;, &quot;false&quot;, &quot;0&quot;, &quot;n&quot;, &quot;f&quot;, &quot;off&quot; as False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">value_lower</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">value_lower</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;on&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">value_lower</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value_lower</span><span class="p">)</span>  <span class="c1"># Empty string is False</span>
+
+    <span class="c1"># Lists are always considered truthy in our domain model for compatibility</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Other collections follow standard Python truthiness</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="n">Dict</span><span class="p">)):</span>
+        <span class="c1"># Cast to SupportsLength to satisfy type checker</span>
+        <span class="n">collection_value</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">SupportsLength</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">collection_value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="c1"># Use __bool__ if available</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;__bool__&quot;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Cast to SupportsBoolConversion to satisfy type checker</span>
+            <span class="n">bool_value</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">SupportsBoolConversion</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">bool_value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+    <span class="c1"># Fall back to truth value with proper casting</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="safe_float_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.safe_float_convert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_float_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Safely convert a value to float or return None if invalid.</span>
+
+<span class="sd">    Handles multiple input types including bool, int, float, and str.</span>
+<span class="sd">    Guarantees no exceptions are raised during conversion.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: Any value that might be convertible to float.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Optional[float]: A float value or None if conversion is not possible.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(3.14)</span>
+<span class="sd">        3.14</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(&quot;3.14&quot;)</span>
+<span class="sd">        3.14</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(42)</span>
+<span class="sd">        42.0</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(True)</span>
+<span class="sd">        1.0</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(&quot;invalid&quot;) is None</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(None) is None</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(&quot;inf&quot;)</span>
+<span class="sd">        inf</span>
+<span class="sd">        &gt;&gt;&gt; safe_float_convert(&quot;NaN&quot;)  # doctest: +ELLIPSIS</span>
+<span class="sd">        nan</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function silently handles all conversion errors by returning None.</span>
+<span class="sd">        Special values like &quot;inf&quot;, &quot;-inf&quot;, and &quot;nan&quot; are properly handled.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;__float__&quot;</span><span class="p">):</span>
+            <span class="c1"># Cast to SupportsFloatConversion to satisfy type checker</span>
+            <span class="n">float_compatible</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">SupportsFloatConversion</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">float_compatible</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">OverflowError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="safe_str_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.safe_str_convert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_str_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Safely convert a value to string with proper handling of various types.</span>
+
+<span class="sd">    Provides special handling for bytes (UTF-8 decoding) and Path objects.</span>
+<span class="sd">    Never raises exceptions, always returns a valid string.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: Any value to convert to string.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: String representation of the value. Empty string for None.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; safe_str_convert(&quot;hello&quot;)</span>
+<span class="sd">        &#39;hello&#39;</span>
+<span class="sd">        &gt;&gt;&gt; safe_str_convert(42)</span>
+<span class="sd">        &#39;42&#39;</span>
+<span class="sd">        &gt;&gt;&gt; safe_str_convert(None)</span>
+<span class="sd">        &#39;&#39;</span>
+<span class="sd">        &gt;&gt;&gt; safe_str_convert(b&#39;hello&#39;)</span>
+<span class="sd">        &#39;hello&#39;</span>
+<span class="sd">        &gt;&gt;&gt; from pathlib import Path</span>
+<span class="sd">        &gt;&gt;&gt; safe_str_convert(Path(&#39;/tmp&#39;))  # doctest: +SKIP</span>
+<span class="sd">        &#39;/tmp&#39;</span>
+<span class="sd">        &gt;&gt;&gt; safe_str_convert(b&#39;\\xff\\xfe&#39;)  # Invalid UTF-8 falls back to str(bytes)</span>
+<span class="sd">        &quot;b&#39;\\xff\\xfe&#39;&quot;</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function attempts UTF-8 decoding for bytes objects and falls back</span>
+<span class="sd">        to str(bytes) representation if decoding fails.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="convert_with_fallback">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.convert_with_fallback">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_with_fallback</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">S</span><span class="p">,</span> <span class="n">primary_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">fallback_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Try to convert a value to a primary type, with fallback to a secondary type.</span>
+
+<span class="sd">    Attempts to convert the value to the primary type first, and if that fails,</span>
+<span class="sd">    tries converting to the fallback type. If both fail, returns the original value.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: The value to convert</span>
+<span class="sd">        primary_type: The preferred target type</span>
+<span class="sd">        fallback_type: The fallback target type</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Union[T, R, S]: Converted value (T or R) or original value (S) if conversion fails</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; convert_with_fallback(&quot;123&quot;, int, float)</span>
+<span class="sd">        123</span>
+<span class="sd">        &gt;&gt;&gt; convert_with_fallback(&quot;3.14&quot;, int, float)</span>
+<span class="sd">        3.14</span>
+<span class="sd">        &gt;&gt;&gt; convert_with_fallback(&quot;hello&quot;, int, float)</span>
+<span class="sd">        &#39;hello&#39;</span>
+<span class="sd">        &gt;&gt;&gt; convert_with_fallback(None, int, str)</span>
+<span class="sd">        &#39;&#39;</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function silently handles conversion errors and returns the original</span>
+<span class="sd">        value if both conversions fail.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Special case handling for None</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">primary_type</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+        <span class="k">if</span> <span class="n">fallback_type</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+
+        <span class="c1"># For None input but non-None target types, handle specially</span>
+        <span class="k">if</span> <span class="n">primary_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># type: ignore</span>
+        <span class="k">if</span> <span class="n">fallback_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># type: ignore</span>
+
+    <span class="c1"># Try primary type conversion</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">primary_type</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">safe_int_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">primary_type</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">safe_float_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">primary_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">safe_str_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">primary_type</span> <span class="ow">is</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">safe_bool_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Generic conversion via constructor</span>
+            <span class="k">return</span> <span class="n">primary_type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Try fallback type conversion</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fallback_type</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">safe_int_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">fallback_type</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">safe_float_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">fallback_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">safe_str_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">fallback_type</span> <span class="ow">is</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">safe_bool_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Generic conversion via constructor</span>
+            <span class="k">return</span> <span class="n">fallback_type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Return original value if all conversions fail</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+
+
+<div class="viewcode-block" id="try_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.try_convert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">try_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a value to a target type with detailed error reporting.</span>
+
+<span class="sd">    Unlike the safe_*_convert functions, this provides structured error information</span>
+<span class="sd">    when conversion fails rather than just returning None.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: The value to convert</span>
+<span class="sd">        target_type: The type to convert to</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ConversionResult[T]: A result object containing success status, converted value,</span>
+<span class="sd">                            and error information if conversion failed</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; result = try_convert(&quot;42&quot;, int)</span>
+<span class="sd">        &gt;&gt;&gt; result.success</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; result.value</span>
+<span class="sd">        42</span>
+<span class="sd">        &gt;&gt;&gt; result = try_convert(&quot;not_a_number&quot;, int)</span>
+<span class="sd">        &gt;&gt;&gt; result.success</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; bool(result)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; result.error is not None</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; result = try_convert(None, int)</span>
+<span class="sd">        &gt;&gt;&gt; result.success</span>
+<span class="sd">        False</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Captures and reports the actual exception that occurred during conversion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Cannot convert None to non-None type&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">):</span>
+        <span class="c1"># The value is already of the target type</span>
+        <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">True</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Special handling for common types with safe conversion functions</span>
+        <span class="k">if</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">safe_int_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Create a properly typed ConversionResult for int</span>
+                <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">True</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span>
+                <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Cannot convert </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> to int&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="n">bool_result</span> <span class="o">=</span> <span class="n">safe_bool_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="c1"># Create a properly typed ConversionResult for bool</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">True</span><span class="p">,</span> <span class="n">bool_result</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+        <span class="k">elif</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">safe_float_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Create a properly typed ConversionResult for float</span>
+                <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">True</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span>
+                <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Cannot convert </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> to float&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">target_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">str_result</span> <span class="o">=</span> <span class="n">safe_str_convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="c1"># Create a properly typed ConversionResult for str</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_result</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+        <span class="c1"># For other types, try direct construction</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Use direct constructor for the type</span>
+            <span class="n">converted_value</span> <span class="o">=</span> <span class="n">target_type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">True</span><span class="p">,</span> <span class="n">converted_value</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="coerce_to_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.typing.conversion.coerce_to_type">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">coerce_to_type</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Coerce a value to a target type, raising TypeError if conversion fails.</span>
+
+<span class="sd">    Unlike try_convert, this function raises an exception if the value cannot</span>
+<span class="sd">    be converted, making it suitable for validation scenarios where conversion</span>
+<span class="sd">    failure should stop execution.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: The value to convert</span>
+<span class="sd">        target_type: The type to convert to</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        T: The value converted to the target type</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: If the value cannot be converted to the target type</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; coerce_to_type(&quot;42&quot;, int)</span>
+<span class="sd">        42</span>
+<span class="sd">        &gt;&gt;&gt; coerce_to_type(42, str)</span>
+<span class="sd">        &#39;42&#39;</span>
+<span class="sd">        &gt;&gt;&gt; coerce_to_type(True, int)</span>
+<span class="sd">        1</span>
+<span class="sd">        &gt;&gt;&gt; try:</span>
+<span class="sd">        ...     coerce_to_type(&quot;not_a_number&quot;, int)</span>
+<span class="sd">        ... except TypeError:</span>
+<span class="sd">        ...     print(&quot;Conversion failed&quot;)</span>
+<span class="sd">        Conversion failed</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function is more strict than convert_with_fallback, raising an exception</span>
+<span class="sd">        rather than returning the original value on failure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Handle case where value is already of the target type</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>  <span class="c1"># type: ignore</span>
+
+    <span class="c1"># Try conversion with detailed error reporting</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">try_convert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="c1"># Raise error with detailed message if conversion failed</span>
+    <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">error</span>
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span>
+        <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;Cannot convert </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">target_type</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="_TYPE_CONVERTERS">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion._TYPE_CONVERTERS">[docs]</a>
+<span class="n">_TYPE_CONVERTERS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">TypeConverter</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+
+
+<div class="viewcode-block" id="register_converter">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/conversion/index.html#type_forge.typing.conversion.register_converter">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">register_converter</span><span class="p">(</span>
+    <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">converter</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">object</span><span class="p">],</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register a custom type converter for use with try_convert.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_type: The type to convert to</span>
+<span class="sd">        converter: Function that attempts to convert an object to target_type</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; class CustomType:</span>
+<span class="sd">        ...     def __init__(self, value: int):</span>
+<span class="sd">        ...         self.value = value</span>
+<span class="sd">        ...     def __eq__(self, other):</span>
+<span class="sd">        ...         return isinstance(other, CustomType) and self.value == other.value</span>
+<span class="sd">        &gt;&gt;&gt; def custom_converter(value: object) -&gt; ConversionResult[CustomType]:</span>
+<span class="sd">        ...     try:</span>
+<span class="sd">        ...         if isinstance(value, int):</span>
+<span class="sd">        ...             return ConversionResult.create_success(CustomType(value))</span>
+<span class="sd">        ...         elif isinstance(value, str) and value.isdigit():</span>
+<span class="sd">        ...             return ConversionResult.create_success(CustomType(int(value)))</span>
+<span class="sd">        ...         return ConversionResult.failure(f&quot;Cannot convert {type(value).__name__} to CustomType&quot;)</span>
+<span class="sd">        ...     except Exception as e:</span>
+<span class="sd">        ...         return ConversionResult.failure(str(e))</span>
+<span class="sd">        &gt;&gt;&gt; register_converter(CustomType, custom_converter)</span>
+<span class="sd">        &gt;&gt;&gt; result = try_convert(42, CustomType)</span>
+<span class="sd">        &gt;&gt;&gt; result.success</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; result.value == CustomType(42)</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_TYPE_CONVERTERS</span><span class="p">[</span><span class="n">target_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">TypeConverter</span><span class="p">,</span> <span class="n">converter</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

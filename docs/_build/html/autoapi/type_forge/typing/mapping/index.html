@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.mapping" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/mapping/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="This module contains utilities for type categorization, relationship mapping, and descriptive information about types. These functions enable semantic analysis of type relationships beyond simple i..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_mapping_index_d3d8b7a3.png" />
+<meta property="og:image:alt" content="This module contains utilities for type categorization, relationship mapping, and descriptive information about types. These functions enable semantic analys..." />
+<meta name="description" content="This module contains utilities for type categorization, relationship mapping, and descriptive information about types. These functions enable semantic analysis of type relationships beyond simple i..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.mapping &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.mapping</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.mapping.describe_type"><code class="docutils literal notranslate"><span class="pre">describe_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.get_common_supertype"><code class="docutils literal notranslate"><span class="pre">get_common_supertype()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.get_python_type_for_name"><code class="docutils literal notranslate"><span class="pre">get_python_type_for_name()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.get_type_category"><code class="docutils literal notranslate"><span class="pre">get_type_category()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.get_type_name"><code class="docutils literal notranslate"><span class="pre">get_type_name()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.MaybeType"><code class="docutils literal notranslate"><span class="pre">MaybeType</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.T"><code class="docutils literal notranslate"><span class="pre">T</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.TypeDescription"><code class="docutils literal notranslate"><span class="pre">TypeDescription</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.TypeName"><code class="docutils literal notranslate"><span class="pre">TypeName</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.TypeObject"><code class="docutils literal notranslate"><span class="pre">TypeObject</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.U"><code class="docutils literal notranslate"><span class="pre">U</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.mapping.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.mapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/mapping/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.mapping">
+<span id="type-forge-typing-mapping"></span><h1>type_forge.typing.mapping<a class="headerlink" href="#module-type_forge.typing.mapping" title="Link to this heading"></a></h1>
+<p>This module contains utilities for type categorization, relationship mapping,
+and descriptive information about types. These functions enable semantic analysis
+of type relationships beyond simple inheritance hierarchies.</p>
+<p>Core functionalities include:
+- Type categorization (atomic, container, protocol, etc.)
+- Finding common supertypes across multiple types
+- Converting between type names and Python type objects
+- Generating human-readable type descriptions
+- Analyzing type structure and relationships</p>
+<p>These utilities serve as the foundation for more complex type operations
+in the Type Forge system, enabling precise type handling with elegant
+error management and comprehensive edge case coverage.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.MaybeType" title="type_forge.typing.mapping.MaybeType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MaybeType</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.mapping.T" title="type_forge.typing.mapping.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.TypeDescription" title="type_forge.typing.mapping.TypeDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeDescription</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.mapping.TypeName" title="type_forge.typing.mapping.TypeName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeName</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.TypeObject" title="type_forge.typing.mapping.TypeObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeObject</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.mapping.U" title="type_forge.typing.mapping.U"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.version" title="type_forge.typing.mapping.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.describe_type" title="type_forge.typing.mapping.describe_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe_type</span></code></a>(value)</p></td>
+<td><p>Generate a detailed description of a value's type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.mapping.get_common_supertype" title="type_forge.typing.mapping.get_common_supertype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_common_supertype</span></code></a>(types)</p></td>
+<td><p>Find the most specific common supertype of multiple types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.get_python_type_for_name" title="type_forge.typing.mapping.get_python_type_for_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_python_type_for_name</span></code></a>(type_name)</p></td>
+<td><p>Get the Python type object corresponding to a type name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.mapping.get_type_category" title="type_forge.typing.mapping.get_type_category"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_type_category</span></code></a>(typ)</p></td>
+<td><p>Determine the semantic category of a type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.mapping.get_type_name" title="type_forge.typing.mapping.get_type_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_type_name</span></code></a>(typ)</p></td>
+<td><p>Get a user-friendly name for a type object.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.describe_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">describe_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#describe_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.describe_type" title="Link to this definition"></a></dt>
+<dd><p>Generate a detailed description of a value’s type.</p>
+<p>Creates a human-readable description of an object’s type,
+including additional information for collections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to describe</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A detailed description of the value’s type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe_type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">&#39;int&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe_type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">&#39;list[int] (length: 3)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe_type</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">})</span>
+<span class="go">&#39;dict[str, mixed] (size: 2)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe_type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">&#39;None&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For collections, includes element types and collection size.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.get_common_supertype">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">get_common_supertype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#get_common_supertype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.get_common_supertype" title="Link to this definition"></a></dt>
+<dd><p>Find the most specific common supertype of multiple types.</p>
+<p>Identifies the closest common ancestor type that all the given
+types inherit from, providing the tightest type bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>types</strong> (<em>List</em><em>[</em><em>TypeObject</em><em>]</em>) – List of types to find a common supertype for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The common supertype, or None if only object is common</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span>
+<span class="go">&lt;class &#39;numbers.Number&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">])</span>
+<span class="go">&lt;class &#39;collections.abc.Sequence&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">object</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([])</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Returns object if no more specific common supertype exists.
+Returns None for an empty list of types.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.get_python_type_for_name">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">get_python_type_for_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#get_python_type_for_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.get_python_type_for_name" title="Link to this definition"></a></dt>
+<dd><p>Get the Python type object corresponding to a type name.</p>
+<p>Maps common type names to their corresponding Python type objects,
+handling both builtin types and common collection types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type_name</strong> (<em>TypeName</em>) – Name of the type as a string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The corresponding Python type, or None if not found</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_python_type_for_name</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_python_type_for_name</span><span class="p">(</span><span class="s2">&quot;str&quot;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_python_type_for_name</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;list&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_python_type_for_name</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_python_type_for_name</span><span class="p">(</span><span class="s2">&quot;STRING&quot;</span><span class="p">)</span>  <span class="c1"># Case insensitive</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently handles only common builtin types. For more complex types,
+consider eval() with appropriate safety measures.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.get_type_category">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">get_type_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#get_type_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.get_type_category" title="Link to this definition"></a></dt>
+<dd><p>Determine the semantic category of a type.</p>
+<p>Categorizes types into meaningful groups based on their structure
+and behavior rather than just their inheritance relationships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>TypeObject</em>) – The type to categorize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The semantic category of the type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../definitions/index.html#type_forge.typing.definitions.TypeCategory" title="type_forge.typing.definitions.TypeCategory">TypeCategory</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">&lt;TypeCategory.ATOMIC: &#39;atomic&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="go">&lt;TypeCategory.CONTAINER: &#39;container&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+<span class="go">&lt;TypeCategory.CONTAINER: &#39;container&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="n">Protocol</span><span class="p">)</span>
+<span class="go">&lt;TypeCategory.PROTOCOL: &#39;protocol&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function uses both inheritance and structural properties
+to determine the category.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.get_type_name">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">get_type_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#get_type_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.get_type_name" title="Link to this definition"></a></dt>
+<dd><p>Get a user-friendly name for a type object.</p>
+<p>Creates a more readable name for types, handling special cases like
+NoneType and properly formatting generic types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>TypeObject</em>) – The type to get a name for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A user-friendly name for the type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">&#39;int&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+<span class="go">&#39;None&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
+<span class="go">&#39;Dict[str, int]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span>
+<span class="go">&#39;List[str]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>
+<span class="go">&#39;List&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function creates names similar to those used in type annotations.</p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.MaybeType">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">MaybeType</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#MaybeType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.MaybeType" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.T">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">T</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#T"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.T" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.TypeDescription">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">TypeDescription</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#TypeDescription"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.TypeDescription" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.TypeName">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">TypeName</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#TypeName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.TypeName" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.TypeObject">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">TypeObject</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#TypeObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.TypeObject" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.U">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">U</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#U"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.U" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.mapping.version">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.mapping.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/mapping.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.mapping.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

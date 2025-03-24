@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.naming" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/naming/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="This module provides utilities for obtaining standardized names and representations of Python types. It ensures consistent naming conventions and human-readable type descriptions across the Type Fo..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_naming_index_f89e2aeb.png" />
+<meta property="og:image:alt" content="This module provides utilities for obtaining standardized names and representations of Python types. It ensures consistent naming conventions and human-reada..." />
+<meta name="description" content="This module provides utilities for obtaining standardized names and representations of Python types. It ensures consistent naming conventions and human-readable type descriptions across the Type Fo..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.naming &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.naming</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.naming.TypeProtocol"><code class="docutils literal notranslate"><span class="pre">TypeProtocol</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.naming.TypeProtocol.__module__"><code class="docutils literal notranslate"><span class="pre">TypeProtocol.__module__</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.TypeProtocol.__name__"><code class="docutils literal notranslate"><span class="pre">TypeProtocol.__name__</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.TypeProtocol.__qualname__"><code class="docutils literal notranslate"><span class="pre">TypeProtocol.__qualname__</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.naming.are_types_compatible"><code class="docutils literal notranslate"><span class="pre">are_types_compatible()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.describe_type"><code class="docutils literal notranslate"><span class="pre">describe_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.format_type_annotation"><code class="docutils literal notranslate"><span class="pre">format_type_annotation()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.get_fully_qualified_name"><code class="docutils literal notranslate"><span class="pre">get_fully_qualified_name()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.get_generic_args"><code class="docutils literal notranslate"><span class="pre">get_generic_args()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.get_type_category"><code class="docutils literal notranslate"><span class="pre">get_type_category()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.get_type_name"><code class="docutils literal notranslate"><span class="pre">get_type_name()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.is_container_type"><code class="docutils literal notranslate"><span class="pre">is_container_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.is_generic_type"><code class="docutils literal notranslate"><span class="pre">is_generic_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.is_optional_type"><code class="docutils literal notranslate"><span class="pre">is_optional_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.is_primitive_type"><code class="docutils literal notranslate"><span class="pre">is_primitive_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.normalize_type"><code class="docutils literal notranslate"><span class="pre">normalize_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.CALLABLE_CATEGORY"><code class="docutils literal notranslate"><span class="pre">CALLABLE_CATEGORY</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.COMPOSITE_CATEGORY"><code class="docutils literal notranslate"><span class="pre">COMPOSITE_CATEGORY</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.CONTAINER_CATEGORY"><code class="docutils literal notranslate"><span class="pre">CONTAINER_CATEGORY</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.PRIMITIVE_CATEGORY"><code class="docutils literal notranslate"><span class="pre">PRIMITIVE_CATEGORY</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.SPECIAL_CATEGORY"><code class="docutils literal notranslate"><span class="pre">SPECIAL_CATEGORY</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.T"><code class="docutils literal notranslate"><span class="pre">T</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.TypeCategoryLiteral"><code class="docutils literal notranslate"><span class="pre">TypeCategoryLiteral</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.U"><code class="docutils literal notranslate"><span class="pre">U</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.V"><code class="docutils literal notranslate"><span class="pre">V</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming._NONE_TYPE"><code class="docutils literal notranslate"><span class="pre">_NONE_TYPE</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.naming.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.naming</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/naming/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.naming">
+<span id="type-forge-typing-naming"></span><h1>type_forge.typing.naming<a class="headerlink" href="#module-type_forge.typing.naming" title="Link to this heading"></a></h1>
+<p>This module provides utilities for obtaining standardized names and
+representations of Python types. It ensures consistent naming conventions
+and human-readable type descriptions across the Type Forge system.</p>
+<p>Core functionalities include:
+- Generating standardized type names for both built-in and custom types
+- Handling complex generic types with nested parameters
+- Identifying primitive types for special treatment
+- Providing clean string representations of type hierarchies
+- Converting between different type representation formats
+- Analyzing type structures for naming consistency</p>
+<p>These utilities form the foundation for consistent type naming and
+presentation throughout the Type Forge ecosystem, supporting both
+programmatic type operations and human-readable documentation.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.CALLABLE_CATEGORY" title="type_forge.typing.naming.CALLABLE_CATEGORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CALLABLE_CATEGORY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.COMPOSITE_CATEGORY" title="type_forge.typing.naming.COMPOSITE_CATEGORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COMPOSITE_CATEGORY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.CONTAINER_CATEGORY" title="type_forge.typing.naming.CONTAINER_CATEGORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONTAINER_CATEGORY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.PRIMITIVE_CATEGORY" title="type_forge.typing.naming.PRIMITIVE_CATEGORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PRIMITIVE_CATEGORY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.SPECIAL_CATEGORY" title="type_forge.typing.naming.SPECIAL_CATEGORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SPECIAL_CATEGORY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.T" title="type_forge.typing.naming.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.TypeCategoryLiteral" title="type_forge.typing.naming.TypeCategoryLiteral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeCategoryLiteral</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.U" title="type_forge.typing.naming.U"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.V" title="type_forge.typing.naming.V"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming._NONE_TYPE" title="type_forge.typing.naming._NONE_TYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_NONE_TYPE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.version" title="type_forge.typing.naming.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.TypeProtocol" title="type_forge.typing.naming.TypeProtocol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeProtocol</span></code></a></p></td>
+<td><p>Protocol defining the interface for type objects.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.are_types_compatible" title="type_forge.typing.naming.are_types_compatible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">are_types_compatible</span></code></a>(source_type, target_type)</p></td>
+<td><p>Check if two types are compatible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.describe_type" title="type_forge.typing.naming.describe_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe_type</span></code></a>(typ)</p></td>
+<td><p>Get a detailed description of a type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.format_type_annotation" title="type_forge.typing.naming.format_type_annotation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_type_annotation</span></code></a>(typ[, for_docstring])</p></td>
+<td><p>Format a type for use in annotations or docstrings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.get_fully_qualified_name" title="type_forge.typing.naming.get_fully_qualified_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fully_qualified_name</span></code></a>(typ)</p></td>
+<td><p>Get the fully qualified name of a type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.get_generic_args" title="type_forge.typing.naming.get_generic_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_generic_args</span></code></a>(typ)</p></td>
+<td><p>Get the type arguments of a generic type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.get_type_category" title="type_forge.typing.naming.get_type_category"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_type_category</span></code></a>(typ)</p></td>
+<td><p>Get the category of a type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.get_type_name" title="type_forge.typing.naming.get_type_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_type_name</span></code></a>(typ)</p></td>
+<td><p>Get the name of a type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.is_container_type" title="type_forge.typing.naming.is_container_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_container_type</span></code></a>(typ)</p></td>
+<td><p>Check if a type is a container.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.is_generic_type" title="type_forge.typing.naming.is_generic_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_generic_type</span></code></a>(typ)</p></td>
+<td><p>Check if a type is generic.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.is_optional_type" title="type_forge.typing.naming.is_optional_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_optional_type</span></code></a>(typ)</p></td>
+<td><p>Check if a type is Optional[T].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.naming.is_primitive_type" title="type_forge.typing.naming.is_primitive_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_primitive_type</span></code></a>(typ)</p></td>
+<td><p>Check if a type is primitive.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.naming.normalize_type" title="type_forge.typing.naming.normalize_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_type</span></code></a>(typ)</p></td>
+<td><p>Normalize a type representation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.naming.TypeProtocol">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">TypeProtocol</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#TypeProtocol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.TypeProtocol" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol defining the interface for type objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.typing.naming.TypeProtocol.__module__">
+<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#TypeProtocol.__module__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.TypeProtocol.__module__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.typing.naming.TypeProtocol.__name__">
+<span class="sig-name descname"><span class="pre">__name__</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#TypeProtocol.__name__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.TypeProtocol.__name__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.typing.naming.TypeProtocol.__qualname__">
+<span class="sig-name descname"><span class="pre">__qualname__</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#TypeProtocol.__qualname__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.TypeProtocol.__qualname__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.are_types_compatible">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">are_types_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#are_types_compatible"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.are_types_compatible" title="Link to this definition"></a></dt>
+<dd><p>Check if two types are compatible.</p>
+<p>Determines if a value of source_type can be used where target_type is expected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_type</strong> (<em>Any</em>) – The source type to check</p></li>
+<li><p><strong>target_type</strong> (<em>Any</em>) – The target type to check against</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the types are compatible, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">are_types_compatible</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">are_types_compatible</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">are_types_compatible</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Compatibility checks consider subclass relationships and type hierarchies.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.describe_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">describe_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#describe_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.describe_type" title="Link to this definition"></a></dt>
+<dd><p>Get a detailed description of a type.</p>
+<p>Returns a dictionary with comprehensive type information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to describe</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing type details</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">details</span> <span class="o">=</span> <span class="n">describe_type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="go">&#39;int&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span>
+<span class="go">&#39;primitive&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Provides deep type structure analysis for complex inspections.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.format_type_annotation">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">format_type_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">for_docstring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#format_type_annotation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.format_type_annotation" title="Link to this definition"></a></dt>
+<dd><p>Format a type for use in annotations or docstrings.</p>
+<p>Generates properly formatted type strings for different contexts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typ</strong> (<em>Any</em>) – The type to format</p></li>
+<li><p><strong>for_docstring</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Whether the type is being formatted for a docstring</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The formatted type annotation</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format_type_annotation</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">&#39;List[int]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format_type_annotation</span><span class="p">(</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">for_docstring</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;str or None&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When formatting for docstrings, uses more human-readable forms.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.get_fully_qualified_name">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">get_fully_qualified_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#get_fully_qualified_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.get_fully_qualified_name" title="Link to this definition"></a></dt>
+<dd><p>Get the fully qualified name of a type.</p>
+<p>Returns the complete module path and type name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to get the name for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The fully qualified name of the type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">&#39;builtins.int&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">)</span>
+<span class="go">&#39;collections.defaultdict&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Useful for serialization and type lookup across module boundaries.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.get_generic_args">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">get_generic_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#get_generic_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.get_generic_args" title="Link to this definition"></a></dt>
+<dd><p>Get the type arguments of a generic type.</p>
+<p>For generic types like List[int], returns the inner types (int).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The generic type to inspect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The type arguments of the generic type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[Any, …]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_generic_args</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">(int,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_generic_args</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
+<span class="go">(str, int)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_generic_args</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Returns an empty tuple for non-generic types.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.get_type_category">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">get_type_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#get_type_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.get_type_category" title="Link to this definition"></a></dt>
+<dd><p>Get the category of a type.</p>
+<p>Categorizes a type into one of: primitive, container, composite, callable, or special.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to categorize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The category of the type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TypeCategoryLiteral</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">&#39;primitive&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="go">&#39;container&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span>
+<span class="go">&#39;composite&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_category</span><span class="p">(</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">str</span><span class="p">])</span>
+<span class="go">&#39;callable&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Categories help determine how types should be processed or displayed.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.get_type_name">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">get_type_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#get_type_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.get_type_name" title="Link to this definition"></a></dt>
+<dd><p>Get the name of a type.</p>
+<p>For simple types, returns the type name.
+For generic types, includes the parameter types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to get the name for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The name of the type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">&#39;int&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_type_name</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">&#39;List[int]&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.is_container_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">is_container_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#is_container_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.is_container_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a type is a container.</p>
+<p>Container types include list, dict, set, tuple, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><em>type</em></a><em>, </em><em>Any</em><em>]</em>) – The type to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type is a container, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.is_generic_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">is_generic_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#is_generic_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.is_generic_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a type is generic.</p>
+<p>Generic types include List[T], Dict[K, V], etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type is generic, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_generic_type</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_generic_type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.is_optional_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">is_optional_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#is_optional_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.is_optional_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a type is Optional[T].</p>
+<p>Detects if a type is Union[T, None] or Optional[T].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type is Optional, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_optional_type</span><span class="p">(</span><span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_optional_type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_optional_type</span><span class="p">(</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional[T] is equivalent to Union[T, None].</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.is_primitive_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">is_primitive_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#is_primitive_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.is_primitive_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a type is primitive.</p>
+<p>Primitive types are basic types like int, str, float, bool, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><em>type</em></a><em>, </em><em>Any</em><em>]</em>) – The type to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type is primitive, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.naming.normalize_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">normalize_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#normalize_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.normalize_type" title="Link to this definition"></a></dt>
+<dd><p>Normalize a type representation.</p>
+<p>Converts type aliases to their canonical form for consistent representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Any</em>) – The type to normalize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The normalized type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">normalize_type</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>  <span class="c1"># Python 3.9+ syntax</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Normalization ensures consistent type representations across the system.</p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.CALLABLE_CATEGORY">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">CALLABLE_CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TypeCategoryLiteral</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'callable'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#CALLABLE_CATEGORY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.CALLABLE_CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.COMPOSITE_CATEGORY">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">COMPOSITE_CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TypeCategoryLiteral</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'composite'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#COMPOSITE_CATEGORY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.COMPOSITE_CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.CONTAINER_CATEGORY">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">CONTAINER_CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TypeCategoryLiteral</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'container'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#CONTAINER_CATEGORY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.CONTAINER_CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.PRIMITIVE_CATEGORY">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">PRIMITIVE_CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TypeCategoryLiteral</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'primitive'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#PRIMITIVE_CATEGORY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.PRIMITIVE_CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.SPECIAL_CATEGORY">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">SPECIAL_CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TypeCategoryLiteral</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'special'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#SPECIAL_CATEGORY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.SPECIAL_CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.T">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">T</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#T"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.T" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.TypeCategoryLiteral">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">TypeCategoryLiteral</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#TypeCategoryLiteral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.TypeCategoryLiteral" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.U">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">U</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#U"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.U" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.V">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">V</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#V"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.V" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming._NONE_TYPE">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">_NONE_TYPE</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#_NONE_TYPE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming._NONE_TYPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.naming.version">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.naming.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Final</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/naming.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.naming.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

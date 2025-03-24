@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.forge.type_forge &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../forge.html">type_forge.forge</a></li>
+      <li class="breadcrumb-item active">type_forge.forge.type_forge</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for type_forge.forge.type_forge</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Type Forge Core Implementation Module</span>
+
+<span class="sd">This module contains the foundational functionality for the type forging process,</span>
+<span class="sd">implementing dynamic type creation, validation, and transformation with recursive</span>
+<span class="sd">precision and structural integrity.</span>
+
+<span class="sd">The TypeForge class provides a unified interface for complex type operations:</span>
+<span class="sd">- Dynamic type registration and instantiation</span>
+<span class="sd">- Strict type validation with detailed reporting</span>
+<span class="sd">- Recursive schema validation for nested structures</span>
+<span class="sd">- Type conversion with safety guarantees</span>
+
+<span class="sd">All operations maintain full type safety through compile-time checks and</span>
+<span class="sd">runtime validation, ensuring system-wide integrity.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Standard library imports</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="c1"># Local application imports</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeForgeBase</span><span class="p">,</span> <span class="n">ValidationResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeCreationError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..typing.definitions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ConversionResult</span><span class="p">,</span>
+    <span class="n">ErrorMessage</span><span class="p">,</span>
+    <span class="n">FieldDefinitions</span><span class="p">,</span>
+    <span class="n">R</span><span class="p">,</span>
+    <span class="n">SchemaValueT</span><span class="p">,</span>
+    <span class="n">T</span><span class="p">,</span>
+    <span class="n">TInstance</span><span class="p">,</span>
+    <span class="n">TypeName</span><span class="p">,</span>
+    <span class="n">TypeRegistry</span><span class="p">,</span>
+    <span class="n">U</span><span class="p">,</span>
+    <span class="n">ValidationPath</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..validators.factory</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidatorFactory</span>
+
+<span class="c1"># Author and version information</span>
+<div class="viewcode-block" id="__author__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.__author__">[docs]</a>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;TypeForge Team&quot;</span></div>
+
+<div class="viewcode-block" id="__version__">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.__version__">[docs]</a>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="TypeForge">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TypeForge</span><span class="p">(</span><span class="n">TypeForgeBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Core class for dynamic type creation, validation, and transformation.</span>
+
+<span class="sd">    This class combines type validation, conversion, and dynamic type creation</span>
+<span class="sd">    into a unified interface with recursive precision. It serves as the primary</span>
+<span class="sd">    entry point for the type_forge module, providing a coherent API for all</span>
+<span class="sd">    type-related operations.</span>
+
+<span class="sd">    The system implements a recursive type validation system that can handle</span>
+<span class="sd">    arbitrarily complex nested structures while maintaining full type safety</span>
+<span class="sd">    and providing detailed error reporting.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        types: Registry mapping type names to their class objects.</span>
+<span class="sd">        validators: Collection of validators for the validation pipeline.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">        &gt;&gt;&gt; class Person: pass</span>
+<span class="sd">        &gt;&gt;&gt; forge.register_type(&quot;Person&quot;, Person)</span>
+<span class="sd">        &gt;&gt;&gt; person = forge.create_instance(&quot;Person&quot;, name=&quot;Alice&quot;, age=30)</span>
+<span class="sd">        &gt;&gt;&gt; forge.is_instance(person, &quot;Person&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new TypeForge instance with empty registries.</span>
+
+<span class="sd">        Creates clean registries for types and validators that will be populated</span>
+<span class="sd">        through the register_type and add_validator methods, establishing</span>
+<span class="sd">        the foundation for dynamic type operations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<div class="viewcode-block" id="TypeForge.types">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.types">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">:</span> <span class="n">TypeRegistry</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+
+<div class="viewcode-block" id="TypeForge.register_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.register_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">TypeName</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register a type in the forge&#39;s type registry.</span>
+
+<span class="sd">        Associates a name with a type class in the registry, making it available</span>
+<span class="sd">        for dynamic instantiation and validation operations. Prevents duplicate</span>
+<span class="sd">        registrations to maintain registry integrity.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Identifier for the type in the registry.</span>
+<span class="sd">                Must be unique within this forge instance.</span>
+<span class="sd">            cls: Class object to associate with the name.</span>
+<span class="sd">                Will be stored for later instantiation and validation.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If a type with the given name is already registered.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">            &gt;&gt;&gt; class Person: pass</span>
+<span class="sd">            &gt;&gt;&gt; forge.register_type(&quot;Person&quot;, Person)</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Registered types become accessible through all forge operations</span>
+<span class="sd">            including :meth:`~TypeForge.create_instance` and :meth:`~TypeForge.is_instance`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is already registered.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span></div>
+
+
+    <span class="c1"># Fix for overlapping overloads - use a generic for the first one</span>
+    <span class="nd">@overload</span>
+<div class="viewcode-block" id="TypeForge.create_instance">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.create_instance">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_instance</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">TypeName</span><span class="p">,</span> <span class="n">cls_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">TInstance</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">object</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TInstance</span><span class="p">:</span> <span class="o">...</span></div>
+
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_instance</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">TypeName</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">object</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span> <span class="o">...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_instance</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">TypeName</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">object</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an instance of a registered type with the provided arguments.</span>
+
+<span class="sd">        Dynamically instantiates an object of the type associated with the given</span>
+<span class="sd">        name, passing the provided arguments to its constructor. Provides a type-safe</span>
+<span class="sd">        way to create objects from registered types.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Name of the registered type to instantiate.</span>
+<span class="sd">                Must be previously registered with :meth:`~TypeForge.register_type`.</span>
+<span class="sd">            cls_type: Optional first argument for type inference in the first overload.</span>
+<span class="sd">                When provided as the first argument, enables return type to be properly inferred.</span>
+<span class="sd">            *args: Positional arguments to pass to the constructor.</span>
+<span class="sd">                Will be passed directly to the type&#39;s __init__ method.</span>
+<span class="sd">            **kwargs: Keyword arguments to pass to the constructor.</span>
+<span class="sd">                Will be passed directly to the type&#39;s __init__ method.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An instance of the registered type. If cls_type is provided as the first</span>
+<span class="sd">            argument, the return type will be inferred as that type.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the requested type is not registered.</span>
+<span class="sd">            TypeError: If constructor arguments are incompatible with the type.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; class Person:</span>
+<span class="sd">            ...     def __init__(self, name: str, age: int):</span>
+<span class="sd">            ...         self.name = name</span>
+<span class="sd">            ...         self.age = age</span>
+<span class="sd">            &gt;&gt;&gt; forge.register_type(&quot;Person&quot;, Person)</span>
+<span class="sd">            &gt;&gt;&gt; person = forge.create_instance(&quot;Person&quot;, name=&quot;Alice&quot;, age=30)</span>
+<span class="sd">            &gt;&gt;&gt; person.name</span>
+<span class="sd">            &#39;Alice&#39;</span>
+
+<span class="sd">            &gt;&gt;&gt; # With type inference</span>
+<span class="sd">            &gt;&gt;&gt; from typing import TypeVar</span>
+<span class="sd">            &gt;&gt;&gt; T = TypeVar(&#39;T&#39;, bound=Person)</span>
+<span class="sd">            &gt;&gt;&gt; person_typed = forge.create_instance(&quot;Person&quot;, Person, name=&quot;Bob&quot;, age=25)</span>
+<span class="sd">            &gt;&gt;&gt; # person_typed will have proper type inference as Person</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is not registered.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Extract cls_type if it&#39;s the first arg and a type</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="c1"># We have a cls_type as first arg, use remaining args</span>
+            <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># No cls_type, use all args</span>
+            <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TypeForge.validate">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate a value using registered validators.</span>
+
+<span class="sd">        Implements the base class validate method to check if a value</span>
+<span class="sd">        passes validation through all registered validators. This method</span>
+<span class="sd">        follows the Liskov Substitution Principle by maintaining the exact</span>
+<span class="sd">        same signature as the base class method.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Object to validate using the registered validators.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the value passes all validators, False otherwise.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">            &gt;&gt;&gt; # Add validators to the forge...</span>
+<span class="sd">            &gt;&gt;&gt; forge.validate(42)</span>
+<span class="sd">            True</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :meth:`~TypeForge.is_instance`: For checking if a value is an instance of a registered type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Standard implementation calling the base class method</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TypeForge.is_instance">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.is_instance">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">type_name</span><span class="p">:</span> <span class="n">TypeName</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Verify that an object is an instance of a registered type.</span>
+
+<span class="sd">        Performs runtime type checking against a registered type, providing</span>
+<span class="sd">        a simple boolean result indicating whether the instance matches the</span>
+<span class="sd">        expected type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Object to validate.</span>
+<span class="sd">                Will be checked using isinstance() against the registered type.</span>
+<span class="sd">            type_name: Name of the registered type to validate against.</span>
+<span class="sd">                Must be previously registered with :meth:`~TypeForge.register_type`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the instance matches the registered type, False otherwise.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the requested type is not registered.</span>
+
+<div class="viewcode-block" id="TypeForge.validators">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validators">[docs]</a>
+<span class="sd">        Examples:</span></div>
+
+<span class="sd">            &gt;&gt;&gt; class Person: pass</span>
+<div class="viewcode-block" id="TypeForge.add_validator">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.add_validator">[docs]</a>
+<span class="sd">            &gt;&gt;&gt; forge.register_type(&quot;Person&quot;, Person)</span>
+<span class="sd">            &gt;&gt;&gt; person = Person()</span>
+<span class="sd">            &gt;&gt;&gt; forge.is_instance(person, &quot;Person&quot;)</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; forge.is_instance(&quot;not a person&quot;, &quot;Person&quot;)</span>
+<span class="sd">            False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">type_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type &#39;</span><span class="si">{</span><span class="n">type_name</span><span class="si">}</span><span class="s2">&#39; is not registered.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">[</span><span class="n">type_name</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="TypeForge.create_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.create_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">TypeName</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="n">FieldDefinitions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dynamically create a new type with the specified fields.</span>
+
+<span class="sd">        Constructs a new type at runtime with the provided field definitions,</span>
+<span class="sd">        registers it in the type registry, and returns the created type object.</span></div>
+
+<span class="sd">        Enables programmatic type creation with structural validation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Name for the new type.</span>
+<span class="sd">                Must be unique within this forge instance.</span>
+<span class="sd">            fields: Dictionary mapping field names to their types.</span>
+<span class="sd">                These will become attributes of the created type.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Type[object]: The newly created type object, registered in the forge.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeCreationError: If type creation fails for any reason.</span>
+<span class="sd">            ValueError: If a type with the given name is already registered.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; Person = forge.create_type(&quot;Person&quot;, {</span>
+<span class="sd">            ...     &quot;name&quot;: str,</span>
+<span class="sd">            ...     &quot;age&quot;: int</span>
+<span class="sd">            ... })</span>
+<span class="sd">            &gt;&gt;&gt; person = Person()</span>
+<span class="sd">            &gt;&gt;&gt; person.name = &quot;Alice&quot;</span>
+<span class="sd">            &gt;&gt;&gt; person.age = 30</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is already registered.&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Create a new type with the specified fields as class attributes</span>
+            <span class="n">new_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">fields</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">new_type</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">new_type</span>
+<div class="viewcode-block" id="TypeForge.validate_with_detail">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validate_with_detail">[docs]</a>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TypeCreationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to create type &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="TypeForge.validate_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validate_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_type</span><span class="p">(</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">expected_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]],</span>
+        <span class="n">path</span><span class="p">:</span> <span class="n">ValidationPath</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+        <span class="n">convert</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">R</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate that a value matches the expected type with detailed reporting.</span>
+
+<span class="sd">        Performs deep validation of a value against expected types, optionally</span>
+<span class="sd">        attempting type conversion. Provides detailed validation results including</span>
+<span class="sd">        success status and any validation violations.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to validate against the expected type.</span>
+<span class="sd">                Can be any object including None.</span>
+<span class="sd">            expected_type: Single type or sequence of types to check against.</span>
+<span class="sd">                For sequences, the validation succeeds if the value matches any of the types.</span>
+<span class="sd">            path: JSON path-like string for contextual error reporting.</span>
+<span class="sd">                Defaults to &quot;$&quot;, representing the root of the validation tree.</span>
+<span class="sd">            convert: Whether to attempt type conversion if validation fails.</span>
+<span class="sd">                Defaults to False. When True, will attempt to convert value to expected_type.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult[R]: Result object containing:</span></div>
+
+<span class="sd">                - valid (bool): Whether validation succeeded</span>
+<span class="sd">                - value (R, optional): The validated (and possibly converted) value</span>
+<span class="sd">                - violations (List[ValidationViolation], optional): Details on validation failures</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; # Basic validation</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_type(42, int)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; # Type conversion</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_type(&quot;42&quot;, int, convert=True)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.value</span>
+<span class="sd">            42</span>
+
+<span class="sd">            &gt;&gt;&gt; # Multiple allowed types</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_type(42, (str, int))</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Using a more explicit approach to handle the generic type R properly</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expected_type</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="c1"># Single type case</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span>
+                <span class="n">ValidationResult</span><span class="p">[</span><span class="n">R</span><span class="p">],</span>
+                <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Sequence of types case with proper typing</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span>
+                <span class="n">ValidationResult</span><span class="p">[</span><span class="n">R</span><span class="p">],</span>
+                <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span><span class="p">),</span>
+            <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="TypeForge.validate_dict_schema">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validate_dict_schema">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_dict_schema</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">schema</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SchemaValueT</span><span class="p">],</span>
+        <span class="n">convert</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">require_all_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate that a dictionary conforms to a schema with field type checking.</span>
+
+<span class="sd">        Performs structural validation of a dictionary against a schema definition,</span>
+<span class="sd">        ensuring field types match expectations and optionally converting values</span>
+<span class="sd">        or requiring all schema keys to be present.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: Dictionary-like object to validate.</span>
+<span class="sd">                Expected to be a dict or dict-like with key access; validated at runtime.</span>
+<span class="sd">            schema: Schema defining expected types for dictionary keys.</span>
+<span class="sd">                A dictionary mapping key names to their expected types.</span>
+<span class="sd">            convert: Whether to attempt type conversion for mismatched types.</span>
+<span class="sd">                Defaults to False. When True, will attempt to convert values to match schema types.</span>
+<span class="sd">            require_all_keys: Whether all schema keys must be present in the data.</span>
+<span class="sd">                Defaults to True. When False, missing keys will not cause validation failure.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult[Dict[str, object]]: Result object containing:</span>
+<span class="sd">                - valid (bool): Whether validation succeeded</span>
+<span class="sd">                - value (Dict[str, object], optional): The validated (and possibly converted) dictionary</span>
+<span class="sd">                - violations (List[ValidationViolation], optional): Details on validation failures</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; person_schema = {&quot;name&quot;: str, &quot;age&quot;: int}</span>
+<span class="sd">            &gt;&gt;&gt; # Valid data</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_dict_schema(</span>
+<span class="sd">            ...     {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30},</span>
+<span class="sd">            ...     person_schema</span>
+<span class="sd">            ... )</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; # Type conversion</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_dict_schema(</span>
+<span class="sd">            ...     {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: &quot;30&quot;},</span>
+<span class="sd">            ...     person_schema,</span>
+<span class="sd">            ...     convert=True</span>
+<span class="sd">            ... )</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.value</span>
+<span class="sd">            {&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 30}</span>
+
+<span class="sd">            &gt;&gt;&gt; # Missing key with require_all_keys=True</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_dict_schema(</span>
+<span class="sd">            ...     {&quot;name&quot;: &quot;Alice&quot;},</span>
+<span class="sd">            ...     person_schema,</span>
+<span class="sd">            ...     require_all_keys=True</span>
+<span class="sd">            ... )</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            False</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :meth:`~TypeForge.validate_type`: For validating individual values.</span>
+<span class="sd">            :meth:`~TypeForge.validate_recursive`: For validating deeply nested structures.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Explicit cast to ensure type safety with the factory method</span>
+        <span class="k">return</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_dict</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span>
+            <span class="n">schema</span><span class="p">,</span>
+            <span class="n">path</span><span class="o">=</span><span class="s2">&quot;$&quot;</span><span class="p">,</span>
+            <span class="n">convert</span><span class="o">=</span><span class="n">convert</span><span class="p">,</span>
+            <span class="n">require_all_keys</span><span class="o">=</span><span class="n">require_all_keys</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="TypeForge.validate_recursive">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validate_recursive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_recursive</span><span class="p">(</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">schema</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+        <span class="n">convert</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="nb">object</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Recursively validate a value against a schema of arbitrary complexity.</span>
+
+<span class="sd">        Performs deep structural validation of nested data structures against</span>
+<span class="sd">        complex schema definitions, supporting arbitrary nesting depth with</span>
+<span class="sd">        precise path tracking for error reporting.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to validate against the schema.</span>
+<span class="sd">                Can be any object, including nested structures like dicts and lists.</span>
+<span class="sd">            schema: Schema definition of arbitrary complexity.</span>
+<span class="sd">                Can include nested dictionaries, lists of types, and primitive types.</span>
+<span class="sd">                Must be one of: Type, Tuple[Type, ...], Dict[str, SchemaValueT], List[SchemaTypeT]</span>
+<span class="sd">            path: JSON path-like string for contextual error reporting.</span>
+<span class="sd">                Defaults to &quot;$&quot;, representing the root of the validation tree.</span>
+<span class="sd">            convert: Whether to attempt type conversion for mismatched types.</span>
+<span class="sd">                Defaults to False. When True, will attempt to convert values to match schema types.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult[object]: Result object containing:</span>
+<span class="sd">                - valid (bool): Whether validation succeeded</span>
+<span class="sd">                - converted_value (object, optional): The validated (and possibly converted) structure</span>
+<span class="sd">                - violations (List[TypeViolation], optional): Details on validation failures</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; # Nested schema validation</span>
+<span class="sd">            &gt;&gt;&gt; nested_schema = {</span>
+<span class="sd">            ...     &quot;user&quot;: {</span>
+<span class="sd">            ...         &quot;profile&quot;: {&quot;name&quot;: str, &quot;age&quot;: int},</span>
+<span class="sd">            ...         &quot;settings&quot;: {&quot;theme&quot;: str, &quot;notifications&quot;: bool}</span>
+<span class="sd">            ...     }</span>
+<span class="sd">            ... }</span>
+<span class="sd">            &gt;&gt;&gt; complex_data = {</span>
+<span class="sd">            ...     &quot;user&quot;: {</span>
+<span class="sd">            ...         &quot;profile&quot;: {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30},</span>
+<span class="sd">            ...         &quot;settings&quot;: {&quot;theme&quot;: &quot;dark&quot;, &quot;notifications&quot;: True}</span>
+<span class="sd">            ...     }</span>
+<span class="sd">            ... }</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_recursive(complex_data, nested_schema)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; # Invalid nested data</span>
+<span class="sd">            &gt;&gt;&gt; invalid_data = {</span>
+<span class="sd">            ...     &quot;user&quot;: {</span>
+<span class="sd">            ...         &quot;profile&quot;: {&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: &quot;thirty&quot;},  # Age should be int</span>
+<span class="sd">            ...         &quot;settings&quot;: {&quot;theme&quot;: &quot;light&quot;}  # Missing notifications</span>
+<span class="sd">            ...     }</span>
+<span class="sd">            ... }</span>
+<span class="sd">            &gt;&gt;&gt; result = TypeForge.validate_recursive(invalid_data, nested_schema)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            False</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :meth:`~TypeForge.validate_dict_schema`: For validating dictionary-specific schemas.</span>
+<span class="sd">            :class:`SchemaTypeT`: For the schema type definition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Precise typing ensures we&#39;re passing the correct schema type to the validator</span>
+        <span class="k">return</span> <span class="n">ValidatorFactory</span><span class="o">.</span><span class="n">validate_recursive</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TypeForge.validate_and_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.validate_and_convert">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_and_convert</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="n">ValidationPath</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="n">R</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate and convert a value to the target type in a single operation.</span>
+
+<span class="sd">        Combines validation and conversion into a unified operation, ensuring</span>
+<span class="sd">        type safety while attempting to transform the value into the expected type.</span>
+<span class="sd">        Provides detailed results including conversion status and violations.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to validate and convert.</span>
+<span class="sd">                Can be any object that might be convertible to target_type.</span>
+<span class="sd">            target_type: Type to convert the value to.</span>
+<span class="sd">                Must be a valid Python type that supports conversion from value.</span>
+<span class="sd">            path: JSON path-like string for contextual error reporting.</span>
+<span class="sd">                Defaults to &quot;$&quot;, representing the root of the validation tree.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationResult[R]: Result object containing:</span>
+<span class="sd">                - valid (bool): Whether validation and conversion succeeded</span>
+<span class="sd">                - value (R, optional): The converted value with type guarantee</span>
+<span class="sd">                - violations (List[ValidationViolation], optional): Details on conversion failures</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; # String to integer conversion</span>
+<span class="sd">            &gt;&gt;&gt; result = forge.validate_and_convert(&quot;42&quot;, int)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.value</span>
+<span class="sd">            42</span>
+
+<span class="sd">            &gt;&gt;&gt; # Failed conversion</span>
+<span class="sd">            &gt;&gt;&gt; result = forge.validate_and_convert(&quot;not_an_int&quot;, int)</span>
+<span class="sd">            &gt;&gt;&gt; result.valid</span>
+<span class="sd">            False</span>
+<span class="sd">            &gt;&gt;&gt; str(result.violations[0])  # doctest: +SKIP</span>
+<span class="sd">            &quot;At path &#39;$&#39;: Expected int, found &#39;str&#39; (wrong_type)&quot;</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :meth:`~TypeForge.validate_type`: The underlying method used for validation with conversion.</span>
+<span class="sd">            :class:`~..core.base.ValidationResult`: For the structure of the returned result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TypeForge.check_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.check_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_type</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">expected_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">U</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">]],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a simple type check without detailed reporting.</span>
+
+<span class="sd">        Provides a simplified interface for type checking when only a boolean</span>
+<span class="sd">        result is needed, without the detailed validation reporting of the</span>
+<span class="sd">        validate_type method.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to check against the expected type.</span>
+<span class="sd">                Can be any object including None.</span>
+<span class="sd">            expected_type: Type or tuple of types to check against.</span>
+<span class="sd">                Validation succeeds if value matches any of the specified types.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if value matches the expected type, False otherwise.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; # Simple type check</span>
+<span class="sd">            &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">            &gt;&gt;&gt; forge.check_type(&quot;hello&quot;, str)</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; # Multiple allowed types</span>
+<span class="sd">            &gt;&gt;&gt; forge.check_type(42, (str, int))</span>
+<span class="sd">            True</span>
+
+<span class="sd">            &gt;&gt;&gt; # Failed type check</span>
+<span class="sd">            &gt;&gt;&gt; forge.check_type(42, str)</span>
+<span class="sd">            False</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :meth:`~TypeForge.validate_type`: For detailed validation results with violation information.</span>
+<span class="sd">            :meth:`~TypeForge.assert_type`: For raising exceptions when type validation fails.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">)</span><span class="o">.</span><span class="n">valid</span></div>
+
+
+    <span class="nd">@overload</span>
+<div class="viewcode-block" id="TypeForge.assert_type">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.assert_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">assert_type</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">expected_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">],</span>
+        <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorMessage</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span> <span class="o">...</span></div>
+
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">assert_type</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">expected_type</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">],</span>
+        <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorMessage</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span> <span class="o">...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">assert_type</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+        <span class="n">expected_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">]],</span>
+        <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorMessage</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Assert that a value has the expected type, raising TypeError if not.</span>
+
+<span class="sd">        Performs strict type checking that raises an exception if the value</span>
+<span class="sd">        doesn&#39;t match the expected type, enabling fail-fast behavior for</span>
+<span class="sd">        critical type safety requirements.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Value to check against the expected type.</span>
+<span class="sd">                Can be any object including None.</span>
+<span class="sd">            expected_type: Type or tuple of types to check against.</span>
+<span class="sd">                Validation succeeds if value matches any of the specified types.</span>
+<span class="sd">            message: Optional custom error message for the exception.</span>
+<span class="sd">                Defaults to None. If None, a detailed error message is generated.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The original value with type guarantee if validation succeeds.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value doesn&#39;t match the expected type.</span>
+<span class="sd">                Contains either the custom message or detailed validation errors.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; # Successful type assertion</span>
+<span class="sd">            &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">            &gt;&gt;&gt; age = forge.assert_type(42, int)</span>
+<span class="sd">            &gt;&gt;&gt; age</span>
+
+<span class="sd">            &gt;&gt;&gt; # Failed type assertion with default error</span>
+<span class="sd">            &gt;&gt;&gt; try:</span>
+<span class="sd">            ...     forge.assert_type(&quot;hello&quot;, int)</span>
+<span class="sd">            ... except TypeError as e:</span>
+<span class="sd">            ...     &quot;Type assertion failed&quot; in str(e)</span>
+<span class="sd">            True</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :meth:`~TypeForge.check_type`: For boolean type checking without exceptions.</span>
+<span class="sd">            :meth:`~TypeForge.validate_type`: For detailed validation results without exceptions.</span>
+<span class="sd">            :class:`~..core.base.ValidationViolation`: For the structure of validation errors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
+            <span class="n">error_msg</span> <span class="o">=</span> <span class="n">message</span> <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">error_msg</span><span class="p">:</span>
+                <span class="n">violations</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">violations</span><span class="p">)</span>
+                <span class="n">error_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Type assertion failed: </span><span class="si">{</span><span class="n">violations</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+        <span class="c1"># We can safely cast here as we&#39;ve verified the type</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="c1"># Type conversion utilities for common types</span>
+
+<div class="viewcode-block" id="TypeForge.convert_value">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.convert_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">R</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert a value to the target type with detailed error tracking.</span>
+
+<span class="sd">        Attempts to convert the given value to the specified target type,</span>
+<span class="sd">        providing detailed information about success or failure.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to convert.</span>
+<span class="sd">            target_type: The type to convert the value to.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A ConversionResult containing success status, converted value (if successful),</span>
+<span class="sd">            and error message (if failed).</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">            &gt;&gt;&gt; result = forge.convert_value(&quot;42&quot;, int)</span>
+<span class="sd">            &gt;&gt;&gt; result.success</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; result.value</span>
+<span class="sd">            42</span>
+
+<span class="sd">            &gt;&gt;&gt; result = forge.convert_value(&quot;not_a_number&quot;, int)</span>
+<span class="sd">            &gt;&gt;&gt; result.success</span>
+<span class="sd">            False</span>
+<span class="sd">            &gt;&gt;&gt; result.error is not None</span>
+<span class="sd">            True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Import here to avoid circular imports</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..typing.conversion</span><span class="w"> </span><span class="kn">import</span> <span class="n">try_convert</span>
+
+        <span class="k">return</span> <span class="n">try_convert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TypeForge.safe_convert">
+<a class="viewcode-back" href="../../../autoapi/type_forge/forge/type_forge/index.html#type_forge.forge.TypeForge.safe_convert">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">safe_convert</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">],</span> <span class="n">default</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">R</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">R</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Safely convert a value to the target type, returning default on failure.</span>
+
+<span class="sd">        Attempts to convert the value to the specified type, but returns</span>
+<span class="sd">        a default value if conversion fails instead of raising an exception.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to convert.</span>
+<span class="sd">            target_type: The type to convert the value to.</span>
+<span class="sd">            default: The default value to return if conversion fails.</span>
+<span class="sd">                Defaults to None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The converted value or the default value if conversion fails.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; forge = TypeForge()</span>
+<span class="sd">            &gt;&gt;&gt; forge.safe_convert(&quot;42&quot;, int)</span>
+<span class="sd">            42</span>
+<span class="sd">            &gt;&gt;&gt; forge.safe_convert(&quot;not_a_number&quot;, int, 0)</span>
+<span class="sd">            0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_value</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="n">default</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

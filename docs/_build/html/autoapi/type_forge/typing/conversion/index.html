@@ -1,0 +1,989 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.conversion" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/conversion/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="Type Conversion for the Type Forge system. This module provides robust type conversion utilities with comprehensive error handling, focusing on safety, composability, and explicit failure modes. Th..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_conversion_index_51b6c2aa.png" />
+<meta property="og:image:alt" content="Type Conversion for the Type Forge system. This module provides robust type conversion utilities with comprehensive error handling, focusing on safety, compo..." />
+<meta name="description" content="Type Conversion for the Type Forge system. This module provides robust type conversion utilities with comprehensive error handling, focusing on safety, composability, and explicit failure modes. Th..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.conversion &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.conversion</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult"><code class="docutils literal notranslate"><span class="pre">ConversionResult</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.__bool__"><code class="docutils literal notranslate"><span class="pre">ConversionResult.__bool__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.__repr__"><code class="docutils literal notranslate"><span class="pre">ConversionResult.__repr__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.__str__"><code class="docutils literal notranslate"><span class="pre">ConversionResult.__str__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.create_success"><code class="docutils literal notranslate"><span class="pre">ConversionResult.create_success()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.failure"><code class="docutils literal notranslate"><span class="pre">ConversionResult.failure()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.from_try"><code class="docutils literal notranslate"><span class="pre">ConversionResult.from_try()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.map"><code class="docutils literal notranslate"><span class="pre">ConversionResult.map()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.or_else"><code class="docutils literal notranslate"><span class="pre">ConversionResult.or_else()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.or_else_get"><code class="docutils literal notranslate"><span class="pre">ConversionResult.or_else_get()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.or_raise"><code class="docutils literal notranslate"><span class="pre">ConversionResult.or_raise()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.recover"><code class="docutils literal notranslate"><span class="pre">ConversionResult.recover()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.then"><code class="docutils literal notranslate"><span class="pre">ConversionResult.then()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.error"><code class="docutils literal notranslate"><span class="pre">ConversionResult.error</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.success"><code class="docutils literal notranslate"><span class="pre">ConversionResult.success</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult.value"><code class="docutils literal notranslate"><span class="pre">ConversionResult.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.coerce_to_type"><code class="docutils literal notranslate"><span class="pre">coerce_to_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.convert_with_fallback"><code class="docutils literal notranslate"><span class="pre">convert_with_fallback()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.register_converter"><code class="docutils literal notranslate"><span class="pre">register_converter()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.safe_bool_convert"><code class="docutils literal notranslate"><span class="pre">safe_bool_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.safe_float_convert"><code class="docutils literal notranslate"><span class="pre">safe_float_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.safe_int_convert"><code class="docutils literal notranslate"><span class="pre">safe_int_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.safe_str_convert"><code class="docutils literal notranslate"><span class="pre">safe_str_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.try_convert"><code class="docutils literal notranslate"><span class="pre">try_convert()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToBool"><code class="docutils literal notranslate"><span class="pre">ConvertibleToBool</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToFloat"><code class="docutils literal notranslate"><span class="pre">ConvertibleToFloat</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToInt"><code class="docutils literal notranslate"><span class="pre">ConvertibleToInt</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToStr"><code class="docutils literal notranslate"><span class="pre">ConvertibleToStr</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion._TYPE_CONVERTERS"><code class="docutils literal notranslate"><span class="pre">_TYPE_CONVERTERS</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.conversion.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.conversion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/conversion/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.conversion">
+<span id="type-forge-typing-conversion"></span><h1>type_forge.typing.conversion<a class="headerlink" href="#module-type_forge.typing.conversion" title="Link to this heading"></a></h1>
+<p>Type Conversion for the Type Forge system.</p>
+<p>This module provides robust type conversion utilities with comprehensive error handling,
+focusing on safety, composability, and explicit failure modes. The core components
+include the ConversionResult monad for chainable operations and specialized conversion
+functions for common Python types.</p>
+<p>All functions guarantee exception safety through explicit error handling patterns.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToBool" title="type_forge.typing.conversion.ConvertibleToBool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvertibleToBool</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToFloat" title="type_forge.typing.conversion.ConvertibleToFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvertibleToFloat</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToInt" title="type_forge.typing.conversion.ConvertibleToInt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvertibleToInt</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.ConvertibleToStr" title="type_forge.typing.conversion.ConvertibleToStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvertibleToStr</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion._TYPE_CONVERTERS" title="type_forge.typing.conversion._TYPE_CONVERTERS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_TYPE_CONVERTERS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.version" title="type_forge.typing.conversion.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionResult</span></code></a></p></td>
+<td><p>Result of a type conversion operation with success status and error tracking.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.coerce_to_type" title="type_forge.typing.conversion.coerce_to_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coerce_to_type</span></code></a>(value, target_type)</p></td>
+<td><p>Coerce a value to a target type, raising TypeError if conversion fails.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.convert_with_fallback" title="type_forge.typing.conversion.convert_with_fallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_with_fallback</span></code></a>(value, primary_type, fallback_type)</p></td>
+<td><p>Try to convert a value to a primary type, with fallback to a secondary type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.register_converter" title="type_forge.typing.conversion.register_converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_converter</span></code></a>(target_type, converter)</p></td>
+<td><p>Register a custom type converter for use with try_convert.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.safe_bool_convert" title="type_forge.typing.conversion.safe_bool_convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_bool_convert</span></code></a>(value)</p></td>
+<td><p>Safely convert a value to bool with semantic interpretation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.safe_float_convert" title="type_forge.typing.conversion.safe_float_convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_float_convert</span></code></a>(value)</p></td>
+<td><p>Safely convert a value to float or return None if invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.safe_int_convert" title="type_forge.typing.conversion.safe_int_convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_int_convert</span></code></a>(value)</p></td>
+<td><p>Safely convert a value to int or return None if invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.conversion.safe_str_convert" title="type_forge.typing.conversion.safe_str_convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_str_convert</span></code></a>(value)</p></td>
+<td><p>Safely convert a value to string with proper handling of various types.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.conversion.try_convert" title="type_forge.typing.conversion.try_convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">try_convert</span></code></a>(value, target_type)</p></td>
+<td><p>Convert a value to a target type with detailed error reporting.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">ConversionResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">success</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../variables/index.html#type_forge.typing.variables.T" title="type_forge.typing.variables.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.variables.T</span></code></a>]</p>
+<p>Result of a type conversion operation with success status and error tracking.</p>
+<p>This class encapsulates the result of a type conversion operation,
+providing both the converted value (if successful) and error information
+when conversion fails. It allows for chainable operations and error handling.</p>
+<p class="rubric">Attributes</p>
+<p>success (bool): Whether the conversion was successful
+value (Optional[T]): The converted value, or None if conversion failed
+error (Optional[str]): Error message if conversion failed</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Invalid conversion&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">error</span><span class="p">)</span>
+<span class="go">Invalid conversion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Chain operations</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span><span class="o">.</span><span class="n">value</span>
+<span class="go">123</span>
+</pre></div>
+</div>
+<p>Initialize a ConversionResult.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>success</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Whether the conversion was successful</p></li>
+<li><p><strong>value</strong> (<em>Optional</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The converted value, None if conversion failed</p></li>
+<li><p><strong>error</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>) – Error message if conversion failed</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Conversion error&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span><span class="o">.</span><span class="n">error</span>
+<span class="go">&#39;Conversion error&#39;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.__bool__">
+<span class="sig-name descname"><span class="pre">__bool__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.__bool__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.__bool__" title="Link to this definition"></a></dt>
+<dd><p>Boolean conversion returns success status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if conversion was successful, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">ConversionResult</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">))</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Detailed string representation of the conversion result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Detailed representation including class name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="go">&#39;ConversionResult(success=True, value=42, error=None)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">))</span>
+<span class="go">&#39;ConversionResult(success=False, value=None, error=&quot;Error&quot;)&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.__str__" title="Link to this definition"></a></dt>
+<dd><p>String representation of the conversion result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Description of the conversion result</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="go">&#39;Successful conversion: 42&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Invalid input&quot;</span><span class="p">))</span>
+<span class="go">&#39;Failed conversion: Invalid input&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.create_success">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.create_success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.create_success" title="Link to this definition"></a></dt>
+<dd><p>Create a successful conversion result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>type_forge.typing.variables.T</em>) – The successfully converted value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A successful conversion result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[T]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.failure">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">failure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.failure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.failure" title="Link to this definition"></a></dt>
+<dd><p>Create a failed conversion result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Description of the error that occurred</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A failed conversion result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[T]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Invalid format&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">error</span>
+<span class="go">&#39;Invalid format&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.from_try">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_try</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.from_try"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.from_try" title="Link to this definition"></a></dt>
+<dd><p>Create a result by trying a function that may raise exceptions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em><em>[</em><em>[</em><em>]</em><em>, </em><em>type_forge.typing.variables.T</em><em>]</em>) – Function to execute that may raise an exception</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Successful result with the function’s return value,</dt><dd><p>or failed result with the exception message</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[T]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">from_try</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">from_try</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;not_a_number&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;invalid literal&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transform</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.map" title="Link to this definition"></a></dt>
+<dd><p>Transform the value if conversion was successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>transform</strong> (<em>Callable</em><em>[</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em><em>, </em><em>type_forge.typing.variables.U</em><em>]</em>) – Function to transform the value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result containing the transformed value, or the original failure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[U]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">84</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">error</span>
+<span class="go">&#39;Error&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.or_else">
+<span class="sig-name descname"><span class="pre">or_else</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.or_else"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.or_else" title="Link to this definition"></a></dt>
+<dd><p>Get the result value or a default if conversion failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>default_value</strong> (<em>type_forge.typing.variables.T</em>) – Value to return if conversion failed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The conversion result value or the default</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">or_else</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ConversionResult</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">or_else</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.or_else_get">
+<span class="sig-name descname"><span class="pre">or_else_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.or_else_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.or_else_get" title="Link to this definition"></a></dt>
+<dd><p>Get the result value or compute a default if conversion failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>provider</strong> (<em>Callable</em><em>[</em><em>[</em><em>]</em><em>, </em><em>type_forge.typing.variables.T</em><em>]</em>) – Function to compute the default value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The conversion result value or the computed default</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">or_else_get</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ConversionResult</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">or_else_get</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="mi">99</span><span class="p">)</span>
+<span class="go">99</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.or_raise">
+<span class="sig-name descname"><span class="pre">or_raise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception_factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ValueError</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.or_raise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.or_raise" title="Link to this definition"></a></dt>
+<dd><p>Get the result value or raise an exception if conversion failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exception_factory</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><em>Exception</em></a><em>]</em>) – Function to create the exception from the error message</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The conversion result value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><strong>Exception</strong></a> – If conversion failed, raises the exception created by exception_factory</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">or_raise</span><span class="p">()</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ConversionResult</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Bad value&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">or_raise</span><span class="p">()</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="go">&#39;Bad value&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.recover">
+<span class="sig-name descname"><span class="pre">recover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recovery_func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.recover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.recover" title="Link to this definition"></a></dt>
+<dd><p>Attempt to recover from a failed conversion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>recovery_func</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em><em>, </em><em>type_forge.typing.variables.T</em><em>]</em>) – Function that takes the error message and returns a recovery value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recovered result if this was a failure, or the original result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[T]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Missing value&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span><span class="o">.</span><span class="n">recover</span><span class="p">(</span><span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">success</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">success</span><span class="o">.</span><span class="n">recover</span><span class="p">(</span><span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>  <span class="c1"># Original value preserved</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.then">
+<span class="sig-name descname"><span class="pre">then</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">converter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.then"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.then" title="Link to this definition"></a></dt>
+<dd><p>Chain another conversion operation if this one succeeded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>converter</strong> (<em>Callable</em><em>[</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em><em>, </em><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult"><em>ConversionResult</em></a><em>[</em><em>U</em><em>]</em><em>]</em>) – Function to convert the value further</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the chained conversion, or the original failure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[U]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Convert string to int then to float</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">to_int</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">to_float</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">to_int</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">to_float</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Failure stops the chain</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span> <span class="o">=</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="s2">&quot;Invalid input&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failed</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">to_int</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">to_float</span><span class="p">)</span><span class="o">.</span><span class="n">error</span>
+<span class="go">&#39;Invalid input&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.error">
+<span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.error" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.success">
+<span class="sig-name descname"><span class="pre">success</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.success" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConversionResult.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type_forge.typing.variables.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConversionResult.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConversionResult.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.coerce_to_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">coerce_to_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#coerce_to_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.coerce_to_type" title="Link to this definition"></a></dt>
+<dd><p>Coerce a value to a target type, raising TypeError if conversion fails.</p>
+<p>Unlike try_convert, this function raises an exception if the value cannot
+be converted, making it suitable for validation scenarios where conversion
+failure should stop execution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to convert</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The type to convert to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value converted to the target type</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.13)"><strong>TypeError</strong></a> – If the value cannot be converted to the target type</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">coerce_to_type</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coerce_to_type</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">&#39;42&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coerce_to_type</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">coerce_to_type</span><span class="p">(</span><span class="s2">&quot;not_a_number&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion failed&quot;</span><span class="p">)</span>
+<span class="go">Conversion failed</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is more strict than convert_with_fallback, raising an exception
+rather than returning the original value on failure.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.convert_with_fallback">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">convert_with_fallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#convert_with_fallback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.convert_with_fallback" title="Link to this definition"></a></dt>
+<dd><p>Try to convert a value to a primary type, with fallback to a secondary type.</p>
+<p>Attempts to convert the value to the primary type first, and if that fails,
+tries converting to the fallback type. If both fail, returns the original value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>type_forge.typing.variables.S</em>) – The value to convert</p></li>
+<li><p><strong>primary_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The preferred target type</p></li>
+<li><p><strong>fallback_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.R</em><em>]</em>) – The fallback target type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Converted value (T or R) or original value (S) if conversion fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[T, R, S]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">convert_with_fallback</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="go">123</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convert_with_fallback</span><span class="p">(</span><span class="s2">&quot;3.14&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="go">3.14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convert_with_fallback</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="go">&#39;hello&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convert_with_fallback</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">&#39;&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function silently handles conversion errors and returns the original
+value if both conversions fail.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.register_converter">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">register_converter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">converter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#register_converter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.register_converter" title="Link to this definition"></a></dt>
+<dd><p>Register a custom type converter for use with try_convert.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The type to convert to</p></li>
+<li><p><strong>converter</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>, </em><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult"><em>ConversionResult</em></a><em>[</em><em>type_forge.typing.variables.T</em><em>]</em><em>]</em>) – Function that attempts to convert an object to target_type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomType</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">CustomType</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">custom_converter</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConversionResult</span><span class="p">[</span><span class="n">CustomType</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="n">CustomType</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<span class="gp">... </span>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">create_success</span><span class="p">(</span><span class="n">CustomType</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot convert </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> to CustomType&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">ConversionResult</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">register_converter</span><span class="p">(</span><span class="n">CustomType</span><span class="p">,</span> <span class="n">custom_converter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">try_convert</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">CustomType</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">CustomType</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.safe_bool_convert">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">safe_bool_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#safe_bool_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.safe_bool_convert" title="Link to this definition"></a></dt>
+<dd><p>Safely convert a value to bool with semantic interpretation.</p>
+<p>Performs intelligent boolean conversion with special handling for
+string values like “yes”, “no”, “true”, “false”, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Any value that might be convertible to bool.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A boolean representation of the value, with common string patterns</dt><dd><p>like “yes”/”no” properly handled.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="s2">&quot;false&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">([])</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_bool_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function interprets strings like “yes”, “true”, “1”, “y”, “t”, “on” as True,
+and “no”, “false”, “0”, “n”, “f”, “off” as False.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.safe_float_convert">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">safe_float_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#safe_float_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.safe_float_convert" title="Link to this definition"></a></dt>
+<dd><p>Safely convert a value to float or return None if invalid.</p>
+<p>Handles multiple input types including bool, int, float, and str.
+Guarantees no exceptions are raised during conversion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Any value that might be convertible to float.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A float value or None if conversion is not possible.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a>]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="go">3.14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="s2">&quot;3.14&quot;</span><span class="p">)</span>
+<span class="go">3.14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">42.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="s2">&quot;invalid&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+<span class="go">inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_float_convert</span><span class="p">(</span><span class="s2">&quot;NaN&quot;</span><span class="p">)</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function silently handles all conversion errors by returning None.
+Special values like “inf”, “-inf”, and “nan” are properly handled.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.safe_int_convert">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">safe_int_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#safe_int_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.safe_int_convert" title="Link to this definition"></a></dt>
+<dd><p>Safely convert a value to int or return None if invalid.</p>
+<p>Handles multiple input types including bool, int, float, str, and bytes.
+Guarantees no exceptions are raised during conversion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Any value that might be convertible to int.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An int value or None if conversion is not possible.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_int_convert</span><span class="p">(</span><span class="s2">&quot;0x10&quot;</span><span class="p">)</span>  <span class="c1"># Hex strings need explicit handling</span>
+<span class="go">None</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function silently handles all conversion errors by returning None.
+For hex/octal/binary strings, use the int(x, base) function directly.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.safe_str_convert">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">safe_str_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#safe_str_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.safe_str_convert" title="Link to this definition"></a></dt>
+<dd><p>Safely convert a value to string with proper handling of various types.</p>
+<p>Provides special handling for bytes (UTF-8 decoding) and Path objects.
+Never raises exceptions, always returns a valid string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – Any value to convert to string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>String representation of the value. Empty string for None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_str_convert</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="go">&#39;hello&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_str_convert</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">&#39;42&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_str_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_str_convert</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="go">&#39;hello&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_str_convert</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">))</span>
+<span class="go">&#39;/tmp&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_str_convert</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xff\xfe</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Invalid UTF-8 falls back to str(bytes)</span>
+<span class="go">&quot;b&#39;\xff\xfe&#39;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function attempts UTF-8 decoding for bytes objects and falls back
+to str(bytes) representation if decoding fails.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.try_convert">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">try_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#try_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.try_convert" title="Link to this definition"></a></dt>
+<dd><p>Convert a value to a target type with detailed error reporting.</p>
+<p>Unlike the safe_*_convert functions, this provides structured error information
+when conversion fails rather than just returning None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – The value to convert</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The type to convert to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A result object containing success status, converted value,</dt><dd><p>and error information if conversion failed</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.typing.conversion.ConversionResult" title="type_forge.typing.conversion.ConversionResult">ConversionResult</a>[T]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">try_convert</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">value</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">try_convert</span><span class="p">(</span><span class="s2">&quot;not_a_number&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">try_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">success</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Captures and reports the actual exception that occurred during conversion.</p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConvertibleToBool">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">ConvertibleToBool</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConvertibleToBool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConvertibleToBool" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConvertibleToFloat">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">ConvertibleToFloat</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConvertibleToFloat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConvertibleToFloat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConvertibleToInt">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">ConvertibleToInt</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConvertibleToInt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConvertibleToInt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.ConvertibleToStr">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">ConvertibleToStr</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#ConvertibleToStr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.ConvertibleToStr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.conversion._TYPE_CONVERTERS">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">_TYPE_CONVERTERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../protocols/index.html#type_forge.typing.protocols.TypeConverter" title="type_forge.typing.protocols.TypeConverter"><span class="pre">type_forge.typing.protocols.TypeConverter</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#_TYPE_CONVERTERS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion._TYPE_CONVERTERS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.conversion.version">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.conversion.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/conversion.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.conversion.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

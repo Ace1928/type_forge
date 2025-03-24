@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.standardization" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/standardization/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="This module provides utilities for standardizing, analyzing, and transforming type relationships. It ensures consistent type handling across the Type Forge ecosystem with precise type categorizatio..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_standardization_index_bea5af0e.png" />
+<meta property="og:image:alt" content="This module provides utilities for standardizing, analyzing, and transforming type relationships. It ensures consistent type handling across the Type Forge e..." />
+<meta name="description" content="This module provides utilities for standardizing, analyzing, and transforming type relationships. It ensures consistent type handling across the Type Forge ecosystem with precise type categorizatio..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.standardization &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.standardization</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.standardization.deduplicate_types"><code class="docutils literal notranslate"><span class="pre">deduplicate_types()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.standardization.get_common_supertype"><code class="docutils literal notranslate"><span class="pre">get_common_supertype()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.standardization.get_type_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_type_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.standardization.is_abstract_type"><code class="docutils literal notranslate"><span class="pre">is_abstract_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.standardization.is_generic_type"><code class="docutils literal notranslate"><span class="pre">is_generic_type()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.standardization.standardize_type_name"><code class="docutils literal notranslate"><span class="pre">standardize_type_name()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.standardization.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.standardization</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/standardization/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.standardization">
+<span id="type-forge-typing-standardization"></span><h1>type_forge.typing.standardization<a class="headerlink" href="#module-type_forge.typing.standardization" title="Link to this heading"></a></h1>
+<p>This module provides utilities for standardizing, analyzing, and transforming
+type relationships. It ensures consistent type handling across the Type Forge
+ecosystem with precise type categorization and normalization capabilities.</p>
+<p>Core functionalities include:
+- Standardizing type names to consistent PEP 484 conventions
+- Finding common supertypes across multiple types
+- Identifying generic, abstract, and specialized types
+- Retrieving complete type hierarchies via Method Resolution Order (MRO)
+- Deduplicating redundant types from collections</p>
+<p>These utilities enable robust type analysis and transformation operations,
+supporting both static type checking and runtime type verification with
+comprehensive edge case handling.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.standardization.version" title="type_forge.typing.standardization.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.standardization.deduplicate_types" title="type_forge.typing.standardization.deduplicate_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deduplicate_types</span></code></a>(types)</p></td>
+<td><p>Remove redundant types from a sequence of types.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.standardization.get_common_supertype" title="type_forge.typing.standardization.get_common_supertype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_common_supertype</span></code></a>(types)</p></td>
+<td><p>Find the most specific common supertype of a sequence of types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.standardization.get_type_hierarchy" title="type_forge.typing.standardization.get_type_hierarchy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_type_hierarchy</span></code></a>(typ)</p></td>
+<td><p>Get the complete inheritance hierarchy of a type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.standardization.is_abstract_type" title="type_forge.typing.standardization.is_abstract_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_abstract_type</span></code></a>(typ)</p></td>
+<td><p>Check if a type is abstract (cannot be instantiated directly).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.standardization.is_generic_type" title="type_forge.typing.standardization.is_generic_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_generic_type</span></code></a>(typ)</p></td>
+<td><p>Check if a type is a generic type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.typing.standardization.standardize_type_name" title="type_forge.typing.standardization.standardize_type_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standardize_type_name</span></code></a>(name)</p></td>
+<td><p>Standardize a type name to a consistent format.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.deduplicate_types">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">deduplicate_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#deduplicate_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.deduplicate_types" title="Link to this definition"></a></dt>
+<dd><p>Remove redundant types from a sequence of types.</p>
+<p>Removes types that are subtypes of other types in the sequence,
+keeping only the most specific types necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>types</strong> (<em>Sequence</em><em>[</em><em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>]</em>) – A sequence of types to deduplicate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A deduplicated list of types</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">deduplicate_types</span><span class="p">([</span><span class="nb">int</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">])</span>
+<span class="go">[&lt;class &#39;int&#39;&gt;, &lt;class &#39;float&#39;&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deduplicate_types</span><span class="p">([</span><span class="nb">list</span><span class="p">,</span> <span class="n">Collection</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">])</span>
+<span class="go">[&lt;class &#39;list&#39;&gt;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Useful for simplifying Union types and type annotations.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.get_common_supertype">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">get_common_supertype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#get_common_supertype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.get_common_supertype" title="Link to this definition"></a></dt>
+<dd><p>Find the most specific common supertype of a sequence of types.</p>
+<p>Determines the most specific type that all provided types inherit from,
+which is useful for type unification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>types</strong> (<em>Sequence</em><em>[</em><em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em><em>]</em>) – A sequence of types to find the common supertype for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The common supertype, or None if no common type exists</dt><dd><p>besides ‘object’</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span>
+<span class="go">&lt;class &#39;numbers.Number&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">])</span>
+<span class="go">&lt;class &#39;collections.abc.Sequence&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_common_supertype</span><span class="p">([</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span>
+<span class="go">&lt;class &#39;object&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function traverses inheritance hierarchies to find meaningful
+common supertypes beyond just the ‘object’ class.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.get_type_hierarchy">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">get_type_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#get_type_hierarchy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.get_type_hierarchy" title="Link to this definition"></a></dt>
+<dd><p>Get the complete inheritance hierarchy of a type.</p>
+<p>Returns the Method Resolution Order (MRO) of a type, which
+represents its inheritance hierarchy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em>) – The type to get the hierarchy for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The inheritance hierarchy of the type, from</dt><dd><p>most specific to most general</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bool_hierarchy</span> <span class="o">=</span> <span class="n">get_type_hierarchy</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bool_hierarchy</span>
+<span class="go">[&lt;class &#39;bool&#39;&gt;, &lt;class &#39;int&#39;&gt;, &lt;class &#39;object&#39;&gt;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Useful for understanding type relationships and finding common types.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.is_abstract_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">is_abstract_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#is_abstract_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.is_abstract_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a type is abstract (cannot be instantiated directly).</p>
+<p>Determines whether a type is an abstract base class or interface
+that cannot be instantiated directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em>) – The type to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type is abstract, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">AbstractExample</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nd">@abstractmethod</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_abstract_type</span><span class="p">(</span><span class="n">AbstractExample</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_abstract_type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Identifies types that are meant to be inherited from rather than instantiated.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.is_generic_type">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">is_generic_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#is_generic_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.is_generic_type" title="Link to this definition"></a></dt>
+<dd><p>Check if a type is a generic type.</p>
+<p>Determines whether a type is a parameterized generic type
+like List[int] rather than a concrete type like list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em>) – The type to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type is a generic type, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">is_generic_type</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_generic_type</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_generic_type</span><span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Useful for handling generic types specially in type systems.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.standardize_type_name">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">standardize_type_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#standardize_type_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.standardize_type_name" title="Link to this definition"></a></dt>
+<dd><p>Standardize a type name to a consistent format.</p>
+<p>Converts various styles of type names to a consistent format
+following PEP 484 conventions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The type name to standardize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The standardized type name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">standardize_type_name</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="go">&#39;int&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">standardize_type_name</span><span class="p">(</span><span class="s2">&quot;list[int]&quot;</span><span class="p">)</span>
+<span class="go">&#39;List[int]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">standardize_type_name</span><span class="p">(</span><span class="s2">&quot;Dict[str, list]&quot;</span><span class="p">)</span>
+<span class="go">&#39;Dict[str, List]&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Useful for ensuring consistent type naming across a codebase.</p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.typing.standardization.version">
+<span class="sig-prename descclassname"><span class="pre">type_forge.typing.standardization.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.0'</span></em><a class="reference internal" href="../../../../_modules/type_forge/typing/standardization.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.standardization.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

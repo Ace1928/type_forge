@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="Type Forge: A module for dynamic type validation and transformation with recursive precision. This module serves as the entry point for the Type Forge framework, providing a unified interface for d..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_index_e59624b0.png" />
+<meta property="og:image:alt" content="Type Forge: A module for dynamic type validation and transformation with recursive precision. This module serves as the entry point for the Type Forge framew..." />
+<meta name="description" content="Type Forge: A module for dynamic type validation and transformation with recursive precision. This module serves as the entry point for the Type Forge framework, providing a unified interface for d..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.TypeViolation"><code class="docutils literal notranslate"><span class="pre">TypeViolation</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.TypeViolation.__str__"><code class="docutils literal notranslate"><span class="pre">TypeViolation.__str__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolation.expected"><code class="docutils literal notranslate"><span class="pre">TypeViolation.expected</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolation.found"><code class="docutils literal notranslate"><span class="pre">TypeViolation.found</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolation.kind"><code class="docutils literal notranslate"><span class="pre">TypeViolation.kind</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolation.path"><code class="docutils literal notranslate"><span class="pre">TypeViolation.path</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind.__str__"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind.__str__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind.CONVERSION_ERROR"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind.CONVERSION_ERROR</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind.INVALID_VALUE"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind.INVALID_VALUE</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind.MISSING_KEY"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind.MISSING_KEY</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind.SCHEMA_MISMATCH"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind.SCHEMA_MISMATCH</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.TypeViolationKind.WRONG_TYPE"><code class="docutils literal notranslate"><span class="pre">TypeViolationKind.WRONG_TYPE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.ValidationResult"><code class="docutils literal notranslate"><span class="pre">ValidationResult</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.ValidationResult.__bool__"><code class="docutils literal notranslate"><span class="pre">ValidationResult.__bool__()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.ValidationResult.merge"><code class="docutils literal notranslate"><span class="pre">ValidationResult.merge()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.ValidationResult.with_converted_value"><code class="docutils literal notranslate"><span class="pre">ValidationResult.with_converted_value()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.ValidationResult.converted_value"><code class="docutils literal notranslate"><span class="pre">ValidationResult.converted_value</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.ValidationResult.valid"><code class="docutils literal notranslate"><span class="pre">ValidationResult.valid</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.ValidationResult.violations"><code class="docutils literal notranslate"><span class="pre">ValidationResult.violations</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type_forge.ValidationContext"><code class="docutils literal notranslate"><span class="pre">ValidationContext</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/type_forge/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge">
+<span id="type-forge"></span><h1>type_forge<a class="headerlink" href="#module-type_forge" title="Link to this heading"></a></h1>
+<p>Type Forge: A module for dynamic type validation and transformation with recursive precision.</p>
+<p>This module serves as the entry point for the Type Forge framework,
+providing a unified interface for dynamic type creation, validation,
+and transformation with structural integrity and recursive precision.</p>
+<dl>
+<dt>The TypeForge framework enables:</dt><dd><ul class="simple">
+<li><p>Dynamic type creation with strict validation guarantees</p></li>
+<li><p>Recursive schema validation with elegant error handling</p></li>
+<li><p>Type conversion with compile-time and runtime safety</p></li>
+<li><p>Structural integrity verification through composable validators</p></li>
+</ul>
+</dd>
+<dt>Modules:</dt><dd><p>core: Contains base classes, protocols, and exceptions for type validation
+forge: Implements the main TypeForge class and associated functionality
+validators: Provides specialized validators for comprehensive type checking
+typing: Type definitions, protocols, and type-related utilities
+utils: General utility functions for type manipulation and formatting</p>
+</dd>
+<dt>Classes:</dt><dd><p>TypeForge: Main entry point for dynamic type creation and validation
+BasicValidator: Foundation validator for simple type validation
+CompositeValidator: Combines multiple validators for complex validation
+ValidationResult: Immutable result of a validation operation
+TypeViolation: Precisely describes a type violation with context
+TypeViolationKind: Enumeration of possible validation failure types
+ValidatorFactory: Creates specialized validators for diverse scenarios</p>
+</dd>
+<dt>Functions:</dt><dd><dl class="simple">
+<dt>format_validation_error(violation: TypeViolation) -&gt; str:</dt><dd><p>Formats type violations as human-readable error messages</p>
+</dd>
+<dt>deduplicate_violations(violations: Sequence[TypeViolation]) -&gt; List[TypeViolation]:</dt><dd><p>Removes duplicate violations while preserving order and context</p>
+</dd>
+<dt>is_valid_type_descriptor(value: Any) -&gt; bool:</dt><dd><p>Determines if a value can serve as a valid type descriptor</p>
+</dd>
+</dl>
+</dd>
+<dt>Typical usage example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">type_forge</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeForge</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">UserSchema</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">create</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">forge</span><span class="o">.</span><span class="n">Email</span><span class="p">()</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user</span> <span class="o">=</span> <span class="n">UserSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">type_forge.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forge/index.html">type_forge.forge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typing/index.html">type_forge.typing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/index.html">type_forge.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validators/index.html">type_forge.validators</a></li>
+</ul>
+</div>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.ValidationContext" title="type_forge.ValidationContext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValidationContext</span></code></a></p></td>
+<td><p>Context for validation process with shared state.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.TypeViolation" title="type_forge.TypeViolation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeViolation</span></code></a></p></td>
+<td><p>Immutable record of a type violation with path tracking.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#type_forge.TypeViolationKind" title="type_forge.TypeViolationKind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeViolationKind</span></code></a></p></td>
+<td><p>Enumeration of possible type violation categories.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.ValidationResult" title="type_forge.ValidationResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValidationResult</span></code></a></p></td>
+<td><p>Result of type validation with possible conversion.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.TypeViolation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.</span></span><span class="sig-name descname"><span class="pre">TypeViolation</span></span><a class="reference internal" href="../../_modules/type_forge/core/exceptions.html#TypeViolation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.TypeViolation" title="Link to this definition"></a></dt>
+<dd><p>Immutable record of a type violation with path tracking.</p>
+<p>Provides a structured representation of a type violation with
+context information for precise error reporting and diagnosis.
+The frozen dataclass ensures immutability for safer error handling.</p>
+<p class="rubric">Attributes</p>
+<p>path: JSON path to the location of the violation.
+expected: Description of expected type or value.
+found: Description of actual type or value found.
+kind: Category of violation from TypeViolationKind.</p>
+<p class="rubric">Examples</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+violation = TypeViolation(</p>
+<blockquote>
+<div><p>path=”user.address.zipcode”,
+expected=”string of 5 digits”,
+found=“‘ABC123’”,
+kind=TypeViolationKind.INVALID_VALUE</p>
+</div></blockquote>
+<section id="id5">
+<h3>)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.TypeViolation.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/type_forge/core/exceptions.html#TypeViolation.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.TypeViolation.__str__" title="Link to this definition"></a></dt>
+<dd><p>Generate human-readable representation of the violation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted string with violation details including path,
+expected value, found value, and violation kind.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolation.expected">
+<span class="sig-name descname"><span class="pre">expected</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#type_forge.TypeViolation.expected" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolation.found">
+<span class="sig-name descname"><span class="pre">found</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#type_forge.TypeViolation.found" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolation.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#type_forge.TypeViolationKind" title="type_forge.TypeViolationKind"><span class="pre">TypeViolationKind</span></a></em><a class="headerlink" href="#type_forge.TypeViolation.kind" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolation.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#type_forge.TypeViolation.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.</span></span><span class="sig-name descname"><span class="pre">TypeViolationKind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/type_forge/core/exceptions.html#TypeViolationKind"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.TypeViolationKind" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>Enumeration of possible type violation categories.</p>
+<p>Provides a structured taxonomy of type violations for precise
+error categorization and handling.</p>
+<p class="rubric">Attributes</p>
+<p>WRONG_TYPE: Value has incorrect type.
+MISSING_KEY: Required key is absent.
+INVALID_VALUE: Value fails validation constraints.
+SCHEMA_MISMATCH: Value structure doesn’t match schema.
+CONVERSION_ERROR: Type conversion failed.</p>
+<p class="rubric">Examples</p>
+<p><a href="#id6"><span class="problematic" id="id7">``</span></a><a href="#id8"><span class="problematic" id="id9">`</span></a>python
+if isinstance(value, str):</p>
+<blockquote>
+<div><p>return TypeViolationKind.WRONG_TYPE</p>
+</div></blockquote>
+<p><a href="#id10"><span class="problematic" id="id11">``</span></a><a href="#id12"><span class="problematic" id="id13">`</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/type_forge/core/exceptions.html#TypeViolationKind.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.TypeViolationKind.__str__" title="Link to this definition"></a></dt>
+<dd><p>Generate string representation of the violation kind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string value of the enumeration.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind.CONVERSION_ERROR">
+<span class="sig-name descname"><span class="pre">CONVERSION_ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'conversion_error'</span></em><a class="headerlink" href="#type_forge.TypeViolationKind.CONVERSION_ERROR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind.INVALID_VALUE">
+<span class="sig-name descname"><span class="pre">INVALID_VALUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'invalid_value'</span></em><a class="headerlink" href="#type_forge.TypeViolationKind.INVALID_VALUE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind.MISSING_KEY">
+<span class="sig-name descname"><span class="pre">MISSING_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'missing_key'</span></em><a class="headerlink" href="#type_forge.TypeViolationKind.MISSING_KEY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind.SCHEMA_MISMATCH">
+<span class="sig-name descname"><span class="pre">SCHEMA_MISMATCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'schema_mismatch'</span></em><a class="headerlink" href="#type_forge.TypeViolationKind.SCHEMA_MISMATCH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.TypeViolationKind.WRONG_TYPE">
+<span class="sig-name descname"><span class="pre">WRONG_TYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'wrong_type'</span></em><a class="headerlink" href="#type_forge.TypeViolationKind.WRONG_TYPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.ValidationResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.</span></span><span class="sig-name descname"><span class="pre">ValidationResult</span></span><a class="reference internal" href="../../_modules/type_forge/core/base.html#ValidationResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.ValidationResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">type_forge.typing.definitions.T</span></code>]</p>
+<p>Result of type validation with possible conversion.</p>
+<p>This class encapsulates the outcome of a validation operation, including
+whether validation passed, any violations that occurred, and an optional
+converted value that maintains its type through generic constraints.</p>
+<p>The ValidationResult maintains type safety through covariant generics,
+ensuring that type information flows correctly through validation chains
+and transformations. It acts as both a container for validation status
+and a monad-like structure that can be composed and transformed while
+preserving the validation context.</p>
+<p class="rubric">Attributes</p>
+<p>valid (bool): Boolean indicating if validation succeeded
+violations (List[TypeViolation]): List of specific type violations encountered
+converted_value (Optional[T]): Optional transformed value that maintains</p>
+<blockquote>
+<div><p>its type through generics</p>
+</div></blockquote>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ValidationResult</span><span class="p">[</span><span class="nb">int</span><span class="p">](</span><span class="n">valid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">converted_value</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">with_converted_value</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)</span>
+<span class="go">ValidationResult(valid=True, violations=[], converted_value=&#39;string&#39;)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.ValidationResult.__bool__">
+<span class="sig-name descname"><span class="pre">__bool__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/type_forge/core/base.html#ValidationResult.__bool__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.ValidationResult.__bool__" title="Link to this definition"></a></dt>
+<dd><p>Boolean conversion returns validation status.</p>
+<p>Allows ValidationResult objects to be used directly in boolean contexts
+for streamlined conditional logic, implementing the “errors as values”
+pattern in an elegant, composable way.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if validation passed, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.ValidationResult.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/type_forge/core/base.html#ValidationResult.merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.ValidationResult.merge" title="Link to this definition"></a></dt>
+<dd><p>Merge another validation result into this one.</p>
+<p>This maintains the type of the original result while incorporating
+the validation status and violations from another result. The converted
+value remains that of the original result, preserving type integrity.</p>
+<p>This method enables recursive composition of validation results,
+allowing complex validation logic to be built from simpler components
+while maintaining full type safety.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#type_forge.ValidationResult" title="type_forge.ValidationResult"><em>ValidationResult</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em>) – Another validation result to merge with this one</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self with merged validation status and violations</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.ValidationResult" title="type_forge.ValidationResult">ValidationResult</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.ValidationResult.with_converted_value">
+<span class="sig-name descname"><span class="pre">with_converted_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/type_forge/core/base.html#ValidationResult.with_converted_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.ValidationResult.with_converted_value" title="Link to this definition"></a></dt>
+<dd><p>Create a new ValidationResult with the same validation status but a different value.</p>
+<p>This method preserves the validation state while transforming the result
+to contain a new value of potentially different type, properly maintaining
+type safety through generics. This enables validation pipelines that
+transform data while maintaining error context.</p>
+<p>The implementation follows the principle of “Pure Core, Effects at Edges”
+by returning a new instance rather than modifying the current one,
+maintaining immutability for better compositional properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>S</em>) – The converted value to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new ValidationResult with the same validation status but different value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#type_forge.ValidationResult" title="type_forge.ValidationResult">ValidationResult</a>[S]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.ValidationResult.converted_value">
+<span class="sig-name descname"><span class="pre">converted_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type_forge.typing.definitions.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#type_forge.ValidationResult.converted_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.ValidationResult.valid">
+<span class="sig-name descname"><span class="pre">valid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#type_forge.ValidationResult.valid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="type_forge.ValidationResult.violations">
+<span class="sig-name descname"><span class="pre">violations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="core/exceptions/index.html#type_forge.core.exceptions.TypeViolation" title="type_forge.core.exceptions.TypeViolation"><span class="pre">type_forge.core.exceptions.TypeViolation</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#type_forge.ValidationResult.violations" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="type_forge.ValidationContext">
+<span class="sig-prename descclassname"><span class="pre">type_forge.</span></span><span class="sig-name descname"><span class="pre">ValidationContext</span></span><a class="reference internal" href="../../_modules/type_forge/typing/aliases.html#ValidationContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.ValidationContext" title="Link to this definition"></a></dt>
+<dd><p>Context for validation process with shared state.</p>
+<p>Environmental information affecting validation decisions.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

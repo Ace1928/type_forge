@@ -1,0 +1,1110 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.aliases &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">type_forge.typing.aliases</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for type_forge.typing.aliases</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Type Aliases for the Type Forge system.</span>
+
+<span class="sd">This module defines a comprehensive type vocabulary that enables precision, safety, and</span>
+<span class="sd">clarity throughout the Type Forge framework. Each alias has been crafted to provide</span>
+<span class="sd">maximum type safety while maintaining flexibility through appropriate variance annotations.</span>
+
+<span class="sd">Categories:</span>
+<span class="sd">    - Type identification and naming</span>
+<span class="sd">    - Registry and mapping structures</span>
+<span class="sd">    - Field and structure definitions</span>
+<span class="sd">    - Type relationships and conversion paths</span>
+<span class="sd">    - Validation and verification mechanisms</span>
+<span class="sd">    - Collection specializations</span>
+<span class="sd">    - Error handling and result representations</span>
+
+<span class="sd">Each alias embodies the Eidosian principle that &quot;types are firewalls between intention and mistake.&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">FrozenSet</span><span class="p">,</span>
+    <span class="n">Hashable</span><span class="p">,</span>
+    <span class="n">Iterable</span><span class="p">,</span>
+    <span class="n">Iterator</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Literal</span><span class="p">,</span>
+    <span class="n">Mapping</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.variables</span><span class="w"> </span><span class="kn">import</span> <span class="n">K</span><span class="p">,</span> <span class="n">K_co</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">T_co</span><span class="p">,</span> <span class="n">T_contra</span><span class="p">,</span> <span class="n">TError</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">U_co</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">V_co</span>
+
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+<span class="c1"># Type Aliases with Semantic Meaning</span>
+<span class="c1"># ──────────────────────────────────────────────────────────────</span>
+
+<span class="c1"># Type naming and identification</span>
+<div class="viewcode-block" id="TypeName">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeName">[docs]</a>
+<span class="n">TypeName</span> <span class="o">=</span> <span class="nb">str</span></div>
+
+<span class="sd">&quot;&quot;&quot;String identifier for a type (e.g., &#39;int&#39;, &#39;List[str]&#39;).</span>
+
+<span class="sd">Used for human-readable type references and registry operations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypePath">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypePath">[docs]</a>
+<span class="n">TypePath</span> <span class="o">=</span> <span class="nb">str</span></div>
+
+<span class="sd">&quot;&quot;&quot;Dot-notation path to a type or attribute (e.g., &#39;module.submodule.MyClass&#39;).</span>
+
+<span class="sd">Used for dynamic type resolution and attribute access.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationPath">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationPath">[docs]</a>
+<span class="n">ValidationPath</span> <span class="o">=</span> <span class="nb">str</span></div>
+
+<span class="sd">&quot;&quot;&quot;Path for validation error reporting (e.g., &#39;user.address.street&#39;).</span>
+
+<span class="sd">Provides structural context for validation errors in nested data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ErrorMessage">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ErrorMessage">[docs]</a>
+<span class="n">ErrorMessage</span> <span class="o">=</span> <span class="nb">str</span></div>
+
+<span class="sd">&quot;&quot;&quot;Human-readable error message for validation or conversion failures.</span>
+
+<span class="sd">Designed for clear communication of errors to end users or developers.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeIdentifier">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeIdentifier">[docs]</a>
+<span class="n">TypeIdentifier</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">TypeName</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type identified either by name string or class reference.</span>
+
+<span class="sd">Allows flexible type specification in APIs that accept either form.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Registry and mapping types with invariant, covariant and contravariant versions</span>
+<div class="viewcode-block" id="TypeRegistry">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeRegistry">[docs]</a>
+<span class="n">TypeRegistry</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">TypeName</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Registry mapping type names to their corresponding type objects.</span>
+
+<span class="sd">Foundation for type lookup and registration systems.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeRegistryT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeRegistryT">[docs]</a>
+<span class="n">TypeRegistryT</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">TypeName</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic type registry constrained to types of T.</span>
+
+<span class="sd">Enables type-safe registries for specific base types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeRegistryT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeRegistryT_co">[docs]</a>
+<span class="n">TypeRegistryT_co</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">TypeName</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant type registry allowing subtypes of T_co.</span>
+
+<span class="sd">Suitable for registries where subtype polymorphism is desired.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeRegistryT_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeRegistryT_contra">[docs]</a>
+<span class="n">TypeRegistryT_contra</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">TypeName</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">T_contra</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant type registry accepting supertypes of T_contra.</span>
+
+<span class="sd">Specialized registry for cases requiring contravariant behavior.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Field definitions with invariant, covariant and contravariant versions</span>
+<div class="viewcode-block" id="FieldDefinitions">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FieldDefinitions">[docs]</a>
+<span class="n">FieldDefinitions</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Structure field definitions mapping field names to types.</span>
+
+<span class="sd">Core definition type for structural type systems.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FieldDefinitionsT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FieldDefinitionsT">[docs]</a>
+<span class="n">FieldDefinitionsT</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic field definitions constrained to types of T.</span>
+
+<span class="sd">Enables structure definitions with type constraints.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FieldDefinitionsT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FieldDefinitionsT_co">[docs]</a>
+<span class="n">FieldDefinitionsT_co</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant field definitions allowing subtypes of T_co.</span>
+
+<span class="sd">Supports field definitions with polymorphic type relationships.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FieldDefinitionsT_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FieldDefinitionsT_contra">[docs]</a>
+<span class="n">FieldDefinitionsT_contra</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">T_contra</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant field definitions accepting supertypes of T_contra.</span>
+
+<span class="sd">Specialized field definitions for contravariant scenarios.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FieldsWithDefaults">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FieldsWithDefaults">[docs]</a>
+<span class="n">FieldsWithDefaults</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Fields with default values mapping names to (type, default) pairs.</span>
+
+<span class="sd">Supports structural types with default values for optional fields.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FieldsWithDefaultsT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FieldsWithDefaultsT">[docs]</a>
+<span class="n">FieldsWithDefaultsT</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">T</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic fields with defaults constrained to specific types.</span>
+
+<span class="sd">Type-safe definition of fields with matching default values.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Type mappings with invariant, covariant and contravariant versions</span>
+<div class="viewcode-block" id="TypeMap">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeMap">[docs]</a>
+<span class="n">TypeMap</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Mapping between types for conversion or relationship definition.</span>
+
+<span class="sd">Foundation for type conversion systems.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeMapFrom">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeMapFrom">[docs]</a>
+<span class="n">TypeMapFrom</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">S</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Source-specific type map defining conversions from type S.</span>
+
+<span class="sd">Specialized mapping for conversions from a specific source type.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeMapTo">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeMapTo">[docs]</a>
+<span class="n">TypeMapTo</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Target-specific type map defining conversions to type R.</span>
+
+<span class="sd">Specialized mapping for conversions to a specific result type.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeMapSR">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeMapSR">[docs]</a>
+<span class="n">TypeMapSR</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">S</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Source-to-Result specific type map with precise typing.</span>
+
+<span class="sd">Fully-specified mapping between concrete source and result types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeHierarchy">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeHierarchy">[docs]</a>
+<span class="n">TypeHierarchy</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type to subtype hierarchy map for inheritance relationships.</span>
+
+<span class="sd">Represents inheritance trees for runtime type analysis.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Converter mappings with precise type specifications</span>
+<div class="viewcode-block" id="ConverterMap">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ConverterMap">[docs]</a>
+<span class="n">ConverterMap</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]],</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">object</span><span class="p">],</span> <span class="nb">object</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type conversion map linking type pairs to conversion functions.</span>
+
+<span class="sd">Base converter registry for dynamic type conversion systems.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConverterMapSR">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ConverterMapSR">[docs]</a>
+<span class="n">ConverterMapSR</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">S</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="n">R</span><span class="p">]],</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">S</span><span class="p">],</span> <span class="n">R</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Source-to-Result converter map with precise typing.</span>
+
+<span class="sd">Strongly-typed converter registry for specific type pairs.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    S: Source type parameter for conversion</span>
+<span class="sd">    R: Result type parameter for conversion</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConverterMapGeneric">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ConverterMapGeneric">[docs]</a>
+<span class="n">ConverterMapGeneric</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="n">U</span><span class="p">]],</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">U</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic converter map with parametric types.</span>
+
+<span class="sd">Flexible converter registry with generic type parameters for type-safe conversion</span>
+<span class="sd">between any source and destination types. Enables precise typing while maintaining</span>
+<span class="sd">adaptability for diverse conversion scenarios.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    T: Source type parameter for conversion input</span>
+<span class="sd">    U: Target type parameter for conversion output</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    ```python</span>
+<span class="sd">    converters: ConverterMapGeneric = {</span>
+<span class="sd">        (int, str): lambda x: str(x),</span>
+<span class="sd">        (str, int): lambda x: int(x)</span>
+<span class="sd">    }</span>
+<span class="sd">    ```</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConverterPriority">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ConverterPriority">[docs]</a>
+<span class="n">ConverterPriority</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">]],</span> <span class="nb">int</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Conversion priority map for resolving ambiguous conversions.</span>
+
+<span class="sd">Defines precedence when multiple conversion paths exist.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Class and validation types</span>
+<div class="viewcode-block" id="ClassType">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/aliases/index.html#type_forge.ClassType">[docs]</a>
+<span class="n">ClassType</span> <span class="o">=</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic class type with type parameter T.</span>
+
+<span class="sd">Represents classes rather than instances, with type safety.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ClassType_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/aliases/index.html#type_forge.ClassType_co">[docs]</a>
+<span class="n">ClassType_co</span> <span class="o">=</span> <span class="n">Type</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant class type accepting subtypes of T_co.</span>
+
+<span class="sd">Supports class hierarchies with covariant relationships.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ClassType_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/aliases/index.html#type_forge.ClassType_contra">[docs]</a>
+<span class="n">ClassType_contra</span> <span class="o">=</span> <span class="n">Type</span><span class="p">[</span><span class="n">T_contra</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant class type accepting supertypes of T_contra.</span>
+
+<span class="sd">Specialized class reference for contravariant scenarios.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Parent specification types with exact generic parameters</span>
+<div class="viewcode-block" id="ParentSpecType">
+<a class="viewcode-back" href="../../../autoapi/type_forge/validators/index.html#type_forge.ParentSpecType">[docs]</a>
+<span class="n">ParentSpecType</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ClassType</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">ClassType</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Parent class specification supporting single class or tuple of classes.</span>
+
+<span class="sd">Used for inheritance definitions and interface specifications.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ParentSpecType_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ParentSpecType_co">[docs]</a>
+<span class="n">ParentSpecType_co</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ClassType</span><span class="p">[</span><span class="n">T_co</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">ClassType</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant parent specification with subtype support.</span>
+
+<span class="sd">Flexibility for polymorphic inheritance relationships.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ParentSpecType_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ParentSpecType_contra">[docs]</a>
+<span class="n">ParentSpecType_contra</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ClassType</span><span class="p">[</span><span class="n">T_contra</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">ClassType</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="o">...</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant parent specification for specialized scenarios.</span>
+
+<span class="sd">Supports advanced type relationship definitions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Validation functions with different signatures</span>
+<div class="viewcode-block" id="ValidationFunc">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationFunc">[docs]</a>
+<span class="n">ValidationFunc</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">object</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type validation function for arbitrary objects.</span>
+
+<span class="sd">Basic validation with boolean result indicating validity.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (object): Value to validate</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if valid, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationFuncT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationFuncT">[docs]</a>
+<span class="n">ValidationFuncT</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic validation function for specific types.</span>
+
+<span class="sd">Type-safe validation for known input types.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T): Value of type T to validate</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if valid, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationFuncT_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationFuncT_contra">[docs]</a>
+<span class="n">ValidationFuncT_contra</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T_contra</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant validation function accepting supertypes.</span>
+
+<span class="sd">Flexible validation function usable with parent types.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T_contra): Value of type T_contra or any supertype to validate</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if valid, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationResultT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationResultT">[docs]</a>
+<span class="n">ValidationResultT</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorMessage</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Standard validation outcome with validity flag and optional error.</span>
+
+<span class="sd">Structured result providing validation status and explanation.</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    Tuple[bool, Optional[ErrorMessage]]: Validation status and optional error message</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationResult">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationResult">[docs]</a>
+<span class="n">ValidationResult</span> <span class="o">=</span> <span class="n">ValidationResultT</span></div>
+
+<span class="sd">&quot;&quot;&quot;Primary validation outcome type for consistent usage.</span>
+
+<span class="sd">Canonical type for validation results throughout the system.</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    Tuple[bool, Optional[ErrorMessage]]: Validation status and optional error message</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationWithPath">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationWithPath">[docs]</a>
+<span class="n">ValidationWithPath</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorMessage</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ValidationPath</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Validation with path info for structural validation.</span>
+
+<span class="sd">Extended validation result with context path for nested structures.</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    Tuple[bool, Optional[ErrorMessage], Optional[ValidationPath]]:</span>
+<span class="sd">        Validation status, optional error message, and optional validation path</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Dictionary and schema types with invariant, covariant and contravariant versions</span>
+<div class="viewcode-block" id="DictSchemaT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.DictSchemaT">[docs]</a>
+<span class="n">DictSchemaT</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Dictionary schema with hashable keys and values of type T.</span>
+
+<span class="sd">Foundation for schema-based validation of dictionary-like structures.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DictSchemaT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.DictSchemaT_co">[docs]</a>
+<span class="n">DictSchemaT_co</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant dictionary schema allowing subtypes for values.</span>
+
+<span class="sd">Flexible schema supporting polymorphic value types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DictSchemaT_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.DictSchemaT_contra">[docs]</a>
+<span class="n">DictSchemaT_contra</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T_contra</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant dictionary schema for specialized scenarios.</span>
+
+<span class="sd">Advanced schema type for contravariant validation cases.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Schema type variants</span>
+<div class="viewcode-block" id="SchemaTypeT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SchemaTypeT">[docs]</a>
+<span class="n">SchemaTypeT</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Either a schema dictionary or a direct type reference.</span>
+
+<span class="sd">Flexible schema specification supporting both simple and complex cases.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SchemaTypeT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SchemaTypeT_co">[docs]</a>
+<span class="n">SchemaTypeT_co</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T_co</span><span class="p">],</span> <span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant schema type with subtype support.</span>
+
+<span class="sd">Schema specification with polymorphic type relationships.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SchemaTypeT_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SchemaTypeT_contra">[docs]</a>
+<span class="n">SchemaTypeT_contra</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T_contra</span><span class="p">],</span> <span class="n">T_contra</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant schema type for specialized scenarios.</span>
+
+<span class="sd">Advanced schema specification for contravariant cases.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Schema value variants</span>
+<div class="viewcode-block" id="SchemaValueT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SchemaValueT">[docs]</a>
+<span class="n">SchemaValueT</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span> <span class="nb">object</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Either a schema dictionary or a direct value.</span>
+
+<span class="sd">Represents data that conforms to a schema structure.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SchemaValueT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SchemaValueT_co">[docs]</a>
+<span class="n">SchemaValueT_co</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T_co</span><span class="p">],</span> <span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant schema value with subtype support.</span>
+
+<span class="sd">Flexible value representation for polymorphic scenarios.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SchemaValueT_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SchemaValueT_contra">[docs]</a>
+<span class="n">SchemaValueT_contra</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="n">T_contra</span><span class="p">],</span> <span class="n">T_contra</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant schema value for specialized scenarios.</span>
+
+<span class="sd">Advanced value representation for contravariant cases.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Collection type groups</span>
+<div class="viewcode-block" id="CollectionTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.CollectionTypes">[docs]</a>
+<span class="n">CollectionTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Container types that hold multiple values.</span>
+
+<span class="sd">Common Python collection implementations for type checking.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PrimitiveTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.PrimitiveTypes">[docs]</a>
+<span class="n">PrimitiveTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Basic value types directly supported by Python.</span>
+
+<span class="sd">Fundamental types with direct language support.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SequenceTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SequenceTypes">[docs]</a>
+<span class="n">SequenceTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Ordered collection types maintaining element sequence.</span>
+
+<span class="sd">Sequential collection types for ordered data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SetTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SetTypes">[docs]</a>
+<span class="n">SetTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">set</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Unordered unique collection types eliminating duplicates.</span>
+
+<span class="sd">Set-like collections guaranteeing uniqueness.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MappingTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.MappingTypes">[docs]</a>
+<span class="n">MappingTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Key-value mapping types for associative data.</span>
+
+<span class="sd">Dictionary-like types supporting key-based lookup.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="NumericTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.NumericTypes">[docs]</a>
+<span class="n">NumericTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Numeric value types for mathematical operations.</span>
+
+<span class="sd">Types supporting arithmetic operations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TextTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/aliases/index.html#type_forge.TextTypes">[docs]</a>
+<span class="n">TextTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Text value types for character-based data.</span>
+
+<span class="sd">Types representing textual information.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IdentityTypes">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/aliases/index.html#type_forge.IdentityTypes">[docs]</a>
+<span class="n">IdentityTypes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span></div>
+
+<span class="sd">&quot;&quot;&quot;Common identifier types used for entity references.</span>
+
+<span class="sd">Types frequently used as unique identifiers.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Collection-specific type aliases</span>
+<div class="viewcode-block" id="ListT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ListT">[docs]</a>
+<span class="n">ListT</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic list with elements of type T.</span>
+
+<span class="sd">Type-safe list specification for homogeneous elements.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ListT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ListT_co">[docs]</a>
+<span class="n">ListT_co</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant list allowing subtypes of T_co.</span>
+
+<span class="sd">List supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SetT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SetT">[docs]</a>
+<span class="n">SetT</span> <span class="o">=</span> <span class="n">Set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic set with elements of type T.</span>
+
+<span class="sd">Type-safe set specification guaranteeing uniqueness.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SetT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SetT_co">[docs]</a>
+<span class="n">SetT_co</span> <span class="o">=</span> <span class="n">Set</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant set allowing subtypes of T_co.</span>
+
+<span class="sd">Set supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DictKV">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.DictKV">[docs]</a>
+<span class="n">DictKV</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic dictionary mapping keys of type K to values of type V.</span>
+
+<span class="sd">Type-safe dictionary with precise key and value types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DictKV_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.DictKV_co">[docs]</a>
+<span class="n">DictKV_co</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">K_co</span><span class="p">,</span> <span class="n">V_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant dictionary allowing subtype keys and values.</span>
+
+<span class="sd">Dictionary supporting polymorphic key and value types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TupleT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TupleT">[docs]</a>
+<span class="n">TupleT</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic tuple with elements of type T.</span>
+
+<span class="sd">Type-safe immutable sequence with homogeneous elements.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TupleT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TupleT_co">[docs]</a>
+<span class="n">TupleT_co</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">T_co</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant tuple allowing subtypes of T_co.</span>
+
+<span class="sd">Tuple supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SequenceT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SequenceT">[docs]</a>
+<span class="n">SequenceT</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic sequence with elements of type T.</span>
+
+<span class="sd">Abstract sequence type for read-only sequential access.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SequenceT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.SequenceT_co">[docs]</a>
+<span class="n">SequenceT_co</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant sequence allowing subtypes of T_co.</span>
+
+<span class="sd">Sequence supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FrozenSetT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FrozenSetT">[docs]</a>
+<span class="n">FrozenSetT</span> <span class="o">=</span> <span class="n">FrozenSet</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic frozen set with elements of type T.</span>
+
+<span class="sd">Type-safe immutable set with homogeneous elements.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FrozenSetT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FrozenSetT_co">[docs]</a>
+<span class="n">FrozenSetT_co</span> <span class="o">=</span> <span class="n">FrozenSet</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant frozen set allowing subtypes of T_co.</span>
+
+<span class="sd">Immutable set supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IterableT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.IterableT">[docs]</a>
+<span class="n">IterableT</span> <span class="o">=</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic iterable with elements of type T.</span>
+
+<span class="sd">Abstract iterable type for element traversal.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IterableT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.IterableT_co">[docs]</a>
+<span class="n">IterableT_co</span> <span class="o">=</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant iterable allowing subtypes of T_co.</span>
+
+<span class="sd">Iterable supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IteratorT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.IteratorT">[docs]</a>
+<span class="n">IteratorT</span> <span class="o">=</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic iterator with elements of type T.</span>
+
+<span class="sd">Progressive access to elements of a sequence.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IteratorT_co">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.IteratorT_co">[docs]</a>
+<span class="n">IteratorT_co</span> <span class="o">=</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">T_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Covariant iterator allowing subtypes of T_co.</span>
+
+<span class="sd">Iterator supporting polymorphic element types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Conversion and validation related types with explicit variance</span>
+<div class="viewcode-block" id="TransformFunc">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TransformFunc">[docs]</a>
+<span class="n">TransformFunc</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">U</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Transformation function converting type T to type U.</span>
+
+<span class="sd">Pure function mapping between types with no side effects.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T): Input value to transform</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    U: Transformed output value</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TransformFunc_co_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TransformFunc_co_contra">[docs]</a>
+<span class="n">TransformFunc_co_contra</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T_contra</span><span class="p">],</span> <span class="n">U_co</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant input, covariant output transformation.</span>
+
+<span class="sd">Advanced transformation supporting variance at both ends.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T_contra): Input value (or any supertype) to transform</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    U_co: Transformed output value (or any subtype)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PredicateFunc">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.PredicateFunc">[docs]</a>
+<span class="n">PredicateFunc</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Boolean predicate function for type T.</span>
+
+<span class="sd">Decision function determining if value meets criteria.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T): Value to test against predicate</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if value meets criteria, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PredicateFunc_contra">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.PredicateFunc_contra">[docs]</a>
+<span class="n">PredicateFunc_contra</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T_contra</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Contravariant predicate function accepting supertypes.</span>
+
+<span class="sd">Flexible decision function usable with parent types.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T_contra): Value (or any supertype) to test against predicate</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if value meets criteria, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Type guard and converter functions</span>
+<div class="viewcode-block" id="TypeGuardFunc">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeGuardFunc">[docs]</a>
+<span class="n">TypeGuardFunc</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">object</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type checking function for arbitrary objects.</span>
+
+<span class="sd">Runtime type verification for dynamic typing scenarios.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (object): Value to check for type compatibility</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if value matches expected type, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeGuardFuncT">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeGuardFuncT">[docs]</a>
+<span class="n">TypeGuardFuncT</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Generic type guard function for specific types.</span>
+
+<span class="sd">Type-safe verification with known input types.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T): Value to check for specific type compatibility</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    bool: True if value matches expected type, False otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeConverter">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeConverter">[docs]</a>
+<span class="n">TypeConverter</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">S</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">R</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type conversion function transforming S to optional R.</span>
+
+<span class="sd">Converts from source type to result type, potentially returning None on failure.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (S): Source value to convert</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    Optional[R]: Successfully converted value or None if conversion fails</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeConverterSafe">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeConverterSafe">[docs]</a>
+<span class="n">TypeConverterSafe</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">S</span><span class="p">],</span> <span class="n">R</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Non-None type conversion function guaranteeing successful conversion.</span>
+
+<span class="sd">Guaranteed conversion from source to result with no failure cases.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (S): Source value to convert</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    R: Successfully converted value (never None)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OptionalConverter">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.OptionalConverter">[docs]</a>
+<span class="n">OptionalConverter</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Optional</span><span class="p">[</span><span class="n">S</span><span class="p">]],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">R</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Optional-aware converter handling None values appropriately.</span>
+
+<span class="sd">Converts optional source values to optional result values.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (Optional[S]): Source value or None</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    Optional[R]: Converted value or None if input was None/conversion failed</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Error handling and result types</span>
+<div class="viewcode-block" id="ErrorHandler">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ErrorHandler">[docs]</a>
+<span class="n">ErrorHandler</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">TError</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Error to result handler recovering from specific errors.</span>
+
+<span class="sd">Converts error instances into valid results or None.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    error (TError): Error instance to handle</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    Optional[T]: Recovered value or None if recovery impossible</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FallbackProvider">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.FallbackProvider">[docs]</a>
+<span class="n">FallbackProvider</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">T</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Provides fallback value when primary operations fail.</span>
+
+<span class="sd">Zero-argument function delivering consistent default values.</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    T: Fallback value of specified type</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TryResult">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TryResult">[docs]</a>
+<span class="n">TryResult</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">TError</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Result of operation or error representing success/failure.</span>
+
+<span class="sd">Sum type pattern for success/failure outcomes without exceptions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Advanced type relationship definitions</span>
+<div class="viewcode-block" id="TypeRelationship">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeRelationship">[docs]</a>
+<span class="n">TypeRelationship</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
+    <span class="s2">&quot;identical&quot;</span><span class="p">,</span> <span class="s2">&quot;subtype&quot;</span><span class="p">,</span> <span class="s2">&quot;supertype&quot;</span><span class="p">,</span> <span class="s2">&quot;convertible&quot;</span><span class="p">,</span> <span class="s2">&quot;incompatible&quot;</span>
+<span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Classification of relationship between two types.</span>
+
+<span class="sd">Precise categorization of how types relate to each other:</span>
+<span class="sd">- identical: Types are exactly the same</span>
+<span class="sd">- subtype: First type is a subtype of the second</span>
+<span class="sd">- supertype: First type is a supertype of the second</span>
+<span class="sd">- convertible: Types can be converted between each other</span>
+<span class="sd">- incompatible: No relationship exists between types</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeDistance">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeDistance">[docs]</a>
+<span class="n">TypeDistance</span> <span class="o">=</span> <span class="nb">int</span></div>
+
+<span class="sd">&quot;&quot;&quot;Measure of conversion complexity between types.</span>
+
+<span class="sd">Numeric representation of conversion difficulty:</span>
+<span class="sd">- 0: Identical types (no conversion needed)</span>
+<span class="sd">- 1: Direct subtype/supertype relationship</span>
+<span class="sd">- 2+: Increasing complexity of conversion</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypeMatch">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypeMatch">[docs]</a>
+<span class="n">TypeMatch</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="n">TypeRelationship</span><span class="p">,</span> <span class="n">TypeDistance</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type matching result with relationship classification and distance.</span>
+
+<span class="sd">Complete analysis of relationship between two types.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TypePrecedence">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.TypePrecedence">[docs]</a>
+<span class="n">TypePrecedence</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Type precedence for resolution of ambiguous type situations.</span>
+
+<span class="sd">Higher values indicate higher precedence in type selection.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Advanced validation and verification types</span>
+<div class="viewcode-block" id="ValidationOptions">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationOptions">[docs]</a>
+<span class="n">ValidationOptions</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Options for validation process customization.</span>
+
+<span class="sd">Configuration parameters affecting validation behavior.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationStrategy">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationStrategy">[docs]</a>
+<span class="n">ValidationStrategy</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">ValidationOptions</span><span class="p">],</span> <span class="n">ValidationResult</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Strategic validation with configuration options.</span>
+
+<span class="sd">Configurable validation approach for complex scenarios.</span>
+
+<span class="sd">Args:</span>
+<span class="sd">    value (T): Value to validate</span>
+<span class="sd">    options (ValidationOptions): Configuration parameters</span>
+
+<span class="sd">Returns:</span>
+<span class="sd">    ValidationResult: Validation outcome with status and error</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationChain">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/aliases/index.html#type_forge.ValidationChain">[docs]</a>
+<span class="n">ValidationChain</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">ValidationFunc</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Chain of validators with associated error messages.</span>
+
+<span class="sd">Sequential validation with specific error reporting.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ValidationContext">
+<a class="viewcode-back" href="../../../autoapi/type_forge/typing/index.html#type_forge.ValidationContext">[docs]</a>
+<span class="n">ValidationContext</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;Context for validation process with shared state.</span>
+
+<span class="sd">Environmental information affecting validation decisions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="type_forge.typing.analysis" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="autoapi/type_forge/typing/analysis/index.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="Type Analysis for the Type Forge system. This module provides utilities for analyzing, comparing, and determining relationships between Python types with mathematical precision. It enables systemat..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_autoapi_type_forge_typing_analysis_index_b9b9fdeb.png" />
+<meta property="og:image:alt" content="Type Analysis for the Type Forge system. This module provides utilities for analyzing, comparing, and determining relationships between Python types with mat..." />
+<meta name="description" content="Type Analysis for the Type Forge system. This module provides utilities for analyzing, comparing, and determining relationships between Python types with mathematical precision. It enables systemat..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type_forge.typing.analysis &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">type_forge.typing.analysis</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer"><code class="docutils literal notranslate"><span class="pre">TypeRelationshipAnalyzer</span></code></a><ul>
+<li><a class="reference internal" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.find_common_supertype"><code class="docutils literal notranslate"><span class="pre">TypeRelationshipAnalyzer.find_common_supertype()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.get_conversion_distance"><code class="docutils literal notranslate"><span class="pre">TypeRelationshipAnalyzer.get_conversion_distance()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.get_relationship"><code class="docutils literal notranslate"><span class="pre">TypeRelationshipAnalyzer.get_relationship()</span></code></a></li>
+<li><a class="reference internal" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.is_convertible"><code class="docutils literal notranslate"><span class="pre">TypeRelationshipAnalyzer.is_convertible()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">type_forge.typing.analysis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/type_forge/typing/analysis/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-type_forge.typing.analysis">
+<span id="type-forge-typing-analysis"></span><h1>type_forge.typing.analysis<a class="headerlink" href="#module-type_forge.typing.analysis" title="Link to this heading"></a></h1>
+<p>Type Analysis for the Type Forge system.</p>
+<p>This module provides utilities for analyzing, comparing, and determining relationships
+between Python types with mathematical precision. It enables systematic type conversion,
+validation, compatibility assessment, and hierarchical analysis.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer" title="type_forge.typing.analysis.TypeRelationshipAnalyzer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeRelationshipAnalyzer</span></code></a></p></td>
+<td><p>Analyzes and determines the relationship between types for conversion and validation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="type_forge.typing.analysis.TypeRelationshipAnalyzer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">type_forge.typing.analysis.</span></span><span class="sig-name descname"><span class="pre">TypeRelationshipAnalyzer</span></span><a class="reference internal" href="../../../../_modules/type_forge/typing/analysis.html#TypeRelationshipAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer" title="Link to this definition"></a></dt>
+<dd><p>Analyzes and determines the relationship between types for conversion and validation.</p>
+<p>This utility class provides methods to analyze type relationships, determine
+compatibility, and calculate conversion distances between types. It implements
+a hierarchical type analysis system that can determine:</p>
+<ol class="arabic simple">
+<li><p>Direct type relationships (identical, subtype, supertype)</p></li>
+<li><p>Conversion possibilities and their relative complexity</p></li>
+<li><p>Structural compatibility between collection types</p></li>
+<li><p>Common supertypes across multiple types</p></li>
+</ol>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">TypeRelationshipAnalyzer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.SUBTYPE: &#39;subtype&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.SUPERTYPE: &#39;supertype&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.CONVERTIBLE: &#39;convertible&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.IDENTICAL: &#39;identical&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_convertible</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_convertible</span><span class="p">(</span><span class="nb">complex</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.analysis.TypeRelationshipAnalyzer.find_common_supertype">
+<span class="sig-name descname"><span class="pre">find_common_supertype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/analysis.html#TypeRelationshipAnalyzer.find_common_supertype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.find_common_supertype" title="Link to this definition"></a></dt>
+<dd><p>Find the most specific common supertype of all given types.</p>
+<p>This method analyzes the Method Resolution Order (MRO) of each type to
+identify the most specific type that all given types inherit from. It’s
+useful for determining a common interface or base class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*types</strong> (<em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a><em>]</em>) – Variable number of types to analyze</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The most specific common supertype, or None</dt><dd><p>if only object is common (effectively no meaningful
+common interface exists)</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Type[<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)">object</a>]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">TypeRelationshipAnalyzer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">find_common_supertype</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="o">==</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">find_common_supertype</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">==</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">find_common_supertype</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>  <span class="c1"># Only &#39;object&#39; in common</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.analysis.TypeRelationshipAnalyzer.get_conversion_distance">
+<span class="sig-name descname"><span class="pre">get_conversion_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/analysis.html#TypeRelationshipAnalyzer.get_conversion_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.get_conversion_distance" title="Link to this definition"></a></dt>
+<dd><p>Calculate the conversion distance between types (lower is easier).</p>
+<p>This method quantifies the complexity of converting between types using
+a numeric distance metric. The distance represents the relative difficulty
+of conversion, with smaller values indicating easier conversions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The source type to convert from</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.U</em><em>]</em>) – The target type to convert to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Distance metric with precise meaning:</dt><dd><ul class="simple">
+<li><p>0: Identical types (no conversion needed)</p></li>
+<li><p>1: Subtype relationship (safe upcast)</p></li>
+<li><p>2: Supertype relationship (potential downcast)</p></li>
+<li><p>3: Implicit convertible types (automatic conversion)</p></li>
+<li><p>5: Explicitly convertible types (requires explicit conversion)</p></li>
+<li><p>7: Container compatible types (similar collections)</p></li>
+<li><p>10: Structurally compatible types (similar structures)</p></li>
+<li><p>15: Protocol compatible types (interface compatibility)</p></li>
+<li><p>float(‘inf’): Incompatible types (conversion impossible)</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TypeDistance</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">TypeRelationshipAnalyzer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_conversion_distance</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_conversion_distance</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_conversion_distance</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">get_conversion_distance</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_conversion_distance</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.analysis.TypeRelationshipAnalyzer.get_relationship">
+<span class="sig-name descname"><span class="pre">get_relationship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/analysis.html#TypeRelationshipAnalyzer.get_relationship"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.get_relationship" title="Link to this definition"></a></dt>
+<dd><p>Determine the relationship between source and target types.</p>
+<p>This method establishes the fundamental relationship between two types,
+forming the basis for type conversion, validation, and compatibility checks.
+It analyzes inheritance relationships, conversion possibilities, and
+structural compatibilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The source type to analyze</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.U</em><em>]</em>) – The target type to analyze</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The precise relationship between the types, with values:</dt><dd><ul class="simple">
+<li><p>IDENTICAL: Types are exactly the same</p></li>
+<li><p>SUBTYPE: Source is a subtype of target</p></li>
+<li><p>SUPERTYPE: Target is a subtype of source</p></li>
+<li><p>IMPLICIT_CONVERTIBLE: Types can be converted implicitly</p></li>
+<li><p>CONVERTIBLE: Types can be converted explicitly</p></li>
+<li><p>CONTAINER_COMPATIBLE: Container types with compatible elements</p></li>
+<li><p>STRUCTURALLY_COMPATIBLE: Types share compatible structures</p></li>
+<li><p>PROTOCOL_COMPATIBLE: Source satisfies target’s protocol</p></li>
+<li><p>INCOMPATIBLE: Types cannot be converted</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../definitions/index.html#type_forge.typing.definitions.TypeCompatibility" title="type_forge.typing.definitions.TypeCompatibility">TypeCompatibility</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">TypeRelationshipAnalyzer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.IDENTICAL: &#39;identical&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.SUBTYPE: &#39;subtype&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_relationship</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+<span class="go">&lt;TypeCompatibility.CONVERTIBLE: &#39;convertible&#39;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="type_forge.typing.analysis.TypeRelationshipAnalyzer.is_convertible">
+<span class="sig-name descname"><span class="pre">is_convertible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/type_forge/typing/analysis.html#TypeRelationshipAnalyzer.is_convertible"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#type_forge.typing.analysis.TypeRelationshipAnalyzer.is_convertible" title="Link to this definition"></a></dt>
+<dd><p>Determine if source type can be converted to target type.</p>
+<p>A convenience method that leverages the type relationship analysis to
+provide a boolean verdict on conversion possibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.T</em><em>]</em>) – The source type to convert from</p></li>
+<li><p><strong>target_type</strong> (<em>Type</em><em>[</em><em>type_forge.typing.variables.U</em><em>]</em>) – The target type to convert to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if conversion is possible through any means, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">TypeRelationshipAnalyzer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_convertible</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_convertible</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_convertible</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

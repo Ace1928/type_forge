@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Custom Validators in Type Forge" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="examples/custom_validators.html" />
+<meta property="og:site_name" content="Type Forge" />
+<meta property="og:description" content="This document provides examples of how to create and use custom validators within the Type Forge module. Custom validators allow you to define specific validation rules tailored to your application..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_examples_custom_validators_413efbff.png" />
+<meta property="og:image:alt" content="This document provides examples of how to create and use custom validators within the Type Forge module. Custom validators allow you to define specific valid..." />
+<meta name="description" content="This document provides examples of how to create and use custom validators within the Type Forge module. Custom validators allow you to define specific validation rules tailored to your application..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Validators in Type Forge &mdash; Type Forge 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38b66d78"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Type Forge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Custom Validators in Type Forge</a><ul>
+<li><a class="reference internal" href="#creating-a-custom-validator">Creating a Custom Validator</a><ul>
+<li><a class="reference internal" href="#usage-of-the-custom-validator">Usage of the Custom Validator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#combining-custom-validators">Combining Custom Validators</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Type Forge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Custom Validators in Type Forge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/custom_validators.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="custom-validators-in-type-forge">
+<h1>Custom Validators in Type Forge<a class="headerlink" href="#custom-validators-in-type-forge" title="Link to this heading"></a></h1>
+<p>This document provides examples of how to create and use custom validators within the Type Forge module. Custom validators allow you to define specific validation rules tailored to your application’s needs, enhancing the flexibility and robustness of the type validation framework.</p>
+<section id="creating-a-custom-validator">
+<h2>Creating a Custom Validator<a class="headerlink" href="#creating-a-custom-validator" title="Link to this heading"></a></h2>
+<p>To create a custom validator, you need to define a class that implements the validation logic. Below is an example of a simple custom validator that checks if a value is an even number.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">type_forge.validators.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseValidator</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EvenNumberValidator</span><span class="p">(</span><span class="n">BaseValidator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate that the number is even.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Value must be an integer.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<section id="usage-of-the-custom-validator">
+<h3>Usage of the Custom Validator<a class="headerlink" href="#usage-of-the-custom-validator" title="Link to this heading"></a></h3>
+<p>Once you have defined your custom validator, you can use it in your type validation process. Here’s how to apply the <code class="docutils literal notranslate"><span class="pre">EvenNumberValidator</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">type_forge.forge</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeForge</span>
+
+<span class="c1"># Create an instance of the TypeForge</span>
+<span class="n">forge</span> <span class="o">=</span> <span class="n">TypeForge</span><span class="p">()</span>
+
+<span class="c1"># Register the custom validator</span>
+<span class="n">forge</span><span class="o">.</span><span class="n">register_validator</span><span class="p">(</span><span class="n">EvenNumberValidator</span><span class="p">())</span>
+
+<span class="c1"># Validate a value</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">forge</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">EvenNumberValidator</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation passed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation failed:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="combining-custom-validators">
+<h2>Combining Custom Validators<a class="headerlink" href="#combining-custom-validators" title="Link to this heading"></a></h2>
+<p>You can also combine multiple custom validators to create more complex validation rules. Here’s an example of a composite validator that checks if a number is both even and positive.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">type_forge.validators.composite</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompositeValidator</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EvenAndPositiveValidator</span><span class="p">(</span><span class="n">CompositeValidator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([</span>
+            <span class="n">EvenNumberValidator</span><span class="p">(),</span>
+            <span class="n">PositiveNumberValidator</span><span class="p">()</span>  <span class="c1"># Assume this is defined elsewhere</span>
+        <span class="p">])</span>
+
+<span class="c1"># Usage</span>
+<span class="n">forge</span><span class="o">.</span><span class="n">register_validator</span><span class="p">(</span><span class="n">EvenAndPositiveValidator</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>Custom validators in Type Forge provide a powerful way to enforce specific validation rules in your applications. By extending the base validator class, you can create tailored solutions that fit your unique requirements, ensuring that your data adheres to the expected formats and constraints.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Lloyd Handyside.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
