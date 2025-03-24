@@ -189,10 +189,9 @@ def pluralize(word: str) -> str:
     # Common English pluralization rules
     if word.endswith(("s", "sh", "ch", "x", "z")):
         return word + "es"
-    elif word.endswith("y") and len(word) > 1 and word[-2] not in "aeiou":
+    if word.endswith("y") and len(word) > 1 and word[-2] not in "aeiou":
         return word[:-1] + "ies"
-    else:
-        return word + "s"
+    return word + "s"
 
 
 def standardize_typename(name: str) -> str:

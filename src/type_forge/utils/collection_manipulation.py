@@ -125,7 +125,8 @@ def flatten_list(nested_list: List[List[T]]) -> List[T]:
 
 
 def partition_list(
-    items: List[T], predicate: Callable[[T], bool]
+    items: List[T],
+    predicate: Callable[[T], bool],
 ) -> Tuple[List[T], List[T]]:
     """
     Partition a list into two lists based on a predicate function.

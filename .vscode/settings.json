@@ -1,12 +1,20 @@
 {
   "cSpell.words": [
     "aeiou",
+    "cattrs",
     "childs",
+    "commitizen",
     "deduplicator",
     "Deduplicator",
+    "isort",
+    "mkdocs",
+    "mkdocstrings",
     "mros",
+    "mypy",
     "pycache",
+    "pydantic",
     "pytest",
+    "repr",
     "standardizer",
     "Standardizer"
   ]
