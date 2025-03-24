@@ -29,7 +29,7 @@ build:
       # Generate API documentation automatically
       - python -m sphinx.ext.apidoc -o docs/api type_forge -f -e -M
       # Extract API typing information
-      - python -m sphinx_autodoc_typehints -o docs/api-types type_forge
+      - python -m autodoc_typehints -o docs/api-types type_forge
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:

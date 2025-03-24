@@ -1,8 +1,10 @@
-# Configuration file for the Sphinx documentation builder
+import os
 import sys
-from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Literal, Optional, Tuple, Union
+
+# Add src directory to path so autoapi can find the modules
+sys.path.insert(0, os.path.abspath("../src"))
 
 # Add project root to path using Path for better path handling
 project_root = Path(__file__).parent.parent.absolute()
@@ -15,16 +17,18 @@ myst_footnote_transition = True
 myst_dmath_double_inline = True
 
 # -- Project information -----------------------------------------------------
-project = "Eidosian Type Forge"
-copyright = f"{datetime.now().year}, Lloyd Handyside"
+project = "Type Forge"
+copyright = "2025, Lloyd Handyside"
 author = "Lloyd Handyside"
-version = "0.1.0"  # Will be replaced with type_forge.__version__
-release = "Beta"  # Will be replaced with type_forge.__version__
+release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------
 extensions: List[str] = [
-    # Core Sphinx extensions
     "sphinx.ext.autodoc",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "autoapi.extension",
+    # Core Sphinx extensions
     "sphinx.ext.autosummary",
     "sphinx.ext.coverage",
     "sphinx.ext.doctest",
@@ -35,14 +39,11 @@ extensions: List[str] = [
     "sphinx.ext.inheritance_diagram",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
-    "sphinx.ext.napoleon",
     "sphinx.ext.todo",
-    "sphinx.ext.viewcode",
     # Markdown support
     "myst_parser",
     "myst_nb",
     # Auto API documentation
-    "autoapi.extension",
     "sphinx_autodoc_typehints",
     "sphinxcontrib.autodoc_pydantic",
     # Additional neat features
@@ -97,8 +98,10 @@ napoleon_use_keyword: bool = True
 napoleon_custom_sections: List[str] = ["Attributes", "Methods", "Examples"]
 
 # -- AutoAPI Configuration ---------------------------------------------------
-autoapi_dirs: List[str] = ["../type_forge"]
-autoapi_template_dir: str = "_templates/autoapi"
+autoapi_type = "python"
+autoapi_dirs = ["../src"]  # Point to the source directory
+autoapi_add_toctree_entry = True
+autoapi_template_dir = "_templates/autoapi"  # Optional, for custom templates
 autoapi_options: List[str] = [
     "members",
     "undoc-members",
@@ -112,10 +115,9 @@ autoapi_options: List[str] = [
 autoapi_python_class_content: str = "both"
 autoapi_member_order: str = "groupwise"
 autoapi_keep_files: bool = True
-autoapi_add_toctree_entry: bool = True
 
 # -- HTML output configuration ------------------------------------------------
-html_theme: str = "furo"
+html_theme = "sphinx_rtd_theme"  # Or any other theme you prefer
 html_favicon: str = "_static/favicon.ico"
 html_logo: str = "_static/logo.png"
 html_static_path: List[str] = ["_static"]

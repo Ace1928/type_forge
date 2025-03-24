@@ -1,12 +1,16 @@
 {
   "cSpell.words": [
     "aeiou",
+    "amsmath",
     "cattrs",
     "childs",
     "commitizen",
     "deduplicator",
     "Deduplicator",
+    "dmath",
     "isort",
+    "ivar",
+    "linkify",
     "mkdocs",
     "mkdocstrings",
     "mros",
@@ -15,7 +19,10 @@
     "pydantic",
     "pytest",
     "repr",
+    "rtype",
     "standardizer",
-    "Standardizer"
+    "Standardizer",
+    "toctree",
+    "undoc"
   ]
 }

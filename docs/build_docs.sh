@@ -8,9 +8,6 @@ set -e  # Exit on error for immediate feedback
 
 echo "🔮 Building Eidosian Type Forge documentation with latest components"
 
-# Ensure we have the latest core dependencies
-pip install --upgrade sphinx myst-parser myst-nb sphinx-autoapi furo
-
 # Apply precision fix for MyST footnote compatibility
 export PYTHONNOUSERSITE=1
 export PYTHONWARNINGS="ignore:Role 'sub-ref' is already registered:UserWarning"
@@ -23,7 +20,7 @@ rm -rf _build
 echo "⚡ Building documentation with elegant conflict resolution"
 sphinx-build -b html \
   -D suppress_warnings=myst.footnote \
-  -D myst_footnote_transition=True \
+  -D myst_footnote_transition=1 \
   -D myst_dmath_double_inline=True \
   . _build/html
 
