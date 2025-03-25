@@ -173,15 +173,6 @@ Module Contents
    ```
 
 
-   .. py:method:: __str__()
-
-      Generate human-readable representation of the violation.
-
-      :returns: Formatted string with violation details including path,
-                expected value, found value, and violation kind.
-
-
-
    .. py:attribute:: expected
       :type:  str
 
@@ -222,14 +213,6 @@ Module Contents
    if isinstance(value, str):
        return TypeViolationKind.WRONG_TYPE
    ```
-
-
-   .. py:method:: __str__()
-
-      Generate string representation of the violation kind.
-
-      :returns: The string value of the enumeration.
-
 
 
    .. py:attribute:: CONVERSION_ERROR

@@ -229,7 +229,7 @@ def is_abstract_type(typ: Type[object]) -> bool:
     return (
         isinstance(typ, ABCMeta)
         and hasattr(typ, "__abstractmethods__")
-        and bool(getattr(typ, "__abstractmethods__"))
+        and bool(typ.__abstractmethods__)
     )
 
 

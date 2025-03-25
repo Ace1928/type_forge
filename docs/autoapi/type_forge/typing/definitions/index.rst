@@ -71,22 +71,6 @@ Module Contents
    'function'
 
 
-   .. py:method:: __str__()
-
-      String representation of the type category.
-
-      :returns: The name of the type category in lowercase
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> str(TypeCategory.ATOMIC)
-      'atomic'
-      >>> str(TypeCategory.COMPOSITE)
-      'composite'
-
-
-
    .. py:attribute:: ATOMIC
       :value: 'atomic'
 
@@ -200,22 +184,6 @@ Module Contents
    'incompatible'
 
 
-   .. py:method:: __str__()
-
-      String representation of the type compatibility.
-
-      :returns: The name of the type compatibility in lowercase
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> str(TypeCompatibility.IDENTICAL)
-      'identical'
-      >>> str(TypeCompatibility.CONVERTIBLE)
-      'convertible'
-
-
-
    .. py:method:: is_compatible()
 
       Determine if this compatibility level allows conversion.
@@ -293,13 +261,16 @@ Module Contents
    STRICT: Allow no type variance, exact type match required.
        Types must be identical (A is A, not A is subclass of B).
    STANDARD: Allow normal subtype relationships (inheritance).
-       Types can be subclasses (B is acceptable when A is required if B inherits from A).
+       Types can be subclasses (B is acceptable when A is required if B inherits
+       from A).
    PERMISSIVE: Allow type conversion where possible.
-       Attempts to convert between compatible types (str to int if str contains a number).
+       Attempts to convert between compatible types (str to int if str contains
+       a number).
    DYNAMIC: Use duck typing and runtime checks.
        Checks for attribute/method presence rather than type identity.
    STRUCTURAL: Check structural compatibility only.
-       Types are compatible if they have compatible structures regardless of inheritance.
+       Types are compatible if they have compatible structures regardless
+       of inheritance.
    COVARIANT: Allow covariant substitution.
        A type B can be used where A is required if B is a subtype of A.
    CONTRAVARIANT: Allow contravariant substitution.
@@ -315,22 +286,6 @@ Module Contents
    'standard'
    >>> str(ValidationLevel.PERMISSIVE)
    'permissive'
-
-
-   .. py:method:: __str__()
-
-      String representation of the validation level.
-
-      :returns: The name of the validation level in lowercase
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> str(ValidationLevel.STRICT)
-      'strict'
-      >>> str(ValidationLevel.STANDARD)
-      'standard'
-
 
 
    .. py:attribute:: CONTRAVARIANT
@@ -399,22 +354,6 @@ Module Contents
    'warning'
    >>> str(ValidationSeverity.INFO)
    'info'
-
-
-   .. py:method:: __str__()
-
-      String representation of the validation severity.
-
-      :returns: The name of the validation severity in lowercase
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> str(ValidationSeverity.ERROR)
-      'error'
-      >>> str(ValidationSeverity.WARNING)
-      'warning'
-
 
 
    .. py:method:: is_blocker()

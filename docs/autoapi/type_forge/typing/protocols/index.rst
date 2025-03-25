@@ -121,15 +121,6 @@ Module Contents
    >>> bool(CustomBoolean(True))  # True
 
 
-   .. py:method:: __bool__()
-
-      Convert to boolean.
-
-      :returns: Boolean representation of the object.
-      :rtype: bool
-
-
-
 .. py:class:: SupportsComparison
 
    Bases: :py:obj:`Protocol`
@@ -152,17 +143,6 @@ Module Contents
    >>> ComparableValue(1) < ComparableValue(2)  # True
 
 
-   .. py:method:: __lt__(other)
-
-      Compare if self is less than other.
-
-      :param other: Object to compare against.
-
-      :returns: True if self is less than other, False otherwise.
-      :rtype: bool
-
-
-
 .. py:class:: SupportsEquality
 
    Bases: :py:obj:`Protocol`
@@ -171,21 +151,12 @@ Module Contents
    Protocol for objects that support equality operations.
 
 
-   .. py:method:: __eq__(other)
-
-
-   .. py:method:: __ne__(other)
-
-
 .. py:class:: SupportsFloat
 
    Bases: :py:obj:`Protocol`
 
 
    Protocol for objects that support conversion to float.
-
-
-   .. py:method:: __float__()
 
 
 .. py:class:: SupportsFloatConversion
@@ -208,15 +179,6 @@ Module Contents
    >>> float(CustomFloat(3.14))  # 3.14
 
 
-   .. py:method:: __float__()
-
-      Convert to float.
-
-      :returns: Floating-point representation of the object.
-      :rtype: float
-
-
-
 .. py:class:: SupportsGetAttr
 
    Bases: :py:obj:`Protocol`
@@ -234,18 +196,6 @@ Module Contents
    ...         return len(name)
    >>> obj = CustomObject()
    >>> obj.attribute  # 9
-
-
-   .. py:method:: __getattr__(name)
-
-      Get attribute by name.
-
-      :param name: Name of the attribute to retrieve.
-
-      :returns: The attribute value.
-
-      :raises AttributeError: If the attribute is not found.
-
 
 
 .. py:class:: SupportsGetItem
@@ -277,27 +227,12 @@ Module Contents
    >>> container["one"]  # 1
 
 
-   .. py:method:: __getitem__(key)
-
-      Get item at the specified key.
-
-      :param key: The key to look up.
-
-      :returns: The value associated with the key.
-
-      :raises KeyError: If the key is not found.
-
-
-
 .. py:class:: SupportsInt
 
    Bases: :py:obj:`Protocol`
 
 
    Protocol for objects that support conversion to int.
-
-
-   .. py:method:: __int__()
 
 
 .. py:class:: SupportsIntConversion
@@ -318,15 +253,6 @@ Module Contents
    ...     def __int__(self) -> int:
    ...         return self.value
    >>> isinstance(CustomInteger(42), SupportsIntConversion)  # True at runtime
-
-
-   .. py:method:: __int__()
-
-      Convert to integer.
-
-      :returns: Integer representation of the object.
-      :rtype: int
-
 
 
 .. py:class:: SupportsIteration
@@ -354,24 +280,12 @@ Module Contents
    >>> list(CustomIterable([1, 2, 3]))  # [1, 2, 3]
 
 
-   .. py:method:: __iter__()
-
-      Return an iterator for this object.
-
-      :returns: An iterator yielding items of type T_co.
-      :rtype: Iterator[T_co]
-
-
-
 .. py:class:: SupportsLen
 
    Bases: :py:obj:`Protocol`
 
 
    Protocol for objects that support length operations.
-
-
-   .. py:method:: __len__()
 
 
 .. py:class:: SupportsLength
@@ -392,15 +306,6 @@ Module Contents
    ...     def __len__(self) -> int:
    ...         return self.size
    >>> len(CustomSized(5))  # 5
-
-
-   .. py:method:: __len__()
-
-      Return the length of the object.
-
-      :returns: The number of items in the object.
-      :rtype: int
-
 
 
 .. py:class:: SupportsMapping
@@ -434,38 +339,6 @@ Module Contents
    >>> mapping["key"]  # 1
 
 
-   .. py:method:: __contains__(key)
-
-      Check if the mapping contains the specified key.
-
-      :param key: The key to check for.
-
-      :returns: True if the key exists in the mapping, False otherwise.
-      :rtype: bool
-
-
-
-   .. py:method:: __getitem__(key)
-
-      Get the value for a given key.
-
-      :param key: The key to look up.
-
-      :returns: The value associated with the key.
-
-      :raises KeyError: If the key is not found.
-
-
-
-   .. py:method:: __setitem__(key, value)
-
-      Set the value for a given key.
-
-      :param key: The key to set.
-      :param value: The value to associate with the key.
-
-
-
 .. py:class:: SupportsStrConversion
 
    Bases: :py:obj:`Protocol`
@@ -484,15 +357,6 @@ Module Contents
    ...     def __str__(self) -> str:
    ...         return self.value
    >>> str(CustomString("hello"))  # 'hello'
-
-
-   .. py:method:: __str__()
-
-      Convert to string.
-
-      :returns: String representation of the object.
-      :rtype: str
-
 
 
 .. py:class:: SupportsTypeCheck

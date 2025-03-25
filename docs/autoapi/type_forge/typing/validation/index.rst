@@ -107,22 +107,6 @@ Module Contents
    :param context: Additional contextual information about the issue
 
 
-   .. py:method:: __str__()
-
-      String representation of the validation issue.
-
-      :returns: Formatted description of the issue
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> str(ValidationIssue(ValidationSeverity.ERROR, "Invalid data"))
-      'ERROR: Invalid data'
-      >>> str(ValidationIssue(ValidationSeverity.WARNING, "Unusual value", path="config.timeout"))
-      'WARNING at config.timeout: Unusual value'
-
-
-
    .. py:method:: is_blocker()
 
       Check if this issue should block operation.
@@ -201,43 +185,6 @@ Module Contents
    2
 
    Initialize an empty ValidationReport.
-
-
-   .. py:method:: __bool__()
-
-      Boolean evaluation of validation success.
-
-      :returns: True if validation passed (no errors), False otherwise
-      :rtype: bool
-
-      .. rubric:: Examples
-
-      >>> report = ValidationReport()
-      >>> bool(report)
-      True
-      >>> report.add_error("Problem found")
-      >>> bool(report)
-      False
-
-
-
-   .. py:method:: __str__()
-
-      String representation of the validation report.
-
-      :returns: Summary of validation results
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> report = ValidationReport()
-      >>> str(report)
-      'Validation passed with 0 issues'
-      >>> report.add_error("Problem 1")
-      >>> report.add_warning("Minor issue")
-      >>> str(report)
-      'Validation failed with 2 issues (1 errors, 1 warnings)'
-
 
 
    .. py:method:: add_error(message, path = None, context = None)

@@ -15,18 +15,28 @@ All operations maintain full type safety through compile-time checks and
 runtime validation, ensuring system-wide integrity.
 """
 
-# Standard library imports
-from typing import Dict, List, Optional, Sequence, Tuple, Type, Union, cast, overload
+from typing import (
+    Any,
+    Dict,
+    List,
+    Mapping,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+    overload,
+)
 
-# Local application imports
-from ..core.base import TypeForgeBase, ValidationResult
-from ..core.exceptions import TypeCreationError
-from ..typing.definitions import (
+from type_forge.core import TypeCreationError, TypeForgeBase, ValidationResult
+from type_forge.typing import (
     ConversionResult,
+    DictSchemaT,
     ErrorMessage,
     FieldDefinitions,
     R,
-    SchemaValueT,
+    SchemaTypeT,
     T,
     TInstance,
     TypeName,
@@ -34,7 +44,7 @@ from ..typing.definitions import (
     U,
     ValidationPath,
 )
-from ..validators.factory import ValidatorFactory
+from type_forge.validators import ValidatorFactory
 
 # Author and version information
 __author__ = "TypeForge Team"
@@ -108,16 +118,26 @@ class TypeForge(TypeForgeBase):
     # Fix for overlapping overloads - use a generic for the first one
     @overload
     def create_instance(
-        self, name: TypeName, cls_type: Type[TInstance], *args: object, **kwargs: object
+        self,
+        name: TypeName,
+        cls_type: Type[TInstance],
+        *args: object,
+        **kwargs: object,
     ) -> TInstance: ...
 
     @overload
     def create_instance(
-        self, name: TypeName, *args: object, **kwargs: object
+        self,
+        name: TypeName,
+        *args: object,
+        **kwargs: object,
     ) -> object: ...
 
     def create_instance(
-        self, name: TypeName, *args: object, **kwargs: object
+        self,
+        name: TypeName,
+        *args: object,
+        **kwargs: object,
     ) -> object:
         """Create an instance of a registered type with the provided arguments.
 
@@ -167,10 +187,9 @@ class TypeForge(TypeForgeBase):
             # We have a cls_type as first arg, use remaining args
             cls = self.types[name]
             return cls(*args[1:], **kwargs)
-        else:
-            # No cls_type, use all args
-            cls = self.types[name]
-            return cls(*args, **kwargs)
+        # No cls_type, use all args
+        cls = self.types[name]
+        return cls(*args, **kwargs)
 
     def validate(self, value: object) -> bool:
         """Validate a value using registered validators.
@@ -268,7 +287,7 @@ class TypeForge(TypeForgeBase):
             self.register_type(name, new_type)
             return new_type
         except Exception as e:
-            raise TypeCreationError(f"Failed to create type '{name}': {str(e)}")
+            raise TypeCreationError(f"Failed to create type '{name}': {str(e)}") from e
 
     @staticmethod
     def validate_type(
@@ -324,17 +343,16 @@ class TypeForge(TypeForgeBase):
                 ValidationResult[R],
                 ValidatorFactory.validate_type(value, expected_type, path, convert),
             )
-        else:
-            # Sequence of types case with proper typing
-            return cast(
-                ValidationResult[R],
-                ValidatorFactory.validate_type(value, expected_type, path, convert),
-            )
+        # Sequence of types case with proper typing
+        return cast(
+            ValidationResult[R],
+            ValidatorFactory.validate_type(value, expected_type, path, convert),
+        )
 
     @staticmethod
     def validate_dict_schema(
         data: object,
-        schema: Dict[str, SchemaValueT],
+        schema: Mapping[str, SchemaTypeT[Any]],
         convert: bool = False,
         require_all_keys: bool = True,
     ) -> ValidationResult[Dict[str, object]]:
@@ -395,9 +413,10 @@ class TypeForge(TypeForgeBase):
             :meth:`~TypeForge.validate_recursive`: For validating deeply nested structures.
         """
         # Explicit cast to ensure type safety with the factory method
+        # We're using a properly typed schema that's compatible with DictSchemaT
         return ValidatorFactory.validate_dict(
             data,
-            schema,
+            cast(DictSchemaT, schema),
             path="$",
             convert=convert,
             require_all_keys=require_all_keys,
@@ -407,7 +426,10 @@ class TypeForge(TypeForgeBase):
     def validate_recursive(
         value: object,
         schema: Union[
-            Type[object], Tuple[Type[object], ...], Dict[str, object], List[object]
+            Type[object],
+            Tuple[Type[object], ...],
+            Dict[str, object],
+            List[object],
         ],
         path: str = "$",
         convert: bool = False,
@@ -469,10 +491,19 @@ class TypeForge(TypeForgeBase):
             :class:`SchemaTypeT`: For the schema type definition.
         """
         # Precise typing ensures we're passing the correct schema type to the validator
-        return ValidatorFactory.validate_recursive(value, schema, path, convert)
+        # Using cast to ensure type safety with the factory method
+        return ValidatorFactory.validate_recursive(
+            value,
+            cast(SchemaTypeT[object], schema),
+            path,
+            convert,
+        )
 
     def validate_and_convert(
-        self, value: object, target_type: Type[R], path: ValidationPath = "$"
+        self,
+        value: object,
+        target_type: Type[R],
+        path: ValidationPath = "$",
     ) -> ValidationResult[R]:
         """Validate and convert a value to the target type in a single operation.
 
@@ -658,12 +689,15 @@ class TypeForge(TypeForgeBase):
             True
         """
         # Import here to avoid circular imports
-        from ..typing.conversion import try_convert
+        from type_forge.typing.conversion import try_convert
 
         return try_convert(value, target_type)
 
     def safe_convert(
-        self, value: object, target_type: Type[R], default: Optional[R] = None
+        self,
+        value: object,
+        target_type: Type[R],
+        default: Optional[R] = None,
     ) -> Optional[R]:
         """Safely convert a value to the target type, returning default on failure.
 

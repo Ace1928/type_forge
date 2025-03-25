@@ -26,7 +26,8 @@ Module Contents
 
 .. py:class:: TypeRelationshipAnalyzer
 
-   Analyzes and determines the relationship between types for conversion and validation.
+   Analyzes and determines the relationship between types
+   for conversion and validation.
 
    This utility class provides methods to analyze type relationships, determine
    compatibility, and calculate conversion distances between types. It implements
@@ -67,8 +68,8 @@ Module Contents
       :returns:
 
                 The most specific common supertype, or None
-                                       if only object is common (effectively no meaningful
-                                       common interface exists)
+                                      if only object is common (effectively no
+                                      meaningful common interface exists)
       :rtype: Optional[Type[object]]
 
       .. rubric:: Examples
@@ -78,7 +79,7 @@ Module Contents
       True
       >>> analyzer.find_common_supertype(list, tuple) == collections.abc.Sequence
       True
-      >>> analyzer.find_common_supertype(str, dict) is None  # Only 'object' in common
+      >>> analyzer.find_common_supertype(str, dict) is None
       True
 
 
@@ -115,7 +116,7 @@ Module Contents
       0
       >>> analyzer.get_conversion_distance(bool, int)
       1
-      >>> analyzer.get_conversion_distance(str, int) > analyzer.get_conversion_distance(float, int)
+      >>> analyzer.get_conversion_distance(str, int) >             ...     analyzer.get_conversion_distance(float, int)
       True
       >>> analyzer.get_conversion_distance(list, dict) == float('inf')
       True

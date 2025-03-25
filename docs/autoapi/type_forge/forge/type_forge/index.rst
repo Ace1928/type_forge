@@ -22,15 +22,6 @@ type_forge.forge.type_forge
 
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   type_forge.forge.type_forge.__author__
-   type_forge.forge.type_forge.__version__
-
-
 Classes
 -------
 
@@ -77,21 +68,6 @@ Module Contents
    Creates clean registries for types and validators that will be populated
    through the register_type and add_validator methods, establishing
    the foundation for dynamic type operations.
-
-
-   .. py:method:: add_validator(validator)
-
-      Add a validator to the type forging process.
-
-      Appends a validator to the internal list of validators that will
-      be applied during validation operations. This method implements
-      the builder pattern for constructing validation chains.
-
-      :param validator: An instance of a validator
-      :type validator: BaseValidator
-
-      :raises TypeError: If validator is not an instance of BaseValidator
-
 
 
    .. py:method:: assert_type(value: object, expected_type: Type[type_forge.typing.definitions.R], message: Optional[type_forge.typing.definitions.ErrorMessage] = None) -> type_forge.typing.definitions.R
@@ -610,41 +586,7 @@ Module Contents
 
 
 
-   .. py:method:: validate_with_detail(value)
-
-      Validate with detailed results from all validators.
-
-      Aggregates validation results from all validators, maintaining a comprehensive
-      record of any violations that occur while preserving type safety.
-
-      Unlike the simple validate method, this continues to run all validators
-      even after failures to collect complete violation information.
-      This implementation balances efficiency with completeness, providing
-      full failure details for better debugging and error reporting.
-
-      :param value: The value to validate
-      :type value: object
-
-      :returns: Aggregated validation details with type preservation
-      :rtype: ValidationResult[object]
-
-
-
    .. py:attribute:: types
       :type:  type_forge.typing.definitions.TypeRegistry
-
-
-   .. py:attribute:: validators
-      :type:  List[BaseValidator]
-      :value: []
-
-
-
-.. py:data:: __author__
-   :value: 'TypeForge Team'
-
-
-.. py:data:: __version__
-   :value: '0.1.0'
 
 

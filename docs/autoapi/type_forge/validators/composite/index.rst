@@ -46,16 +46,6 @@ Module Contents
    :param validators: List of validator functions that take a value and return a boolean
 
 
-   .. py:method:: __call__(value)
-
-      Make the validator callable directly.
-
-      :param value: The value to validate
-
-      :returns: Result of validate(value)
-
-
-
    .. py:method:: add_validator(validator)
 
       Add a new validator to the composite.
@@ -83,30 +73,6 @@ Module Contents
       :param value: The value to validate
 
       :returns: True if all validators return True, False otherwise
-
-
-
-   .. py:method:: validate_with_detail(value)
-
-      Validate the given value with detailed results.
-
-      Provides comprehensive validation information including specific violations
-      and an optionally converted value. This implementation relies on the simple
-      validate method, but subclasses may override for more detailed reporting.
-
-      This method demonstrates the recursive refinement principle by building
-      detailed validation upon the simpler boolean validation. It also implements
-      the "Errors as Values" principle by encapsulating failures in the return
-      type rather than through exceptions.
-
-      :param value: The value to validate
-      :type value: object
-
-      :returns: Detailed validation results with type preservation
-      :rtype: ValidationResult[object]
-
-      :raises No direct exceptions, but captures exceptions from validate() and:
-      :raises converts them to ValidationResult with appropriate violations:
 
 
 

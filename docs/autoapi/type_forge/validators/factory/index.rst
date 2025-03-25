@@ -35,33 +35,6 @@ Module Contents
    validation scenarios.
 
 
-   .. py:method:: _get_type_name(typ)
-      :staticmethod:
-
-
-      Get a human-readable name for a type or type collection.
-
-      :param typ: A type, tuple of types, or list/sequence of types
-
-      :returns: A string representation of the type(s)
-
-
-
-   .. py:method:: _try_convert(value, target_type)
-      :staticmethod:
-
-
-      Try to convert a value to the target type.
-
-      :param value: Value to convert
-      :param target_type: Type to convert to
-
-      :returns: Converted value or None if conversion failed
-
-      .. note:: This is an internal method used by validate_type.
-
-
-
    .. py:method:: create_validator(validator_type, **kwargs)
       :staticmethod:
 

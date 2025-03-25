@@ -643,7 +643,7 @@ class SupportsMapping(Protocol[K_co, V]):
 
 @runtime_checkable
 class TypedConverter(Protocol[S_contra, T_co]):
-    """Protocol for types that can convert from a specific type to another specific type.
+    """Protocol for types that can convert from a specific type to another type.
 
     This protocol defines the interface for objects that implement
     conversion logic between specific types with strong typing.

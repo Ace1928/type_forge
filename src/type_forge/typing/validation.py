@@ -220,7 +220,7 @@ class ValidationReport:
             <ValidationSeverity.ERROR: 'error'>
         """
         self.add_issue(
-            ValidationIssue(ValidationSeverity.ERROR, message, path, context)
+            ValidationIssue(ValidationSeverity.ERROR, message, path, context),
         )
 
     def add_warning(
@@ -244,7 +244,7 @@ class ValidationReport:
             <ValidationSeverity.WARNING: 'warning'>
         """
         self.add_issue(
-            ValidationIssue(ValidationSeverity.WARNING, message, path, context)
+            ValidationIssue(ValidationSeverity.WARNING, message, path, context),
         )
 
     def add_info(
@@ -327,7 +327,8 @@ class ValidationReport:
         )
 
     def get_issues(
-        self, severity: Optional[ValidationSeverity] = None
+        self,
+        severity: Optional[ValidationSeverity] = None,
     ) -> List[ValidationIssue]:
         """
         Get validation issues, optionally filtered by severity.
@@ -425,7 +426,7 @@ class ValidationReport:
 
         error_count = len([i for i in self.issues if i.is_error()])
         warning_count = len(
-            [i for i in self.issues if i.severity == ValidationSeverity.WARNING]
+            [i for i in self.issues if i.severity == ValidationSeverity.WARNING],
         )
         info_count = len(self.issues) - error_count - warning_count
 
@@ -649,7 +650,9 @@ def is_protocol_instance(obj: object, protocol: Type[object]) -> bool:
     # First try runtime protocol checking if available
     try:
         if hasattr(protocol, "_is_runtime_protocol") and getattr(
-            protocol, "_is_runtime_protocol", False
+            protocol,
+            "_is_runtime_protocol",
+            False,
         ):
             return isinstance(obj, protocol)  # type: ignore
     except (TypeError, AttributeError):
@@ -660,11 +663,7 @@ def is_protocol_instance(obj: object, protocol: Type[object]) -> bool:
         return False
 
     # Check if object has all required attributes and methods
-    for attr_name in protocol.__annotations__:
-        if not hasattr(obj, attr_name):
-            return False
-
-    return True
+    return all(hasattr(obj, attr_name) for attr_name in protocol.__annotations__)
 
 
 def is_numeric(value: object) -> bool:
@@ -895,52 +894,59 @@ def is_compatible_with_type(value: object, target_type: Type[T]) -> bool:
     # Handle special conversions
     try:
         if target_type is int:
-            if isinstance(value, (str, float, bool, bytes)) or isinstance(
-                value, SupportsInt
-            ):
+            if isinstance(value, (str, float, bool, bytes, SupportsInt)):
                 int(value)  # type: ignore
                 return True
             return False
-        elif target_type is float:
-            if isinstance(value, (str, int, bool)) or isinstance(value, SupportsFloat):
+
+        if target_type is float:
+            if isinstance(value, (str, int, bool, SupportsFloat)):
                 float(value)  # type: ignore
                 return True
             return False
-        elif target_type is bool:
+
+        if target_type is bool:
             # Everything can be converted to bool
             return True
-        elif target_type is str:
+
+        if target_type is str:
             # Everything can be converted to str
             return True
-        elif target_type is bytes and isinstance(value, str):
+
+        if target_type is bytes and isinstance(value, str):
             bytes(value, "utf-8")
             return True
-        elif target_type is list and is_collection(value):
+
+        if target_type is list and is_collection(value):
             # Safe check for iterables
             if isinstance(value, Iterable):
                 list(value)  # type: ignore
                 return True
             return False
-        elif target_type is tuple and is_collection(value):
+
+        if target_type is tuple and is_collection(value):
             if isinstance(value, Iterable):
                 tuple(value)  # type: ignore
                 return True
             return False
-        elif target_type is set and is_collection(value):
+
+        if target_type is set and is_collection(value):
             if isinstance(value, Iterable):
                 set(value)  # type: ignore
                 return True
             return False
-        elif target_type is dict and hasattr(value, "items"):
+
+        if target_type is dict and hasattr(value, "items"):
             dict(value)  # type: ignore
             return True
-        else:
-            # Try direct conversion as a last resort
-            # This may raise an exception
-            if isinstance(value, Iterable) and issubclass(target_type, Collection):
-                target_type(value)  # type: ignore
-                return True
-            return False
+
+        # Try direct conversion as a last resort
+        # This may raise an exception
+        if isinstance(value, Iterable) and issubclass(target_type, Collection):
+            target_type(value)  # type: ignore
+            return True
+
+        return False
     except (ValueError, TypeError):
         return False
 
@@ -979,14 +985,16 @@ def are_types_compatible(source_type: Type[object], target_type: Type[object]) -
 
     # Special numeric type compatibility
     if is_subclass_safe(source_type, numbers.Number) and is_subclass_safe(
-        target_type, numbers.Number
+        target_type,
+        numbers.Number,
     ):
         # All numeric types are generally compatible with each other
         return True
 
     # Collection type compatibility
     if is_subclass_safe(source_type, Collection) and is_subclass_safe(
-        target_type, Collection
+        target_type,
+        Collection,
     ):
         # Check for specific collection type compatibility
         if (

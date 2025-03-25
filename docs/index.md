@@ -4,12 +4,16 @@ Welcome to the **Type Forge** documentation! This project is designed to provide
 
 ## Table of Contents
 
-- [Getting Started](getting_started.md)
-- [API Documentation](api/index.md)
-  - [Validators](api/validators.md)
-  - [Forge](api/forge.md)
-- [Examples](examples/basic_usage.md)
-- [Custom Validators](examples/custom_validators.md)
+```{toctree}
+:maxdepth: 2
+:caption: Contents:
+
+getting_started
+api/index
+examples/basic_usage
+examples/custom_validators
+autoapi/index
+```
 
 ## Overview
 

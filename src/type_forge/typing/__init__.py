@@ -226,14 +226,10 @@ from type_forge.typing.protocols import (
     SupportsTypeCheck,
 )
 from type_forge.typing.protocols import TypeConverter as TypeConverterProtocol
-from type_forge.typing.protocols import (
-    TypedConverter,
-    TypeDeduplicator,
-    TypeFactory,
-    TypeForge,
-    TypeInfo,
-    TypeNormalizer,
-)
+from type_forge.typing.protocols import TypedConverter, TypeDeduplicator, TypeFactory
+from type_forge.typing.protocols import TypeForge
+from type_forge.typing.protocols import TypeForge as TypeForgeProtocol
+from type_forge.typing.protocols import TypeInfo, TypeNormalizer
 from type_forge.typing.protocols import TypeRegistry as TypeRegistryProtocol
 from type_forge.typing.protocols import TypeStandardizer, Validator
 
@@ -459,6 +455,7 @@ __all__: list[str] = [
     "TypeRegistryProtocol",
     "TypeStandardizer",
     "Validator",
+    "TypeForgeProtocol",
     # Type standardization
     "deduplicate_types",
     "get_type_hierarchy",
@@ -529,6 +526,10 @@ __all__: list[str] = [
 # Module version with semantic versioning
 __version__: str = "0.1.0"
 version: str = __version__
+
+# Author Information
+__author__: str = "Lloyd Handyside"
+author: str = __author__
 
 
 def _verify_exports() -> None:

@@ -9,7 +9,7 @@ type_forge.typing.aliases
 
    This module defines a comprehensive type vocabulary that enables precision, safety, and
    clarity throughout the Type Forge framework. Each alias has been crafted to provide
-   maximum type safety while maintaining flexibility through appropriate variance annotations.
+   maximum type safety, maintaining flexibility through appropriate variance annotations.
 
    Categories:
        - Type identification and naming
@@ -20,7 +20,8 @@ type_forge.typing.aliases
        - Collection specializations
        - Error handling and result representations
 
-   Each alias embodies the Eidosian principle that "types are firewalls between intention and mistake."
+   Each alias embodies Eidosian principles:
+   that "types are firewalls between intention and mistake."
 
 
 

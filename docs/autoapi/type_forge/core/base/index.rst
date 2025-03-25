@@ -224,19 +224,6 @@ Module Contents
    ValidationResult(valid=True, violations=[], converted_value='string')
 
 
-   .. py:method:: __bool__()
-
-      Boolean conversion returns validation status.
-
-      Allows ValidationResult objects to be used directly in boolean contexts
-      for streamlined conditional logic, implementing the "errors as values"
-      pattern in an elegant, composable way.
-
-      :returns: True if validation passed, False otherwise
-      :rtype: bool
-
-
-
    .. py:method:: merge(other)
 
       Merge another validation result into this one.

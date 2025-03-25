@@ -40,7 +40,6 @@ Attributes
    type_forge.typing.naming.TypeCategoryLiteral
    type_forge.typing.naming.U
    type_forge.typing.naming.V
-   type_forge.typing.naming._NONE_TYPE
    type_forge.typing.naming.version
 
 
@@ -80,18 +79,6 @@ Module Contents
 
 
    Protocol defining the interface for type objects.
-
-
-   .. py:attribute:: __module__
-      :type:  str
-
-
-   .. py:attribute:: __name__
-      :type:  str
-
-
-   .. py:attribute:: __qualname__
-      :type:  str
 
 
 .. py:function:: are_types_compatible(source_type, target_type)
@@ -377,8 +364,6 @@ Module Contents
 .. py:data:: U
 
 .. py:data:: V
-
-.. py:data:: _NONE_TYPE
 
 .. py:data:: version
    :type:  Final[str]

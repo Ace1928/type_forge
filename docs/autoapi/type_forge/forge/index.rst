@@ -82,13 +82,6 @@ Attributes
 
 .. autoapisummary::
 
-   type_forge.forge.R
-   type_forge.forge.S
-   type_forge.forge.T
-   type_forge.forge.T_co
-   type_forge.forge.T_contra
-   type_forge.forge.__author__
-   type_forge.forge.__version__
    type_forge.forge.assert_type
    type_forge.forge.check_type
    type_forge.forge.convert_value
@@ -103,24 +96,6 @@ Attributes
 
 Package Contents
 ----------------
-
-.. py:data:: R
-
-.. py:data:: S
-
-.. py:data:: T
-
-.. py:data:: T_co
-
-.. py:data:: T_contra
-
-.. py:data:: __author__
-   :value: 'TypeForge Team'
-
-
-.. py:data:: __version__
-   :value: '0.1.0'
-
 
 .. py:data:: assert_type
 

@@ -1,15 +1,21 @@
 # Getting Started with Type Forge
 
-Welcome to the Type Forge project! This guide will help you set up the project and get started with its features.
+This guide will walk you through the installation and basic usage of the Type Forge library, helping you get up and running quickly with its powerful type validation and creation features.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
+Before installing Type Forge, ensure you have:
 
 - Python 3.7 or higher
 - pip (Python package installer)
 
 ## Installation
+
+You can install Type Forge using pip:
+
+```bash
+pip install type-forge
+```
 
 1. **Clone the Repository**
 

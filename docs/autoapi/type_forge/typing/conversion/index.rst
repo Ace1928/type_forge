@@ -25,7 +25,6 @@ Attributes
    type_forge.typing.conversion.ConvertibleToFloat
    type_forge.typing.conversion.ConvertibleToInt
    type_forge.typing.conversion.ConvertibleToStr
-   type_forge.typing.conversion._TYPE_CONVERTERS
    type_forge.typing.conversion.version
 
 
@@ -107,54 +106,6 @@ Module Contents
    'Conversion error'
 
 
-   .. py:method:: __bool__()
-
-      Boolean conversion returns success status.
-
-      :returns: True if conversion was successful, False otherwise
-      :rtype: bool
-
-      .. rubric:: Examples
-
-      >>> bool(ConversionResult.create_success(42))
-      True
-      >>> bool(ConversionResult[str].failure("Error"))
-      False
-
-
-
-   .. py:method:: __repr__()
-
-      Detailed string representation of the conversion result.
-
-      :returns: Detailed representation including class name
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> repr(ConversionResult.create_success(42))
-      'ConversionResult(success=True, value=42, error=None)'
-      >>> repr(ConversionResult.failure("Error"))
-      'ConversionResult(success=False, value=None, error="Error")'
-
-
-
-   .. py:method:: __str__()
-
-      String representation of the conversion result.
-
-      :returns: Description of the conversion result
-      :rtype: str
-
-      .. rubric:: Examples
-
-      >>> str(ConversionResult.create_success(42))
-      'Successful conversion: 42'
-      >>> str(ConversionResult.failure("Invalid input"))
-      'Failed conversion: Invalid input'
-
-
-
    .. py:method:: create_success(value)
       :classmethod:
 
@@ -229,7 +180,10 @@ Module Contents
 
       :param transform: Function to transform the value
 
-      :returns: Result containing the transformed value, or the original failure
+      :returns:
+
+                Result containing the transformed value, or the
+                    original failure
       :rtype: ConversionResult[U]
 
       .. rubric:: Examples
@@ -308,7 +262,10 @@ Module Contents
 
       :param recovery_func: Function that takes the error message and returns a recovery value
 
-      :returns: Recovered result if this was a failure, or the original result
+      :returns:
+
+                Recovered result if this was a failure, or the
+                    original result
       :rtype: ConversionResult[T]
 
       .. rubric:: Examples
@@ -328,7 +285,10 @@ Module Contents
 
       :param converter: Function to convert the value further
 
-      :returns: Result of the chained conversion, or the original failure
+      :returns:
+
+                Result of the chained conversion, or the original
+                    failure
       :rtype: ConversionResult[U]
 
       .. rubric:: Examples
@@ -449,7 +409,8 @@ Module Contents
    ...             return ConversionResult.create_success(CustomType(value))
    ...         elif isinstance(value, str) and value.isdigit():
    ...             return ConversionResult.create_success(CustomType(int(value)))
-   ...         return ConversionResult.failure(f"Cannot convert {type(value).__name__} to CustomType")
+   ...         return ConversionResult.failure(
+   ...             f"Cannot convert {type(value).__name__} to CustomType")
    ...     except Exception as e:
    ...         return ConversionResult.failure(str(e))
    >>> register_converter(CustomType, custom_converter)
@@ -618,8 +579,8 @@ Module Contents
 
    :returns:
 
-             A result object containing success status, converted value,
-                                 and error information if conversion failed
+             A result object containing success status, converted
+                 value, and error information if conversion failed
    :rtype: ConversionResult[T]
 
    .. rubric:: Examples
@@ -650,9 +611,6 @@ Module Contents
 .. py:data:: ConvertibleToInt
 
 .. py:data:: ConvertibleToStr
-
-.. py:data:: _TYPE_CONVERTERS
-   :type:  Dict[Type[object], type_forge.typing.protocols.TypeConverter]
 
 .. py:data:: version
    :value: '0.1.0'

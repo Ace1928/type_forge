@@ -5,12 +5,8 @@ Type Variables for the Type Forge system.
 
 from __future__ import annotations
 
-from typing import (
-    Any,  # Used only for Callable type parameters where truly generic
-    Callable,
-    Hashable,
-    TypeVar,
-)
+from typing import Any  # Used only for Callable type parameters where truly generic
+from typing import Callable, Hashable, TypeVar
 
 from type_forge.typing.protocols import SupportsComparison
 
@@ -26,7 +22,8 @@ version = __version__
 T = TypeVar("T")  # Generic invariant type variable
 T_co = TypeVar("T_co", covariant=True)  # Covariant type (produces values)
 T_contra = TypeVar(
-    "T_contra", contravariant=True
+    "T_contra",
+    contravariant=True,
 )  # Contravariant type (consumes values)
 
 # Source/Result type variables for transformations
@@ -48,7 +45,9 @@ U_contra = TypeVar("U_contra", contravariant=True)  # Utility contravariant type
 K = TypeVar("K", bound=Hashable)  # Key type invariant (must be hashable)
 K_co = TypeVar("K_co", bound=Hashable, covariant=True)  # Key covariant type
 K_contra = TypeVar(
-    "K_contra", bound=Hashable, contravariant=True
+    "K_contra",
+    bound=Hashable,
+    contravariant=True,
 )  # Key contravariant type
 
 V = TypeVar("V")  # Value type invariant
@@ -58,27 +57,37 @@ V_contra = TypeVar("V_contra", contravariant=True)  # Value contravariant type
 # Specialized type variables with bounds
 HashableT = TypeVar("HashableT", bound=Hashable)  # Type constrained to be Hashable
 HashableT_co = TypeVar(
-    "HashableT_co", bound=Hashable, covariant=True
+    "HashableT_co",
+    bound=Hashable,
+    covariant=True,
 )  # Covariant hashable type
 HashableT_contra = TypeVar(
-    "HashableT_contra", bound=Hashable, contravariant=True
+    "HashableT_contra",
+    bound=Hashable,
+    contravariant=True,
 )  # Contravariant hashable type
 
 ComparableT = TypeVar(
-    "ComparableT", bound=SupportsComparison
+    "ComparableT",
+    bound=SupportsComparison,
 )  # Type must support comparison
 ComparableT_co = TypeVar(
-    "ComparableT_co", bound=SupportsComparison, covariant=True
+    "ComparableT_co",
+    bound=SupportsComparison,
+    covariant=True,
 )  # Covariant comparable
 ComparableT_contra = TypeVar(
-    "ComparableT_contra", bound=SupportsComparison, contravariant=True
+    "ComparableT_contra",
+    bound=SupportsComparison,
+    contravariant=True,
 )  # Contravariant comparable
 
 # Instance and value manipulation type variables
 TInstance = TypeVar("TInstance")  # Instance type for creation methods
 TInstance_co = TypeVar("TInstance_co", covariant=True)  # Covariant instance type
 TInstance_contra = TypeVar(
-    "TInstance_contra", contravariant=True
+    "TInstance_contra",
+    contravariant=True,
 )  # Contravariant instance type
 
 TValue = TypeVar("TValue")  # Value type for parameters
@@ -89,23 +98,32 @@ TValue_contra = TypeVar("TValue_contra", contravariant=True)  # Contravariant va
 TCollection = TypeVar("TCollection")  # Collection type
 TCollection_co = TypeVar("TCollection_co", covariant=True)  # Covariant collection type
 TCollection_contra = TypeVar(
-    "TCollection_contra", contravariant=True
+    "TCollection_contra",
+    contravariant=True,
 )  # Contravariant collection type
 
 # Function specific type variables - fixing missing Callable type params
 TCallable = TypeVar("TCallable", bound=Callable[..., Any])  # Callable type
 TCallable_co = TypeVar(
-    "TCallable_co", bound=Callable[..., Any], covariant=True
+    "TCallable_co",
+    bound=Callable[..., Any],
+    covariant=True,
 )  # Covariant callable type
 TCallable_contra = TypeVar(
-    "TCallable_contra", bound=Callable[..., Any], contravariant=True
+    "TCallable_contra",
+    bound=Callable[..., Any],
+    contravariant=True,
 )  # Contravariant callable type
 
 # Error and exception handling type variables
 TError = TypeVar("TError", bound=Exception)  # Error type
 TError_co = TypeVar(
-    "TError_co", bound=Exception, covariant=True
+    "TError_co",
+    bound=Exception,
+    covariant=True,
 )  # Covariant error type
 TError_contra = TypeVar(
-    "TError_contra", bound=Exception, contravariant=True
+    "TError_contra",
+    bound=Exception,
+    contravariant=True,
 )  # Contravariant error type
