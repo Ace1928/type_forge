@@ -224,17 +224,18 @@ from type_forge.typing.protocols import (
     SupportsMapping,
     SupportsStrConversion,
     SupportsTypeCheck,
+)
+from type_forge.typing.protocols import TypeConverter as TypeConverterProtocol
+from type_forge.typing.protocols import (
     TypedConverter,
     TypeDeduplicator,
     TypeFactory,
     TypeForge,
     TypeInfo,
     TypeNormalizer,
-    TypeStandardizer,
-    Validator,
 )
-from type_forge.typing.protocols import TypeConverter as TypeConverterProtocol
 from type_forge.typing.protocols import TypeRegistry as TypeRegistryProtocol
+from type_forge.typing.protocols import TypeStandardizer, Validator
 
 # ===============================================================================
 # Type Standardization - Normalization and consistency utilities

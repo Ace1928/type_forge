@@ -110,7 +110,8 @@ class ConversionResult(Generic[T]):
             converter: Function to convert the value further
 
         Returns:
-            ConversionResult[U]: Result of the chained conversion, or the original failure
+            ConversionResult[U]: Result of the chained conversion, or the original
+                failure
 
         Examples:
             >>> # Convert string to int then to float
@@ -148,7 +149,8 @@ class ConversionResult(Generic[T]):
             transform: Function to transform the value
 
         Returns:
-            ConversionResult[U]: Result containing the transformed value, or the original failure
+            ConversionResult[U]: Result containing the transformed value, or the
+                original failure
 
         Examples:
             >>> result = ConversionResult.create_success(42)
@@ -181,7 +183,8 @@ class ConversionResult(Generic[T]):
             recovery_func: Function that takes the error message and returns a recovery value
 
         Returns:
-            ConversionResult[T]: Recovered result if this was a failure, or the original result
+            ConversionResult[T]: Recovered result if this was a failure, or the
+                original result
 
         Examples:
             >>> failed = ConversionResult[int].failure("Missing value")
@@ -735,8 +738,8 @@ def try_convert(value: object, target_type: Type[T]) -> ConversionResult[T]:
         target_type: The type to convert to
 
     Returns:
-        ConversionResult[T]: A result object containing success status, converted value,
-                            and error information if conversion failed
+        ConversionResult[T]: A result object containing success status, converted
+            value, and error information if conversion failed
 
     Examples:
         >>> result = try_convert("42", int)
@@ -891,7 +894,8 @@ def register_converter(
         ...             return ConversionResult.create_success(CustomType(value))
         ...         elif isinstance(value, str) and value.isdigit():
         ...             return ConversionResult.create_success(CustomType(int(value)))
-        ...         return ConversionResult.failure(f"Cannot convert {type(value).__name__} to CustomType")
+        ...         return ConversionResult.failure(
+        ...             f"Cannot convert {type(value).__name__} to CustomType")
         ...     except Exception as e:
         ...         return ConversionResult.failure(str(e))
         >>> register_converter(CustomType, custom_converter)

@@ -105,13 +105,16 @@ class ValidationLevel(Enum):
         STRICT: Allow no type variance, exact type match required.
             Types must be identical (A is A, not A is subclass of B).
         STANDARD: Allow normal subtype relationships (inheritance).
-            Types can be subclasses (B is acceptable when A is required if B inherits from A).
+            Types can be subclasses (B is acceptable when A is required if B inherits
+            from A).
         PERMISSIVE: Allow type conversion where possible.
-            Attempts to convert between compatible types (str to int if str contains a number).
+            Attempts to convert between compatible types (str to int if str contains
+            a number).
         DYNAMIC: Use duck typing and runtime checks.
             Checks for attribute/method presence rather than type identity.
         STRUCTURAL: Check structural compatibility only.
-            Types are compatible if they have compatible structures regardless of inheritance.
+            Types are compatible if they have compatible structures regardless
+            of inheritance.
         COVARIANT: Allow covariant substitution.
             A type B can be used where A is required if B is a subtype of A.
         CONTRAVARIANT: Allow contravariant substitution.

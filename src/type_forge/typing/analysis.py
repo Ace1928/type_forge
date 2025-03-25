@@ -16,7 +16,8 @@ from .variables import T, U
 
 class TypeRelationshipAnalyzer:
     """
-    Analyzes and determines the relationship between types for conversion and validation.
+    Analyzes and determines the relationship between types
+    for conversion and validation.
 
     This utility class provides methods to analyze type relationships, determine
     compatibility, and calculate conversion distances between types. It implements
@@ -149,7 +150,8 @@ class TypeRelationshipAnalyzer:
             0
             >>> analyzer.get_conversion_distance(bool, int)
             1
-            >>> analyzer.get_conversion_distance(str, int) > analyzer.get_conversion_distance(float, int)
+            >>> analyzer.get_conversion_distance(str, int) > \
+            ...     analyzer.get_conversion_distance(float, int)
             True
             >>> analyzer.get_conversion_distance(list, dict) == float('inf')
             True
@@ -213,8 +215,8 @@ class TypeRelationshipAnalyzer:
 
         Returns:
             Optional[Type[object]]: The most specific common supertype, or None
-                                  if only object is common (effectively no meaningful
-                                  common interface exists)
+                                  if only object is common (effectively no
+                                  meaningful common interface exists)
 
         Examples:
             >>> analyzer = TypeRelationshipAnalyzer()
@@ -222,7 +224,7 @@ class TypeRelationshipAnalyzer:
             True
             >>> analyzer.find_common_supertype(list, tuple) == collections.abc.Sequence
             True
-            >>> analyzer.find_common_supertype(str, dict) is None  # Only 'object' in common
+            >>> analyzer.find_common_supertype(str, dict) is None
             True
         """
         if not types:
