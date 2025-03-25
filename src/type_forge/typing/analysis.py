@@ -9,14 +9,7 @@ validation, compatibility assessment, and hierarchical analysis.
 import inspect
 from typing import List, Optional, Type, cast
 
-from .aliases import (
-    CollectionTypes,
-    NumericTypes,
-    PrimitiveTypes,
-    SequenceTypes,
-    SetTypes,
-    TypeDistance,
-)
+from .aliases import CollectionTypes, NumericTypes, PrimitiveTypes, TypeDistance
 from .definitions import TypeCompatibility
 from .variables import T, U
 
@@ -51,7 +44,9 @@ class TypeRelationshipAnalyzer:
     """
 
     def get_relationship(
-        self, source_type: Type[T], target_type: Type[U]
+        self,
+        source_type: Type[T],
+        target_type: Type[U],
     ) -> TypeCompatibility:
         """
         Determine the relationship between source and target types.
@@ -115,16 +110,15 @@ class TypeRelationshipAnalyzer:
         # Container type conversions
         if source_type in CollectionTypes and target_type in CollectionTypes:
             # Similar collection types are often convertible
-            if (source_type in SequenceTypes and target_type in SequenceTypes) or (
-                source_type in SetTypes and target_type in SetTypes
-            ):
-                return TypeCompatibility.CONTAINER_COMPATIBLE
+            return TypeCompatibility.CONTAINER_COMPATIBLE
 
         # Default to incompatible
         return TypeCompatibility.INCOMPATIBLE
 
     def get_conversion_distance(
-        self, source_type: Type[T], target_type: Type[U]
+        self,
+        source_type: Type[T],
+        target_type: Type[U],
     ) -> TypeDistance:
         """
         Calculate the conversion distance between types (lower is easier).
@@ -164,22 +158,21 @@ class TypeRelationshipAnalyzer:
 
         if relationship == TypeCompatibility.IDENTICAL:
             return 0
-        elif relationship == TypeCompatibility.SUBTYPE:
+        if relationship == TypeCompatibility.SUBTYPE:
             return 1
-        elif relationship == TypeCompatibility.SUPERTYPE:
+        if relationship == TypeCompatibility.SUPERTYPE:
             return 2
-        elif relationship == TypeCompatibility.IMPLICIT_CONVERTIBLE:
+        if relationship == TypeCompatibility.IMPLICIT_CONVERTIBLE:
             return 3
-        elif relationship == TypeCompatibility.CONVERTIBLE:
+        if relationship == TypeCompatibility.CONVERTIBLE:
             return 5
-        elif relationship == TypeCompatibility.CONTAINER_COMPATIBLE:
+        if relationship == TypeCompatibility.CONTAINER_COMPATIBLE:
             return 7
-        elif relationship == TypeCompatibility.STRUCTURALLY_COMPATIBLE:
+        if relationship == TypeCompatibility.STRUCTURALLY_COMPATIBLE:
             return 10
-        elif relationship == TypeCompatibility.PROTOCOL_COMPATIBLE:
+        if relationship == TypeCompatibility.PROTOCOL_COMPATIBLE:
             return 15
-        else:
-            return cast(TypeDistance, float("inf"))
+        return cast(TypeDistance, float("inf"))
 
     def is_convertible(self, source_type: Type[T], target_type: Type[U]) -> bool:
         """
@@ -220,8 +213,8 @@ class TypeRelationshipAnalyzer:
 
         Returns:
             Optional[Type[object]]: The most specific common supertype, or None
-                                   if only object is common (effectively no meaningful
-                                   common interface exists)
+                                  if only object is common (effectively no meaningful
+                                  common interface exists)
 
         Examples:
             >>> analyzer = TypeRelationshipAnalyzer()

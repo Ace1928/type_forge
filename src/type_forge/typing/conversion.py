@@ -57,7 +57,10 @@ class ConversionResult(Generic[T]):
     """
 
     def __init__(
-        self, success: bool, value: Optional[T] = None, error: Optional[str] = None
+        self,
+        success: bool,
+        value: Optional[T] = None,
+        error: Optional[str] = None,
     ) -> None:
         """
         Initialize a ConversionResult.
@@ -97,7 +100,8 @@ class ConversionResult(Generic[T]):
         return self.success
 
     def then(
-        self, converter: Callable[[T], "ConversionResult[U]"]
+        self,
+        converter: Callable[[T], "ConversionResult[U]"],
     ) -> "ConversionResult[U]":
         """
         Chain another conversion operation if this one succeeded.
@@ -129,7 +133,9 @@ class ConversionResult(Generic[T]):
         if self.value is None:
             # This should never happen if success is True, but we handle it for completeness
             return ConversionResult[U](
-                False, None, "Value is None despite successful status"
+                False,
+                None,
+                "Value is None despite successful status",
             )
 
         return converter(self.value)
@@ -157,7 +163,9 @@ class ConversionResult(Generic[T]):
 
         if self.value is None:
             return ConversionResult[U](
-                False, None, "Value is None despite successful status"
+                False,
+                None,
+                "Value is None despite successful status",
             )
 
         try:
@@ -366,7 +374,8 @@ class ConversionResult(Generic[T]):
 
 # Define TypeVars with more precise constraints
 ConvertibleToInt = TypeVar(
-    "ConvertibleToInt", bound=Union[int, float, str, bytes, SupportsIntConversion]
+    "ConvertibleToInt",
+    bound=Union[int, float, str, bytes, SupportsIntConversion],
 )
 ConvertibleToBool = TypeVar(
     "ConvertibleToBool",
@@ -383,10 +392,12 @@ ConvertibleToBool = TypeVar(
     ],
 )
 ConvertibleToFloat = TypeVar(
-    "ConvertibleToFloat", bound=Union[int, float, str, SupportsFloatConversion]
+    "ConvertibleToFloat",
+    bound=Union[int, float, str, SupportsFloatConversion],
 )
 ConvertibleToStr = TypeVar(
-    "ConvertibleToStr", bound=Union[str, bytes, int, float, bool, Path]
+    "ConvertibleToStr",
+    bound=Union[str, bytes, int, float, bool, Path],
 )
 
 
@@ -623,7 +634,9 @@ def safe_str_convert(value: object) -> str:
 
 
 def convert_with_fallback(
-    value: S, primary_type: Type[T], fallback_type: Type[R]
+    value: S,
+    primary_type: Type[T],
+    fallback_type: Type[R],
 ) -> Union[T, R, S]:
     """
     Try to convert a value to a primary type, with fallback to a secondary type.
@@ -760,24 +773,28 @@ def try_convert(value: object, target_type: Type[T]) -> ConversionResult[T]:
                 # Create a properly typed ConversionResult for int
                 return ConversionResult[T](True, result, None)  # type: ignore
             return ConversionResult[T](
-                False, None, f"Cannot convert {type(value).__name__} to int"
+                False,
+                None,
+                f"Cannot convert {type(value).__name__} to int",
             )
 
-        elif target_type is bool:
+        if target_type is bool:
             bool_result = safe_bool_convert(value)
             # Create a properly typed ConversionResult for bool
             return ConversionResult[T](True, bool_result, None)  # type: ignore
 
-        elif target_type is float:
+        if target_type is float:
             result = safe_float_convert(value)
             if result is not None:
                 # Create a properly typed ConversionResult for float
                 return ConversionResult[T](True, result, None)  # type: ignore
             return ConversionResult[T](
-                False, None, f"Cannot convert {type(value).__name__} to float"
+                False,
+                None,
+                f"Cannot convert {type(value).__name__} to float",
             )
 
-        elif target_type is str:
+        if target_type is str:
             str_result = safe_str_convert(value)
             # Create a properly typed ConversionResult for str
             return ConversionResult[T](True, str_result, None)  # type: ignore
@@ -852,7 +869,8 @@ _TYPE_CONVERTERS: Dict[Type[object], TypeConverter] = {}
 
 
 def register_converter(
-    target_type: Type[T], converter: Callable[[object], ConversionResult[T]]
+    target_type: Type[T],
+    converter: Callable[[object], ConversionResult[T]],
 ) -> None:
     """
     Register a custom type converter for use with try_convert.

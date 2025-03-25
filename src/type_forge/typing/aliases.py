@@ -3,7 +3,7 @@ Type Aliases for the Type Forge system.
 
 This module defines a comprehensive type vocabulary that enables precision, safety, and
 clarity throughout the Type Forge framework. Each alias has been crafted to provide
-maximum type safety while maintaining flexibility through appropriate variance annotations.
+maximum type safety, maintaining flexibility through appropriate variance annotations.
 
 Categories:
     - Type identification and naming
@@ -14,7 +14,8 @@ Categories:
     - Collection specializations
     - Error handling and result representations
 
-Each alias embodies the Eidosian principle that "types are firewalls between intention and mistake."
+Each alias embodies Eidosian principles:
+that "types are firewalls between intention and mistake."
 """
 
 from __future__ import annotations
@@ -656,7 +657,11 @@ Sum type pattern for success/failure outcomes without exceptions.
 
 # Advanced type relationship definitions
 TypeRelationship = Literal[
-    "identical", "subtype", "supertype", "convertible", "incompatible"
+    "identical",
+    "subtype",
+    "supertype",
+    "convertible",
+    "incompatible",
 ]
 """Classification of relationship between two types.
 

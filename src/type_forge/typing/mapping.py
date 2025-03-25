@@ -388,7 +388,7 @@ def describe_type(value: object) -> TypeDescription:
         )
         return f"list[{element_type}] (length: {len(list_value)})"
 
-    elif isinstance(value, tuple) and value:
+    if isinstance(value, tuple) and value:
         # For tuples, show individual element types
         tuple_value: Tuple[object, ...] = value
         element_types_list: List[str] = [type(elem).__name__ for elem in tuple_value]
@@ -397,14 +397,14 @@ def describe_type(value: object) -> TypeDescription:
         if len(unique_types) == 1 and element_types_list:
             # Homogeneous tuple
             return f"tuple[{element_types_list[0]}] (length: {len(tuple_value)})"
-        elif element_types_list:
+        if element_types_list:
             # Heterogeneous tuple
             return f"tuple[{', '.join(element_types_list)}]"
 
-    elif isinstance(value, dict) and value:
+    if isinstance(value, dict) and value:
         # For dictionaries, show key and value types
         dict_value: Mapping[object, object] = value
-        key_types: Set[str] = {type(k).__name__ for k in dict_value.keys()}
+        key_types: Set[str] = {type(k).__name__ for k in dict_value}
         value_types: Set[str] = {type(v).__name__ for v in dict_value.values()}
 
         key_type: str = next(iter(key_types)) if len(key_types) == 1 else "mixed"
@@ -412,7 +412,7 @@ def describe_type(value: object) -> TypeDescription:
 
         return f"dict[{key_type}, {value_type}] (size: {len(dict_value)})"
 
-    elif isinstance(value, (set, frozenset)) and value:
+    if isinstance(value, (set, frozenset)) and value:
         # For sets, show element type
         set_value: Collection[object] = value
         element_types: Set[str] = {type(elem).__name__ for elem in set_value}
@@ -422,7 +422,7 @@ def describe_type(value: object) -> TypeDescription:
         set_type: str = "set" if isinstance(value, set) else "frozenset"
         return f"{set_type}[{element_type}] (size: {len(set_value)})"
 
-    elif isinstance(value, str):
+    if isinstance(value, str):
         return f"str (length: {len(value)})"
 
     # Default case: just the type name

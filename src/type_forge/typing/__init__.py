@@ -1,8 +1,8 @@
 """Type Forge Typing System
 ==========================
 
-This module provides a comprehensive set of typing utilities for precise type manipulation,
-validation, conversion, and analysis within the Type Forge ecosystem.
+This module provides a comprehensive set of typing utilities for precise type
+manipulation, validation, conversion, and analysis within the Type Forge ecosystem.
 
 Core Components
 --------------
@@ -32,7 +32,7 @@ Features
 - **Protocol-Based Behavior**: Interface definitions for type-driven operations
 - **Self-Documented Structure**: Clear categorical organization with recursive precision
 
-Together, these components enable recursively self-improving type operations that maintain
+These components enable recursively self-improving type operations that maintain
 integrity across all abstraction layers.
 
 Examples
@@ -52,7 +52,6 @@ error handling to ensure maximum reliability in type-sensitive operations.
 from __future__ import annotations
 
 import sys
-from typing import List
 
 # ===============================================================================
 # Type Aliases - Semantic type definitions for enhanced readability
@@ -314,7 +313,7 @@ from type_forge.typing.variables import (
 )
 
 # Complete and alphabetically sorted __all__ list for precise export control
-__all__: List[str] = [
+__all__: list[str] = [
     # Type aliases
     "CollectionTypes",
     "ConverterMap",
@@ -531,7 +530,6 @@ __version__: str = "0.1.0"
 version: str = __version__
 
 
-# Verify import integrity - ensure all __all__ entries are actually imported
 def _verify_exports() -> None:
     """Verify that all items in __all__ are actually defined in this module.
 
@@ -542,12 +540,12 @@ def _verify_exports() -> None:
         ImportError: If any item in __all__ is not defined in the module
     """
     module = sys.modules[__name__]
-    missing_items = [name for name in __all__ if not hasattr(module, name)]
+    missing_items: list[str] = [name for name in __all__ if not hasattr(module, name)]
 
     if missing_items:
         missing_str = ", ".join(missing_items)
         raise ImportError(
-            f"The following items are in __all__ but not defined in {__name__}: {missing_str}"
+            f"Items in __all__ not defined in {__name__}: {missing_str}",
         )
 
 
